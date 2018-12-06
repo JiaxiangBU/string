@@ -1,0 +1,8 @@
+---
+title: "ch1"
+output: github_document
+---
+
+String Manipulation in R with stringr
+https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr
+Charlotte Wickham
