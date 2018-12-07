@@ -1,7 +1,160 @@
 ---
-title: "ch2"
+title: "ch2 - stringr"
 output: github_document
 ---
 
 书签
 https://campus.datacamp.com/courses/string-manipulation-in-r-with-stringr/introduction-to-stringr?ex=1
+
+# str_c 更好的处理 NA
+
+1. str_c 当发现有 `NA`进行合并和 collapse 时，保留 NA 不做其他修改
+1. 这点比 `paste` 和 `paste0` 更好
+
+```{r}
+library(stringr)
+
+my_toppings <- c("cheese", NA, NA)
+my_toppings_and <- paste(c("", "", "and "), my_toppings, sep = "")
+
+# Print my_toppings_and
+my_toppings_and
+
+# Use str_c() instead of paste(): my_toppings_str
+my_toppings_str <- str_c(c("", "", "and "), my_toppings)
+
+# Print my_toppings_str
+my_toppings_str
+
+# paste() my_toppings_and with collapse = ", "
+paste(my_toppings_and,collapse = ", ")
+
+# str_c() my_toppings_str with collapse = ", "
+str_c(my_toppings_str,collapse = ", ")
+str_c(my_toppings_str,collapse = ", ") %>% str_replace_na('There is no value.')
+```
+
+# str_length
+
+`str_length` 对 factor 变量同样有效。
+
+```{r}
+str_length(factor('haha'))
+```
+
+# 英文名特点
+
+```{r}
+library(babynames)
+data(babynames)
+```
+
+```{r}
+babynames %>% dim
+```
+
+```{r}
+babynames_sub <- 
+    babynames %>% 
+    filter(year >= 1990)
+```
+
+<input type="checkbox" id="checkbox1" class="styled">找不到 year 报错
+
+```{r}
+babynames_sub %>% 
+    transmute(
+        first_letter = str_sub(name,1,1)
+        ,last_letter = str_sub(name,-1,-1)
+    ) %>% 
+    {
+        list(
+            first_letter = table(.$first_letter)
+            ,last_letter = table(.$last_letter)
+        )
+            
+    }
+```
+
+因此以a开头和结尾的名字在90后和00后挺多的。
+
+# str_count
+
+```{r}
+babynames_sub %>% 
+    mutate(contain_n_a = str_count(name,'A|a')) %>% 
+    summarise(
+        mean(contain_n_a)
+        ,sum(contain_n_a>0)
+        ,sum(contain_n_a>1)
+        ,sum(contain_n_a>2)
+        ,sum(contain_n_a>3)
+        ,sum(contain_n_a>4)
+        ,sum(contain_n_a>5)
+    ) %>% 
+    gather
+```
+
+可以发现字母a挺常用的。
+
+# str_split
+
+`simplify = TRUE`转换成矩阵，由于是统一数据类型，因此转换成矩阵，更加计算有效率。
+
+```{r}
+both_names <- c("Box, George", "Cox, David")
+
+# Split both_names into first_names and last_names
+both_names_split <- str_split(both_names,", ",n=2,simplify = T)
+both_names_split
+# Get first names
+both_names_split[,2]
+
+
+# Get last names
+both_names_split[,1]
+```
+
+# lapply
+
+```{r}
+lines <- 
+    c(
+        "The table was a large one, but the three were all crowded together at one corner of it:"
+        ,"\"No room! No room!\" they cried out when they saw Alice coming."
+        ,"\"There’s plenty of room!\" said Alice indignantly, and she sat down in a large arm-chair at one end of the table."
+    )
+```
+
+
+```{r}
+# Split lines into words
+words <- str_split(lines,' ')
+
+# Number of words per line
+lapply(words,length)
+  
+# Number of characters in each word
+word_lengths <- lapply(words,str_length)
+  
+# Average word length per line
+lapply(word_lengths,mean)
+
+```
+
+# 实现需求 首名首字母提取
+
+```{r}
+# Define some full names
+names <- c("Diana Prince", "Clark Kent")
+
+# Split into first and last names
+names_split <- str_split(names, fixed(" "), simplify = TRUE)
+
+# Extract the first letter in the first name
+abb_first <- str_sub(names_split[, 1], 1, 1)
+
+# Combine the first letter ". " and last name
+str_c(abb_first, ". ", names_split[, 2])
+```
+
