@@ -11,6 +11,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+1. <input type="checkbox" id="checkbox1" class="styled">add ch1 pdf
+
+### 2018-12-07 08:07:54
+
+1. finish ch1
+1. start ch2
 
 ### 2018-12-07 01:02:15
 
