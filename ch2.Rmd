@@ -3,9 +3,6 @@ title: "ch2 - stringr"
 output: github_document
 ---
 
-书签
-https://campus.datacamp.com/courses/string-manipulation-in-r-with-stringr/introduction-to-stringr?ex=1
-
 # str_c 更好的处理 NA
 
 1. str_c 当发现有 `NA`进行合并和 collapse 时，保留 NA 不做其他修改
@@ -13,6 +10,7 @@ https://campus.datacamp.com/courses/string-manipulation-in-r-with-stringr/introd
 
 ```{r}
 library(stringr)
+library(tidyverse)
 
 my_toppings <- c("cheese", NA, NA)
 my_toppings_and <- paste(c("", "", "and "), my_toppings, sep = "")

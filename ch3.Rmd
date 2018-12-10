@@ -1,0 +1,104 @@
+---
+title: "ch3 - rebus"
+output: github_document
+---
+
+# rebus 包
+
+1. 方便管理复杂的正则化表达，因为**支持缩进**。
+1. 支持共同部分的设定变量去调用
+
+```{r}
+library(rebus)
+```
+
+
+1. Alternation `or()`
+    1. `or('aaa','bbb')` -> `r or('aaa','bbb')`
+    1. `"gr" %R% or("e", "a") %R% "y"` -> `r "gr" %R% or("e", "a") %R% "y"`
+1. Character classes `char_class()`
+    1. `char_class("ae")` -> `r char_class("ae")`
+    1. `negated_char_class("ae")` -> `r negated_char_class("ae")`
+1. Repetition `optional()`, `one_or_more()`, `zero_or_more()`,`repeated(lo,hi)`不支持`%R%`
+1. `exactly()` = `START %R% ... %R% END`
+1. Shortcuts
+    1. `DGT` = `r DGT`
+    1. `SPC` = `r SPC`
+    1. `WRD` = `[a-zA-Z0-9_]`
+1. Special characters
+    1. BACKSLASH = `r BACKSLASH`
+    1. CARET = `r CARET`
+    1. DOLLAR = `r DOLLAR`
+    1. DOT = `r DOT`
+    1. PIPE = `r PIPE`
+    1. QUESTION = `r QUESTION`
+    1. STAR = `r STAR`
+    1. PLUS = `r PLUS`
+    1. OPEN_PAREN = `r OPEN_PAREN`
+    1. CLOSE_PAREN = `r CLOSE_PAREN`
+    1. OPEN_BRACKET = `r OPEN_BRACKET`
+    1. CLOSE_BRACKET = `r CLOSE_BRACKET`
+    1. OPEN_BRACE = `r OPEN_BRACE`
+1. Date-time regexes
+
+
+`str_view()`中的`match = TRUE`
+: this will only display elements that had a match, which is useful when you are searching over many strings.
+: 且只展示第一个字母，全展示使用`str_view_all`
+: 使用去查看自己的规则是否正确
+
+```{r}
+contact <- 
+c('Call me at 555-555-0191','123 Main St','(555) 555 0191','Phone: 555.555.0191 Mobile: 555.555.0192')
+
+optional('(') %R%
+    repeated(DGT,3) %R%
+    optional(')') %R%
+    char_class("-.() ") %R%
+    repeated(DGT,3) %R%
+    char_class("-.() ") %R%
+    repeated(DGT,4) %>% 
+    str_extract_all(contact,.)
+```
+
+
+分段写函数，方便管理
+
+```{r}
+narratives <- 
+c("19YOM-SHOULDER STRAIN-WAS TACKLED WHILE PLAYING FOOTBALL W/ FRIENDS ","31 YOF FELL FROM TOILET HITITNG HEAD SUSTAINING A CHI ","ANKLE STR. 82 YOM STRAINED ANKLE GETTING OUT OF BED ","TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*","10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB ","53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION ","13 MOF TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION","14YR M PLAYING FOOTBALL; DX KNEE SPRAIN ","55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE ","5 YOM ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN")
+```
+
+
+```{r}
+# Use these patterns
+age <- dgt(1,2)
+unit <- optional(SPC) %R% or("YO", "YR", "MO")
+gender <- optional(SPC) %R% or("M", "F")
+
+# Extract age, unit, gender
+age_gender <- str_extract(narratives,age %R% unit %R% gender)
+age_gender
+
+# 之后还可以利用规则，进行变量提取
+
+age_gender %>% 
+    tibble() %>% 
+    set_names('raw') %>% 
+    mutate(
+        gender = str_extract(raw,gender)
+    ) %>% 
+    mutate(
+        is_year = str_extract(raw,unit) %>% str_trim %>% str_sub(1,1)
+        ,age_num = str_extract(raw,age)
+        ,age = 
+            if (is_year == 'Y') {
+                as.numeric(age_num)
+            } else {
+                as.numeric(age_num)/12
+            }
+    ) %>% 
+    select(raw,gender,age)
+```
+
+`ls.str()`还可以看具体的结构。

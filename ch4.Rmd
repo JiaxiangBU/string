@@ -1,0 +1,25 @@
+---
+title: "ch4 - rebus"
+output: github_document
+---
+
+# Capturing
+
+配合`str_match`使用
+
+```{r}
+hero_contacts <- 
+    c("(wolverine@xmen.com)","wonderwoman@justiceleague.org","thor@avengers.com")
+capture(one_or_more(WRD)) %R% 
+    "@" %R% 
+    capture(one_or_more(WRD)) %R% 
+    DOT %R% 
+    capture(one_or_more(WRD)) %>% 
+    str_match(hero_contacts,.)
+```
+
+但是邮箱正则化很难提取，见
+[讨论](https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression/201378#201378)
+
+书签
+https://campus.datacamp.com/courses/string-manipulation-in-r-with-stringr/more-advanced-matching-and-manipulation?ex=4
