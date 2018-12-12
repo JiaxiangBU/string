@@ -48,6 +48,7 @@ library(rebus)
 : 使用去查看自己的规则是否正确
 
 ```{r}
+library(tidyverse)
 contact <- 
 c('Call me at 555-555-0191','123 Main St','(555) 555 0191','Phone: 555.555.0191 Mobile: 555.555.0192')
 
