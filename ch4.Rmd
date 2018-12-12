@@ -8,6 +8,8 @@ output: github_document
 配合`str_match`使用
 
 ```{r}
+library(tidyverse)
+library(rebus)
 hero_contacts <- 
     c("(wolverine@xmen.com)","wonderwoman@justiceleague.org","thor@avengers.com")
 capture(one_or_more(WRD)) %R% 
@@ -17,6 +19,8 @@ capture(one_or_more(WRD)) %R%
     capture(one_or_more(WRD)) %>% 
     str_match(hero_contacts,.)
 ```
+
+capture 的特性也见于 impala 的函数 `regexp_extract`
 
 但是邮箱正则化很难提取，见
 [讨论](https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression/201378#201378)

@@ -167,3 +167,5 @@ formatC(income, width = 7, format = "d", flag = "0")
     head
 ```
 
+书签
+https://campus.datacamp.com/courses/string-manipulation-in-r-with-stringr/pattern-matching-with-regular-expressions?ex=3
