@@ -191,6 +191,48 @@ str_replace(narratives,
 >
 Replacement combined with backreferences can be really useful for reformatting text data.
 
-书签
 
-https://campus.datacamp.com/courses/string-manipulation-in-r-with-stringr/more-advanced-matching-and-manipulation?ex=9
+
+# 附录 {-}
+
+Unicode 的章节可以进附录
+
+<input type="checkbox" id="checkbox1" class="styled">通过`\p{name}` impala应该是不支持的
+https://grokbase.com/t/cloudera/impala-user/137tdg0thq/unicode-string-issue-with-impala
+
+Vietnamese
+越南语
+
+```{r}
+# Names with builtin accents
+(tay_son_builtin <- c(
+  "Nguy\u1ec5n Nh\u1ea1c", 
+  "Nguy\u1ec5n Hu\u1ec7",
+  "Nguy\u1ec5n Quang To\u1ea3n"
+))
+
+# Convert to separate accents
+library(stringi)
+tay_son_separate <- stri_trans_nfd(tay_son_builtin)
+
+# Verify that the string prints the same
+tay_son_separate
+
+# Match all accents
+library(stringr)
+library(rebus)
+str_view_all(tay_son_separate, UP_DIACRITIC)
+```
+
+```{r}
+x <- c("Adele", "Ad\u00e8le", "Ad\u0065\u0300le")
+writeLines(x)
+str_view(x, "Ad" %R% ANY_CHAR %R% "le")
+str_view(x, "Ad" %R% '\\X' %R% "le")
+str_view(x, "Ad" %R% GRAPHEME %R% "le")
+```
+
+当两个Unicode时，用`.`是识别不出来的，需要使用`\X`
+
+
+

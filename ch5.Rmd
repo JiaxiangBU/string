@@ -1,0 +1,147 @@
+---
+title: "ch5"
+output: github_document
+---
+
+```{r}
+library(stringi)
+earnest_file <- 'data/importance-of-being-earnest.txt'
+```
+
+<input type="checkbox" id="checkbox1" class="styled">这个老师的文本处理非常优秀，应该 follow
+
+的确是针对小说进行过分析。
+
+```{r}
+# Read play in using stri_read_lines()
+earnest <- stri_read_lines(earnest_file)
+
+# Detect start and end lines
+start <- str_which(earnest, fixed("START OF THE PROJECT"))
+end <- str_which(earnest, fixed("END OF THE PROJECT"))
+
+# Get rid of gutenberg intro text
+earnest_sub  <- earnest[(start + 1):(end - 1)]
+
+# Detect first act
+lines_start <- str_which(earnest_sub, fixed("FIRST ACT"))
+
+# Set up index
+intro_line_index <- 1:(lines_start - 1)
+
+# Split play into intro and play
+intro_text <- earnest_sub[intro_line_index]
+play_text <- earnest_sub[-intro_line_index]
+
+# Take a look at the first 20 lines
+writeLines(play_text[1:20])
+```
+
+[Why does Charlotte Wickham says `stri_read_lines()` is better than `readLines()`?](https://community.rstudio.com/t/why-does-charlotte-wickham-says-stri-read-lines-is-better-than-readlines/19920?u=econkid)
+
+
+提供了处理文本的函数，而不需要在`data.frame`去实现。
+
+```{r}
+# Get rid of empty strings
+empty <- stri_isempty(play_text)
+play_lines <- play_text[!empty]
+```
+
+```{r}
+play_lines[10:15]
+```
+
+```{r}
+# Pattern from last step
+pattern_2 <- START %R% ascii_upper() %R% one_or_more(WRD) %R% DOT
+
+# Get subset of lines that match
+lines <- str_subset(play_lines,pattern_2)
+
+# Extract match from lines
+who <- str_extract(lines,pattern_2)
+
+# Let's see what we have
+unique(who)
+```
+
+[stri_read_lines  更好 总结一下](https://community.rstudio.com/t/why-does-charlotte-wickham-says-stri-read-lines-is-better-than-readlines/19920)
+
+>
+`or` takes multiple character vector inputs and returns a character vector of the inputs separated by pipes. `%|%` is an operator interface to this function. `or1` takes a single character vector and returns a string collapsed by pipes.
+
+```{r}
+# Variables from previous step
+characters <- c("Algernon", "Jack", "Lane", "Cecily", "Gwendolen", "Chasuble", 
+  "Merriman", "Lady Bracknell", "Miss Prism")
+pattern_3 <- START %R% or1(characters) %R% DOT
+
+# Pull out matches
+lines <- str_subset(play_lines, pattern_3)
+
+# Extract match from lines
+who <- str_extract(lines, pattern_3)
+
+# Let's see what we have
+unique(who)
+
+# Count lines per character
+table(who)
+```
+
+`Jack and Algernon [Speaking together.]`这个问题需要解决。
+
+<input type="checkbox" id="checkbox1" class="styled">这个的处理不够strong，我需要知道每一步发生的逻辑，这样之后才能精进
+
+# ignore case
+
+```{r}
+library(readr)
+catcidents <- read_rds('data/catcidents.rds')
+```
+
+```{r}
+# catcidents has been pre-defined
+head(catcidents)
+
+# Construct pattern of DOG in boundaries
+whole_dog_pattern <- whole_word("DOG")
+
+# See matches to word DOG
+str_view(catcidents,whole_dog_pattern,match=T)
+```
+
+```{r}
+x <- c("Cat", "CAT", "cAt") 
+str_subset(x, "cat")
+str_subset(x, stringr::regex("cat", ignore_case = TRUE))
+```
+
+# stri_trans_totitle() 
+
+```{r}
+library(stringi)
+
+# Get first five catcidents
+cat5 <- catcidents[1:5]
+
+# Take a look at original
+writeLines(cat5)
+
+# Transform to title case
+str_to_title(cat5)
+
+# Transform to title case with stringi
+stri_trans_totitle(cat5)
+
+# Transform to sentence case with stringi
+stri_trans_totitle(cat5,type = 'sentence')
+```
+
+<input type="checkbox" id="checkbox1" class="styled">整理下笔记，真的非常有用的学习
+
+<input type="checkbox" id="checkbox1" class="styled">ppt 上面推荐的书，可以看一下
+
+完成证书
+https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf
