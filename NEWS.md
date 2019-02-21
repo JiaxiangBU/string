@@ -2,6 +2,7 @@
 
 1. add Trimming and padding strings
 1. transfer news from readme to news
+1. update readme and add toc
 
 ### 2018-12-13 19:16:47
 

@@ -1,35 +1,175 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-1.  <input type="checkbox" id="checkbox1" class="styled">add ch1 pdf
+``` r
+add2md::get_toc(".")
+#> Warning: replacing previous import 'purrr::transpose' by
+#> 'data.table::transpose' when loading 'add2md'
+```
 
-### 2018-12-13 19:16:47
+<table>
 
-1.  finish ch5
+<thead>
 
-### 2018-12-13 16:20:35
+<tr>
 
-1.  finish ch4
-2.  add ch5
+<th style="text-align:right;">
 
-### 2018-12-13 00:19:05
+index
 
-1.  完成 back references
+</th>
 
-### 2018-12-11 01:06:23
+<th style="text-align:left;">
 
-1.  finish ch3
-2.  add ch4
+hyperlink
 
-### 2018-12-07 12:27:43
+</th>
 
-1.  finish ch2
+<th style="text-align:left;">
 
-### 2018-12-07 08:07:54
+github.io
 
-1.  finish ch1
-2.  start ch2
+</th>
 
-### 2018-12-07 01:02:15
+</tr>
 
-1.  add r proj and readme
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:right;">
+
+1
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch1.md" style="     " >ch1</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch1" style="     " >ch1</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+2
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch2.md" style="     " >ch2 - stringr</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch2" style="     " >ch2 - stringr</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+3
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch3.md" style="     " >ch3 - rebus</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch3" style="     " >ch3 - rebus</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+4
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch4.md" style="     " >ch4 - rebus</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch4" style="     " >ch4 - rebus</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+5
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch5.Rmd" style="     " >ch5</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ch5" style="     " >ch5</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+6
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./chr-trim-pad.md" style="     " >Trimming and padding
+strings</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./chr-trim-pad" style="     " >Trimming and padding strings</a>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>

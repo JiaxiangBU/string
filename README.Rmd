@@ -11,5 +11,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-1. <input type="checkbox" id="checkbox1" class="styled">add ch1 pdf
+
+```{r}
+add2md::get_toc(".")
+```
 
