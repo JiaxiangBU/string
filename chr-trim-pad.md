@@ -1,0 +1,23 @@
+Trimming and padding strings
+================
+
+参考[DataCamp](https://campus.datacamp.com/courses/cleaning-data-in-r/1828?ex=6)
+
+增删空白格，方便表示如用户id等，通常也防止例如这些数据进入Excel表格后，`常规`字体判断错误为数字，显示报错。
+
+``` r
+library(stringr)
+str_pad("24493", width = 7, side = "left", pad = "0")
+```
+
+    ## [1] "0024493"
+
+例如 id 是7位数字。
+
+``` r
+str_trim("  this is a test     ")
+```
+
+    ## [1] "this is a test"
+
+剔除多余的空白格子。
