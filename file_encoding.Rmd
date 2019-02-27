@@ -30,3 +30,7 @@ dir_info(".") %>%
 
 1. fs method
 1. 完善函数，因为 encoding 只会给一个可能性 list，这里反馈最可能性项目
+
+* [MangoTheCat/franc: Detect the Language of Text](https://github.com/MangoTheCat/franc)
+能够看出语言，但是不是编码，下了一层
+stringi 有个函数可以
