@@ -1,0 +1,19 @@
+---
+title: str_which
+author: Jiaxiang Li
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+str_which = str_detect %>% which
+
+```{r}
+suppressMessages(library(tidyverse))
+mtcars_names <- mtcars %>% row.names()
+```
+
+```{r}
+mtcars_names %>% str_which("4")
+mtcars_names %>% str_detect("4") %>% which
+```
+
