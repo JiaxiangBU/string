@@ -1,8 +1,5 @@
 ### 2019-03-18 11:02:57
 
-1. add ref use
-1. add coc
-1. update readme
 
 workflow
 
@@ -10,6 +7,13 @@ workflow
 1. move relevant files into analysis
 1. move related md document into analysis
 1. move certificate into output
+
+other
+
+1. add ref use
+1. add coc
+1. update readme
+1. add file-mgm
 
 ### 2019-03-11 13:28:23
 
