@@ -1,7 +1,9 @@
 ---
+title: R中文本处理 学习笔记
+author: Jiaxiang Li
+date: "`r Sys.Date()`"
 output: github_document
 ---
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r setup, include = FALSE}
@@ -11,8 +13,20 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 add2md::get_toc(".")
 ```
 
+### 其他
+
+README 格式参考 [github](https://github.com/JiaxiangBU/phv)
+
+***
+
+<h4 align="center">**Code of Conduct**</h4>
+
+<h6 align="center">Please note that the 'string' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.</h6>
+
+<h4 align="center">**License**</h4>
+
+<h6 align="center">MIT &copy; [Jiaxiang Li](LICENSE)</h6>

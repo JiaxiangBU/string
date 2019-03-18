@@ -1,11 +1,9 @@
+R中文本处理 学习笔记
+================
+Jiaxiang Li
+2019-03-18
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-``` r
-add2md::get_toc(".")
-#> Warning: replacing previous import 'purrr::transpose' by
-#> 'data.table::transpose' when loading 'add2md'
-```
 
 <table>
 
@@ -170,6 +168,104 @@ strings</a>
 
 </tr>
 
+<tr>
+
+<td style="text-align:right;">
+
+7
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./file_encoding.md" style="     " >查询文件的编码</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./file_encoding" style="     " >查询文件的编码</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+8
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ref-use.md" style="     " >REF 参数的使用</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./ref-use" style="     " >REF 参数的使用</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+9
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./str_which.md" style="     " >str\_which</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./str_which" style="     " >str\_which</a>
+
+</td>
+
+</tr>
+
 </tbody>
 
 </table>
+
+### 其他
+
+README 格式参考 [github](https://github.com/JiaxiangBU/phv)
+
+-----
+
+<h4 align="center">
+
+**Code of Conduct**
+
+</h4>
+
+<h6 align="center">
+
+Please note that the ‘string’ project is released with a [Contributor
+Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project,
+you agree to abide by its terms.
+
+</h6>
+
+<h4 align="center">
+
+**License**
+
+</h4>
+
+<h6 align="center">
+
+MIT © [Jiaxiang Li](LICENSE)
+
+</h6>
