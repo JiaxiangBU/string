@@ -414,7 +414,7 @@ div.section {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -423,7 +423,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -435,7 +435,7 @@ div.section {
 <strong>Last updated:</strong> 2019-03-18
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>string/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -451,12 +451,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -511,10 +511,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreefa7a95252aff7a6b5b4c37ff7015b161f56ce46btargetblankfa7a952a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/JiaxiangBU/string/tree/fa7a95252aff7a6b5b4c37ff7015b161f56ce46b" target="_blank">fa7a952</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreeba554d25709cbfb0c9c653731d73365089179043targetblankba554d2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/JiaxiangBU/string/tree/ba554d25709cbfb0c9c653731d73365089179043" target="_blank">ba554d2</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreefa7a95252aff7a6b5b4c37ff7015b161f56ce46btargetblankfa7a952a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreeba554d25709cbfb0c9c653731d73365089179043targetblankba554d2a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -524,10 +524,6 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Deleted:    a20190221121451.Rmd
-    Modified:   analysis/ch4.Rmd
 
 </code></pre>
 <p>
@@ -592,7 +588,7 @@ workflow
 </div>
 <div id="capture-str_match" class="section level1">
 <h1>capture + str_match</h1>
-<p>配合<code>str_match</code>使用</p>
+<p>閰嶅悎<code>str_match</code>浣跨敤</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>-- Attaching packages -------------------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
 <pre><code>√ ggplot2 3.1.0       √ purrr   0.2.5  
@@ -604,7 +600,7 @@ x dplyr::filter() masks stats::filter()
 x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(rebus)</code></pre>
 <pre><code>
-Attaching package: &#39;rebus&#39;</code></pre>
+载入程辑包：&#39;rebus&#39;</code></pre>
 <pre><code>The following object is masked from &#39;package:stringr&#39;:
 
     regex</code></pre>
@@ -623,10 +619,10 @@ capture(one_or_more(WRD)) %R%
 [1,] &quot;wolverine@xmen.com&quot;            &quot;wolverine&quot;   &quot;xmen&quot;          &quot;com&quot;
 [2,] &quot;wonderwoman@justiceleague.org&quot; &quot;wonderwoman&quot; &quot;justiceleague&quot; &quot;org&quot;
 [3,] &quot;thor@avengers.com&quot;             &quot;thor&quot;        &quot;avengers&quot;      &quot;com&quot;</code></pre>
-<p>capture 的特性也见于 impala 的函数 <code>regexp_extract</code></p>
-<p>但是邮箱正则化很难提取，见 <a href="https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression/201378#201378">讨论</a></p>
+<p>capture 鐨勭壒鎬т篃瑙佷簬 impala 鐨勫嚱鏁<b0> <code>regexp_extract</code></p>
+<p>浣嗘槸閭姝ｅ垯鍖栧緢闅炬彁鍙栵紝瑙&lt;81&gt; <a href="https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression/201378#201378">璁ㄨ</a></p>
 <details>
-<p><summary>另外一个例子</summary></p>
+<p><summary>鍙﹀涓€涓緥瀛&lt;90&gt;</summary></p>
 <pre class="r"><code>narratives &lt;- 
 c(&quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE PLAYING FOOTBALL W/ FRIENDS &quot;,&quot;31 YOF FELL FROM TOILET HITITNG HEAD SUSTAINING A CHI &quot;,&quot;ANKLE STR. 82 YOM STRAINED ANKLE GETTING OUT OF BED &quot;,&quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;,&quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;,&quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;,&quot;13 MOF TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;,&quot;14YR M PLAYING FOOTBALL; DX KNEE SPRAIN &quot;,&quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;,&quot;5 YOM ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;)</code></pre>
 <pre class="r"><code># narratives has been pre-defined
@@ -661,7 +657,7 @@ str_match(narratives,pattern)</code></pre>
 [10,] &quot;5 YOM&quot;   &quot;5&quot;  &quot;YO&quot; &quot;M&quot; </code></pre>
 </details>
 <details>
-<p><summary>同时优化一下，只提取首字母表示年月</summary></p>
+<p><summary>鍚屾椂浼樺寲涓€涓嬶紝鍙彁鍙栭瀛楁瘝琛ㄧず骞存湀</summary></p>
 <pre class="r"><code># Edit to capture just Y and M in units
 pattern2 &lt;- capture(optional(DGT) %R% DGT) %R%  
   optional(SPC) %R% capture(or(&quot;Y&quot;, &quot;M&quot;)) %R% optional(or(&quot;O&quot;,&quot;R&quot;)) %R%
@@ -689,16 +685,16 @@ str_match(narratives, pattern2)</code></pre>
 <div id="backreferences" class="section level1">
 <h1>backreferences</h1>
 <ol style="list-style-type: decimal">
-<li>方便删除重复单词</li>
-<li>使用引用进行正序和反序提取字符
+<li>鏂逛究鍒犻櫎閲嶅鍗曡瘝</li>
+<li>浣跨敤寮曠敤杩涜姝ｅ簭鍜屽弽搴忔彁鍙栧瓧绗<a6>
 <ol style="list-style-type: decimal">
-<li><input type="checkbox" id="checkbox1" class="styled">这一波可以去stackoverflow回复很多问题了</li>
+<li><input type="checkbox" id="checkbox1" class="styled">杩欎竴娉㈠彲浠ュ幓stackoverflow鍥炲寰堝闂浜&lt;86&gt;</li>
 </ol></li>
 </ol>
 <pre class="r"><code>str_subset(c(&quot;hello&quot;, &quot;sweet&quot;, &quot;kitten&quot;), 
   pattern = capture(LOWER) %R% REF1)</code></pre>
 <pre><code>[1] &quot;hello&quot;  &quot;sweet&quot;  &quot;kitten&quot;</code></pre>
-<p>这里相当于<code>LOWER %R% LOWER</code></p>
+<p>杩欓噷鐩稿綋浜巂LOWER %R% LOWER`</p>
 <p>abab</p>
 <pre class="r"><code># Names with a pair of repeated letters
 pair_of_repeated &lt;- capture((LOWER %R% LOWER)) %R% REF1
@@ -715,7 +711,7 @@ pair_that_reverses &lt;- capture(LOWER) %R% capture(LOWER) %R% REF2 %R% REF1
 str_view(&#39;abba&#39;, pattern = pair_that_reverses, match = TRUE)</code></pre>
 <div id="htmlwidget-911bd49074791ca4ffb7" style="width:960px;height:100%;" class="str_view html-widget"></div>
 <script type="application/json" data-for="htmlwidget-911bd49074791ca4ffb7">{"x":{"html":"<ul>\n  <li><span class='match'>abba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<p>精确匹配</p>
+<p>绮剧‘鍖归厤</p>
 <pre class="r"><code># Four letter palindrome names
 four_letter_palindrome &lt;- exactly(
   capture(LOWER) %R% capture(LOWER) %R% REF2 %R% REF1
@@ -748,8 +744,8 @@ str_replace_all(contact, DGT, c(&quot;X&quot;, &quot;.&quot;, &quot;*&quot;, &qu
 [2] &quot;... Main St&quot;                             
 [3] &quot;(***) *** ****&quot;                          
 [4] &quot;Phone: ___.___.____ Mobile: ___.___.____&quot;</code></pre>
-<p>这是<code>str_replace_all</code>的特性，函数向量化。</p>
-<p>剔除重复的词</p>
+<p>杩欐槸<code>str_replace_all</code>鐨勭壒鎬э紝鍑芥暟鍚戦噺鍖栥€&lt;82&gt;</p>
+<p>鍓旈櫎閲嶅鐨勮瘝</p>
 <pre class="r"><code>str_replace_all(
     &#39;I am the the aquaman&#39;
     ,SPC %R% 
@@ -758,13 +754,13 @@ str_replace_all(contact, DGT, c(&quot;X&quot;, &quot;.&quot;, &quot;*&quot;, &qu
         REF1
     ,&#39; &#39; %R% REF1)</code></pre>
 <pre><code>[1] &quot;I am the aquaman&quot;</code></pre>
-<p>这个可以在RStudio，replace的时候，可以每个替换对应的值</p>
+<p>杩欎釜鍙互鍦≧Studio锛宺eplace鐨勬椂鍊欙紝鍙互姣忎釜鏇挎崲瀵瑰簲鐨勫€<bc></p>
 <pre class="r"><code>SPC %R% 
     capture(one_or_more(WRD)) %R% 
     SPC %R% 
     REF1</code></pre>
 <pre><code>&lt;regex&gt; \s([\w]+)\s\1</code></pre>
-<p>表示</p>
+<p>琛ㄧず</p>
 <pre class="r"><code>SPC %R% 
     capture(one_or_more(WRD)) %R% 
     SPC %R% 
@@ -772,7 +768,7 @@ str_replace_all(contact, DGT, c(&quot;X&quot;, &quot;.&quot;, &quot;*&quot;, &qu
 <pre><code>&lt;regex&gt; \s([\w]+)\s([\w]+)</code></pre>
 <pre class="r"><code>adverbs &lt;- 
 c(&quot;ABNORMALLY&quot;,&quot;ABSENTMINDEDLY&quot;,&quot;ACCIDENTALLY&quot;,&quot;ACIDLY&quot;,&quot;ACTUALLY&quot;,&quot;ADVENTUROUSLY&quot;,&quot;AFTERWARDS&quot;,&quot;ALMOST&quot;,&quot;ALWAYS&quot;,&quot;ANGRILY&quot;,&quot;ANNUALLY&quot;,&quot;ANXIOUSLY&quot;,&quot;ARROGANTLY&quot;,&quot;AWKWARDLY&quot;,&quot;BADLY&quot;,&quot;BASHFULLY&quot;,&quot;BEAUTIFULLY&quot;,&quot;BITTERLY&quot;,&quot;BLEAKLY&quot;,&quot;BLINDLY&quot;,&quot;BLISSFULLY&quot;,&quot;BOASTFULLY&quot;,&quot;BOLDLY&quot;,&quot;BRAVELY&quot;,&quot;BRIEFLY&quot;,&quot;BRIGHTLY&quot;,&quot;BRISKLY&quot;,&quot;BROADLY&quot;,&quot;BUSILY&quot;,&quot;CALMLY&quot;,&quot;CAREFULLY&quot;,&quot;CARELESSLY&quot;,&quot;CAUTIOUSLY&quot;,&quot;CERTAINLY&quot;,&quot;CHEERFULLY&quot;,&quot;CLEARLY&quot;,&quot;CLEVERLY&quot;,&quot;CLOSELY&quot;,&quot;COAXINGLY&quot;,&quot;COLORFULLY&quot;,&quot;COMMONLY&quot;,&quot;CONTINUALLY&quot;,&quot;COOLLY&quot;,&quot;CORRECTLY&quot;,&quot;COURAGEOUSLY&quot;,&quot;CROSSLY&quot;,&quot;CRUELLY&quot;,&quot;CURIOUSLY&quot;,&quot;DAILY&quot;,&quot;DAINTILY&quot;,&quot;DEARLY&quot;,&quot;DECEIVINGLY&quot;,&quot;DEEPLY&quot;,&quot;DEFIANTLY&quot;,&quot;DELIBERATELY&quot;,&quot;DELIGHTFULLY&quot;,&quot;DILIGENTLY&quot;,&quot;DIMLY&quot;,&quot;DOUBTFULLY&quot;,&quot;DREAMILY&quot;,&quot;EASILY&quot;,&quot;ELEGANTLY&quot;,&quot;ENERGETICALLY&quot;,&quot;ENORMOUSLY&quot;,&quot;ENTHUSIASTICALLY&quot;,&quot;EQUALLY&quot;,&quot;ESPECIALLY&quot;,&quot;EVEN&quot;,&quot;EVENLY&quot;,&quot;EVENTUALLY&quot;,&quot;EXACTLY&quot;,&quot;EXCITEDLY&quot;,&quot;EXTREMELY&quot;,&quot;FAIRLY&quot;,&quot;FAITHFULLY&quot;,&quot;FAMOUSLY&quot;,&quot;FAR&quot;,&quot;FAST&quot;,&quot;FATALLY&quot;,&quot;FEROCIOUSLY&quot;,&quot;FERVENTLY&quot;,&quot;FIERCELY&quot;,&quot;FONDLY&quot;,&quot;FOOLISHLY&quot;,&quot;FORTUNATELY&quot;,&quot;FRANKLY&quot;,&quot;FRANTICALLY&quot;,&quot;FREELY&quot;,&quot;FRENETICALLY&quot;,&quot;FRIGHTFULLY&quot;,&quot;FULLY&quot;,&quot;FURIOUSLY&quot;,&quot;GENERALLY&quot;,&quot;GENEROUSLY&quot;,&quot;GENTLY&quot;,&quot;GLADLY&quot;,&quot;GLEEFULLY&quot;,&quot;GRACEFULLY&quot;,&quot;GRATEFULLY&quot;,&quot;GREATLY&quot;,&quot;GREEDILY&quot;,&quot;HAPPILY&quot;,&quot;HASTILY&quot;,&quot;HEALTHILY&quot;,&quot;HEAVILY&quot;,&quot;HELPFULLY&quot;,&quot;HELPLESSLY&quot;,&quot;HIGHLY&quot;,&quot;HONESTLY&quot;,&quot;HOPELESSLY&quot;,&quot;HOURLY&quot;,&quot;HUNGRILY&quot;,&quot;IMMEDIATELY&quot;,&quot;INNOCENTLY&quot;,&quot;INQUISITIVELY&quot;,&quot;INSTANTLY&quot;,&quot;INTENSELY&quot;,&quot;INTENTLY&quot;,&quot;INTERESTINGLY&quot;,&quot;INWARDLY&quot;,&quot;IRRITABLY&quot;,&quot;JAGGEDLY&quot;,&quot;JEALOUSLY&quot;,&quot;JOSHINGLY&quot;,&quot;JOVIALLY&quot;,&quot;JOYFULLY&quot;,&quot;JOYOUSLY&quot;,&quot;JUBILANTLY&quot;,&quot;JUDGEMENTALLY&quot;,&quot;JUSTLY&quot;,&quot;KEENLY&quot;,&quot;KIDDINGLY&quot;,&quot;KINDHEARTEDLY&quot;,&quot;KINDLY&quot;,&quot;KISSINGLY&quot;,&quot;KNAVISHLY&quot;,&quot;KNOTTILY&quot;,&quot;KNOWINGLY&quot;,&quot;KNOWLEDGEABLY&quot;,&quot;KOOKILY&quot;,&quot;LAZILY&quot;,&quot;LESS&quot;,&quot;LIGHTLY&quot;,&quot;LIKELY&quot;,&quot;LIMPLY&quot;,&quot;LIVELY&quot;,&quot;LOFTILY&quot;,&quot;LONGINGLY&quot;,&quot;LOOSELY&quot;,&quot;LOUDLY&quot;,&quot;LOVINGLY&quot;,&quot;LOYALLY&quot;,&quot;MADLY&quot;,&quot;MAJESTICALLY&quot;,&quot;MEANINGFULLY&quot;,&quot;MECHANICALLY&quot;,&quot;MERRILY&quot;,&quot;MISERABLY&quot;,&quot;MOCKINGLY&quot;,&quot;MONTHLY&quot;,&quot;MORE&quot;,&quot;MORTALLY&quot;,&quot;MOSTLY&quot;,&quot;MYSTERIOUSLY&quot;,&quot;NATURALLY&quot;,&quot;NEARLY&quot;,&quot;NEATLY&quot;,&quot;NEEDILY&quot;,&quot;NERVOUSLY&quot;,&quot;NEVER&quot;,&quot;NICELY&quot;,&quot;NOISILY&quot;,&quot;NOT&quot;,&quot;OBEDIENTLY&quot;,&quot;OBNOXIOUSLY&quot;,&quot;ODDLY&quot;,&quot;OFFENSIVELY&quot;,&quot;OFFICIALLY&quot;,&quot;OFTEN&quot;,&quot;ONLY&quot;,&quot;OPENLY&quot;,&quot;OPTIMISTICALLY&quot;,&quot;OVERCONFIDENTLY&quot;,&quot;OWLISHLY&quot;,&quot;PAINFULLY&quot;,&quot;PARTIALLY&quot;,&quot;PATIENTLY&quot;,&quot;PERFECTLY&quot;,&quot;PHYSICALLY&quot;,&quot;PLAYFULLY&quot;,&quot;POLITELY&quot;,&quot;POORLY&quot;,&quot;POSITIVELY&quot;,&quot;POTENTIALLY&quot;,&quot;POWERFULLY&quot;,&quot;PROMPTLY&quot;,&quot;PROPERLY&quot;,&quot;PUNCTUALLY&quot;,&quot;QUAINTLY&quot;,&quot;QUARRELSOMELY&quot;,&quot;QUEASILY&quot;,&quot;QUEERLY&quot;,&quot;QUESTIONABLY&quot;,&quot;QUESTIONINGLY&quot;,&quot;QUICKER&quot;,&quot;QUICKLY&quot;,&quot;QUIETLY&quot;,&quot;QUIRKILY&quot;,&quot;QUIZZICALLY&quot;,&quot;RAPIDLY&quot;,&quot;RARELY&quot;,&quot;READILY&quot;,&quot;REALLY&quot;,&quot;REASSURINGLY&quot;,&quot;RECKLESSLY&quot;,&quot;REGULARLY&quot;,&quot;RELUCTANTLY&quot;,&quot;REPEATEDLY&quot;,&quot;REPROACHFULLY&quot;,&quot;RESTFULLY&quot;,&quot;RIGHTEOUSLY&quot;,&quot;RIGHTFULLY&quot;,&quot;RIGIDLY&quot;,&quot;ROUGHLY&quot;,&quot;RUDELY&quot;,&quot;SADLY&quot;,&quot;SAFELY&quot;,&quot;SCARCELY&quot;,&quot;SCARILY&quot;,&quot;SEARCHINGLY&quot;,&quot;SEDATELY&quot;,&quot;SEEMINGLY&quot;,&quot;SELDOM&quot;,&quot;SELFISHLY&quot;,&quot;SEPARATELY&quot;,&quot;SERIOUSLY&quot;,&quot;SHAKILY&quot;,&quot;SHARPLY&quot;,&quot;SHEEPISHLY&quot;,&quot;SHRILLY&quot;,&quot;SHYLY&quot;,&quot;SILENTLY&quot;,&quot;SLEEPILY&quot;,&quot;SLOWLY&quot;,&quot;SMOOTHLY&quot;,&quot;SOFTLY&quot;,&quot;SOLEMNLY&quot;,&quot;SOLIDLY&quot;,&quot;SOMETIMES&quot;,&quot;SOON&quot;,&quot;SPEEDILY&quot;,&quot;STEALTHILY&quot;,&quot;STERNLY&quot;,&quot;STRICTLY&quot;,&quot;SUCCESSFULLY&quot;,&quot;SUDDENLY&quot;,&quot;SURPRISINGLY&quot;,&quot;SUSPICIOUSLY&quot;,&quot;SWEETLY&quot;,&quot;SWIFTLY&quot;,&quot;SYMPATHETICALLY&quot;,&quot;TENDERLY&quot;,&quot;TENSELY&quot;,&quot;TERRIBLY&quot;,&quot;THANKFULLY&quot;,&quot;THOROUGHLY&quot;,&quot;THOUGHTFULLY&quot;,&quot;TIGHTLY&quot;,&quot;TOMORROW&quot;,&quot;TOO&quot;,&quot;TREMENDOUSLY&quot;,&quot;TRIUMPHANTLY&quot;,&quot;TRULY&quot;,&quot;TRUTHFULLY&quot;,&quot;ULTIMATELY&quot;,&quot;UNABASHEDLY&quot;,&quot;UNACCOUNTABLY&quot;,&quot;UNBEARABLY&quot;,&quot;UNETHICALLY&quot;,&quot;UNEXPECTEDLY&quot;,&quot;UNFORTUNATELY&quot;,&quot;UNIMPRESSIVELY&quot;,&quot;UNNATURALLY&quot;,&quot;UNNECESSARILY&quot;,&quot;UPBEAT&quot;,&quot;UPLIFTINGLY&quot;,&quot;UPRIGHT&quot;,&quot;UPSIDE-DOWN&quot;,&quot;UPWARD&quot;,&quot;UPWARDLY&quot;,&quot;URGENTLY&quot;,&quot;USEFULLY&quot;,&quot;USELESSLY&quot;,&quot;USUALLY&quot;,&quot;UTTERLY&quot;,&quot;VACANTLY&quot;,&quot;VAGUELY&quot;,&quot;VAINLY&quot;,&quot;VALIANTLY&quot;,&quot;VASTLY&quot;,&quot;VERBALLY&quot;,&quot;VERY&quot;,&quot;VICIOUSLY&quot;,&quot;VICTORIOUSLY&quot;,&quot;VIOLENTLY&quot;,&quot;VIVACIOUSLY&quot;,&quot;VOLUNTARILY&quot;,&quot;WARMLY&quot;,&quot;WEAKLY&quot;,&quot;WEARILY&quot;,&quot;WELL&quot;,&quot;WETLY&quot;,&quot;WHOLLY&quot;,&quot;WILDLY&quot;,&quot;WILLFULLY&quot;,&quot;WISELY&quot;,&quot;WOEFULLY&quot;,&quot;WONDERFULLY&quot;,&quot;WORRIEDLY&quot;,&quot;WRONGLY&quot;,&quot;YAWNINGLY&quot;,&quot;YEARLY&quot;,&quot;YEARNINGLY&quot;,&quot;YESTERDAY&quot;,&quot;YIELDINGLY&quot;,&quot;YOUTHFULLY&quot;)</code></pre>
-<p>随机给动词增加副词</p>
+<p>闅忔満缁欏姩璇嶅鍔犲壇璇&lt;8d&gt;</p>
 <pre class="r"><code># Build pattern to match words ending in &quot;ING&quot;
 pattern &lt;- one_or_more(WRD) %R% &quot;ING&quot;
 str_view(narratives, pattern)</code></pre>
@@ -813,10 +809,10 @@ str_replace(narratives,
 </blockquote>
 </div>
 <div id="section" class="section level1 unnumbered">
-<h1>附录</h1>
-<p>Unicode 的章节可以进附录</p>
-<p><input type="checkbox" id="checkbox1" class="styled">通过<code>\p{name}</code> impala应该是不支持的 <a href="https://grokbase.com/t/cloudera/impala-user/137tdg0thq/unicode-string-issue-with-impala" class="uri">https://grokbase.com/t/cloudera/impala-user/137tdg0thq/unicode-string-issue-with-impala</a></p>
-<p>Vietnamese 越南语</p>
+<h1>闄勫綍</h1>
+<p>Unicode 鐨勭珷鑺傚彲浠ヨ繘闄勫綍</p>
+<p><input type="checkbox" id="checkbox1" class="styled">閫氳繃<code>\p{name}</code> impala搴旇鏄笉鏀寔鐨&lt;84&gt; <a href="https://grokbase.com/t/cloudera/impala-user/137tdg0thq/unicode-string-issue-with-impala" class="uri">https://grokbase.com/t/cloudera/impala-user/137tdg0thq/unicode-string-issue-with-impala</a></p>
+<p>Vietnamese 瓒婂崡璇<ad></p>
 <pre class="r"><code># Names with builtin accents
 (tay_son_builtin &lt;- c(
   &quot;Nguy\u1ec5n Nh\u1ea1c&quot;, 
@@ -836,7 +832,7 @@ library(stringr)
 library(rebus)
 str_view_all(tay_son_separate, UP_DIACRITIC)</code></pre>
 <div id="htmlwidget-5b0b803b055a54ad6241" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5b0b803b055a54ad6241">{"x":{"html":"<ul>\n  <li>Nguye<span class='match'>̂<\/span><span class='match'>̃<\/span>n Nha<span class='match'>̣<\/span>c<\/li>\n  <li>Nguye<span class='match'>̂<\/span><span class='match'>̃<\/span>n Hue<span class='match'>̣<\/span><span class='match'>̂<\/span><\/li>\n  <li>Nguye<span class='match'>̂<\/span><span class='match'>̃<\/span>n Quang Toa<span class='match'>̉<\/span>n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-5b0b803b055a54ad6241">{"x":{"html":"<ul>\n  <li>Nguye<span class='match'><U+0302><\/span><span class='match'><U+0303><\/span>n Nha<span class='match'><U+0323><\/span>c<\/li>\n  <li>Nguye<span class='match'><U+0302><\/span><span class='match'><U+0303><\/span>n Hue<span class='match'><U+0323><\/span><span class='match'><U+0302><\/span><\/li>\n  <li>Nguye<span class='match'><U+0302><\/span><span class='match'><U+0303><\/span>n Quang Toa<span class='match'><U+0309><\/span>n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>x &lt;- c(&quot;Adele&quot;, &quot;Ad\u00e8le&quot;, &quot;Ad\u0065\u0300le&quot;)
 writeLines(x)</code></pre>
 <pre><code>Adele
@@ -844,14 +840,14 @@ Adèle
 Ade&lt;U+0300&gt;le</code></pre>
 <pre class="r"><code>str_view(x, &quot;Ad&quot; %R% ANY_CHAR %R% &quot;le&quot;)</code></pre>
 <div id="htmlwidget-38fec73fb0e64ff401b8" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-38fec73fb0e64ff401b8">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li>Adèle<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-38fec73fb0e64ff401b8">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li>Ade<U+0300>le<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(x, &quot;Ad&quot; %R% &#39;\\X&#39; %R% &quot;le&quot;)</code></pre>
 <div id="htmlwidget-0c2c7d33f148fc5d3b78" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0c2c7d33f148fc5d3b78">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-0c2c7d33f148fc5d3b78">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li><span class='match'>Ade<U+0300>le<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(x, &quot;Ad&quot; %R% GRAPHEME %R% &quot;le&quot;)</code></pre>
 <div id="htmlwidget-eade33170bda752c50df" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-eade33170bda752c50df">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<p>当两个Unicode时，用<code>.</code>是识别不出来的，需要使用<code>\X</code></p>
+<script type="application/json" data-for="htmlwidget-eade33170bda752c50df">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li><span class='match'>Ade<U+0300>le<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>褰撲袱涓猆nicode鏃讹紝鐢╜.<code>鏄瘑鍒笉鍑烘潵鐨勶紝闇€瑕佷娇鐢╜\X</code></p>
 <br> <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

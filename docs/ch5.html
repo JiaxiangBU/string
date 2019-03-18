@@ -414,7 +414,7 @@ div.section {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -423,7 +423,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -435,7 +435,7 @@ div.section {
 <strong>Last updated:</strong> 2019-03-18
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>string/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -451,12 +451,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -511,10 +511,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreefa7a95252aff7a6b5b4c37ff7015b161f56ce46btargetblankfa7a952a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/JiaxiangBU/string/tree/fa7a95252aff7a6b5b4c37ff7015b161f56ce46b" target="_blank">fa7a952</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreeba554d25709cbfb0c9c653731d73365089179043targetblankba554d2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/JiaxiangBU/string/tree/ba554d25709cbfb0c9c653731d73365089179043" target="_blank">ba554d2</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreefa7a95252aff7a6b5b4c37ff7015b161f56ce46btargetblankfa7a952a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreeba554d25709cbfb0c9c653731d73365089179043targetblankba554d2a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -524,11 +524,6 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Deleted:    a20190221121451.Rmd
-    Modified:   analysis/ch4.Rmd
-    Modified:   analysis/ch5.Rmd
 
 </code></pre>
 <p>
@@ -595,7 +590,7 @@ workflow
 suppressMessages(library(tidyverse))
 library(rebus)</code></pre>
 <pre><code>
-Attaching package: &#39;rebus&#39;</code></pre>
+载入程辑包：&#39;rebus&#39;</code></pre>
 <pre><code>The following object is masked from &#39;package:stringr&#39;:
 
     regex</code></pre>
@@ -603,8 +598,8 @@ Attaching package: &#39;rebus&#39;</code></pre>
 
     alpha</code></pre>
 <pre class="r"><code>earnest_file &lt;- &#39;data/importance-of-being-earnest.txt&#39;</code></pre>
-<p><input type="checkbox" id="checkbox1" class="styled">这个老师的文本处理非常优秀，应该 follow</p>
-<p>的确是针对小说进行过分析。</p>
+<p><input type="checkbox" id="checkbox1" class="styled">杩欎釜鑰佸笀鐨勬枃鏈鐞嗛潪甯镐紭绉€锛屽簲璇<a5> follow</p>
+<p>鐨勭‘鏄拡瀵瑰皬璇磋繘琛岃繃鍒嗘瀽銆&lt;82&gt;</p>
 <pre class="r"><code># Read play in using stri_read_lines()
 earnest &lt;- stri_read_lines(earnest_file)
 
@@ -648,7 +643,7 @@ Algernon.  I&#39;m sorry for that, for your sake.  I don&#39;t play
 accurately--any one can play accurately--but I play with wonderful
 expression.  As far as the piano is concerned, sentiment is my forte.  I</code></pre>
 <p><a href="https://community.rstudio.com/t/why-does-charlotte-wickham-says-stri-read-lines-is-better-than-readlines/19920?u=econkid">Why does Charlotte Wickham says <code>stri_read_lines()</code> is better than <code>readLines()</code>?</a></p>
-<p>提供了处理文本的函数，而不需要在<code>data.frame</code>去实现。</p>
+<p>鎻愪緵浜嗗鐞嗘枃鏈殑鍑芥暟锛岃€屼笉闇€瑕佸湪<code>data.frame</code>鍘诲疄鐜般€&lt;82&gt;</p>
 <pre class="r"><code># Get rid of empty strings
 empty &lt;- stri_isempty(play_text)
 play_lines &lt;- play_text[!empty]</code></pre>
@@ -674,7 +669,7 @@ unique(who)</code></pre>
  [6] &quot;University.&quot; &quot;Gwendolen.&quot;  &quot;July.&quot;       &quot;Chasuble.&quot;   &quot;Merriman.&quot;  
 [11] &quot;Sunday.&quot;     &quot;Mr.&quot;         &quot;London.&quot;     &quot;Cardew.&quot;     &quot;Opera.&quot;     
 [16] &quot;Markby.&quot;     &quot;Oxonian.&quot;   </code></pre>
-<p><a href="https://community.rstudio.com/t/why-does-charlotte-wickham-says-stri-read-lines-is-better-than-readlines/19920">stri_read_lines 更好 总结一下</a></p>
+<p>[stri_read_lines 鏇村ソ 鎬荤粨涓€涓媇(<a href="https://community.rstudio.com/t/why-does-charlotte-wickham-says-stri-read-lines-is-better-than-readlines/19920" class="uri">https://community.rstudio.com/t/why-does-charlotte-wickham-says-stri-read-lines-is-better-than-readlines/19920</a>)</p>
 <blockquote>
 <p><code>or</code> takes multiple character vector inputs and returns a character vector of the inputs separated by pipes. <code>%|%</code> is an operator interface to this function. <code>or1</code> takes a single character vector and returns a string collapsed by pipes.</p>
 </blockquote>
@@ -703,8 +698,8 @@ table(who)</code></pre>
             219              84              21              17 
     Miss Prism. 
              41 </code></pre>
-<p><code>Jack and Algernon [Speaking together.]</code>这个问题需要解决。</p>
-<p><input type="checkbox" id="checkbox1" class="styled">这个的处理不够strong，我需要知道每一步发生的逻辑，这样之后才能精进</p>
+<p><code>Jack and Algernon [Speaking together.]</code>杩欎釜闂闇€瑕佽В鍐炽€&lt;82&gt;</p>
+<p><input type="checkbox" id="checkbox1" class="styled">杩欎釜鐨勫鐞嗕笉澶焥trong锛屾垜闇€瑕佺煡閬撴瘡涓€姝ュ彂鐢熺殑閫昏緫锛岃繖鏍蜂箣鍚庢墠鑳界簿杩&lt;9b&gt;</p>
 <div id="ignore-case" class="section level1">
 <h1>ignore case</h1>
 <pre class="r"><code>library(readr)
@@ -765,9 +760,9 @@ stri_trans_totitle(cat5,type = &#39;sentence&#39;)</code></pre>
 [3] &quot;87yof tripped over cat, hit leg on step. Dx lower leg contusion &quot;                                                                            
 [4] &quot;Blunt chest trauma, r/o rib fx, r/o cartilage inj to rib cage; 32yom walking dog, dog took off after cat,fell,struck chest on steps,hit ribs&quot;
 [5] &quot;42yof to er for back pain after putting down some cat litter dx: back pain, sciatica&quot;                                                        </code></pre>
-<p><input type="checkbox" id="checkbox1" class="styled">整理下笔记，真的非常有用的学习</p>
-<p><input type="checkbox" id="checkbox1" class="styled">ppt 上面推荐的书，可以看一下</p>
-完成证书 <a href="https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf" class="uri">https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf</a> <br> <br>
+<p><input type="checkbox" id="checkbox1" class="styled">鏁寸悊涓嬬瑪璁帮紝鐪熺殑闈炲父鏈夌敤鐨勫涔<a0></p>
+<p><input type="checkbox" id="checkbox1" class="styled">ppt 涓婇潰鎺ㄨ崘鐨勪功锛屽彲浠ョ湅涓€涓&lt;8b&gt;</p>
+瀹屾垚璇佷功 <a href="https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf" class="uri">https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf</a> <br> <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
 <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
