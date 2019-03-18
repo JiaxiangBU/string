@@ -10,10 +10,10 @@ library(tidyverse)
 ```
 
 ```{r}
-dir_info(regexp = '\\.Rmd$') %>% 
+dir_info(regexp = '\\.md$') %>% 
     filter(
         !path %>% str_detect("^a"),
-        !path %>% str_detect("README")
+        !path %>% str_detect("^(README|CODE_|NEWS)")
     ) %>% 
     mutate(
         mv = map(path,file_move, new_path = 'analysis')

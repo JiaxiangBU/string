@@ -8,6 +8,8 @@ workflow
 
 1. start
 1. move relevant files into analysis
+1. move related md document into analysis
+1. move certificate into output
 
 ### 2019-03-11 13:28:23
 
