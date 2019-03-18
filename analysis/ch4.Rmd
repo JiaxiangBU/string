@@ -76,7 +76,7 @@ str_match(narratives, pattern2)
     1. <input type="checkbox" id="checkbox1" class="styled">这一波可以去stackoverflow回复很多问题了
     
 ```{r}
-str_sub(c("hello", "sweet", "kitten"), 
+str_subset(c("hello", "sweet", "kitten"), 
   pattern = capture(LOWER) %R% REF1)
 ```
 

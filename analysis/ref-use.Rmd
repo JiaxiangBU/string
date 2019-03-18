@@ -1,8 +1,7 @@
 ---
-title: REF 参数的使用
+title: "Use REF"
 author: Jiaxiang Li
 date: "`r Sys.Date()`"
-output: github_document
 ---
 
 
@@ -12,14 +11,17 @@ suppressMessages(library(tidyverse))
 
 需求是在 [github](https://github.com/JiaxiangBU/learn_git/blob/master/conda/command-not-found-error.md)
 
-```{r}
+```{r eval=F}
 "CommandNotFoundError" %>% 
     str_replace_all('([:lower:])([:Upper:])','\\1-\\2') %>% 
     str_to_lower()
+# "command-not-found-error"
 ```
 
-```{r}
+```{r eval=F}
 "CommandNotFoundError" %>% 
     str_replace_all('([:lower:])([:Upper:])','\\1 \\2')
+# "Command Not Found Error"
 ```
 
+产生报错`Error: invalid multibyte string, element 1`

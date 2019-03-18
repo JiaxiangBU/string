@@ -5,6 +5,8 @@ output: github_document
 
 ```{r}
 library(stringi)
+suppressMessages(library(tidyverse))
+library(rebus)
 earnest_file <- 'data/importance-of-being-earnest.txt'
 ```
 
