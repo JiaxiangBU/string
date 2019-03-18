@@ -1,0 +1,21 @@
+---
+author: Jiaxiang Li
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r}
+library(fs)
+library(tidyverse)
+```
+
+```{r}
+dir_info(regexp = '\\.Rmd$') %>% 
+    filter(
+        !path %>% str_detect("^a"),
+        !path %>% str_detect("README")
+    ) %>% 
+    mutate(
+        mv = map(path,file_move, new_path = 'analysis')
+    )
+```

@@ -45,6 +45,28 @@ github.io
 
 <td style="text-align:left;">
 
+<a href="./analysis/about.Rmd" style="     " >About</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./analysis/about" style="     " >About</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+2
+
+</td>
+
+<td style="text-align:left;">
+
 <a href="./ch1.md" style="     " >ch1</a>
 
 </td>
@@ -61,7 +83,7 @@ github.io
 
 <td style="text-align:right;">
 
-2
+3
 
 </td>
 
@@ -83,7 +105,7 @@ github.io
 
 <td style="text-align:right;">
 
-3
+4
 
 </td>
 
@@ -105,7 +127,7 @@ github.io
 
 <td style="text-align:right;">
 
-4
+5
 
 </td>
 
@@ -127,19 +149,19 @@ github.io
 
 <td style="text-align:right;">
 
-5
+6
 
 </td>
 
 <td style="text-align:left;">
 
-<a href="./ch5.Rmd" style="     " >ch5</a>
+<a href="./analysis/ch5.Rmd" style="     " >ch5</a>
 
 </td>
 
 <td style="text-align:left;">
 
-<a href="./ch5" style="     " >ch5</a>
+<a href="./analysis/ch5" style="     " >ch5</a>
 
 </td>
 
@@ -149,7 +171,7 @@ github.io
 
 <td style="text-align:right;">
 
-6
+7
 
 </td>
 
@@ -172,7 +194,7 @@ strings</a>
 
 <td style="text-align:right;">
 
-7
+8
 
 </td>
 
@@ -194,7 +216,51 @@ strings</a>
 
 <td style="text-align:right;">
 
-8
+9
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./analysis/index.Rmd" style="     " >Home</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./analysis/index" style="     " >Home</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+10
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./analysis/license.Rmd" style="     " >License</a>
+
+</td>
+
+<td style="text-align:left;">
+
+<a href="./analysis/license" style="     " >License</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+11
 
 </td>
 
@@ -216,7 +282,7 @@ strings</a>
 
 <td style="text-align:right;">
 
-9
+12
 
 </td>
 

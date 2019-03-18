@@ -4,6 +4,11 @@
 1. add coc
 1. update readme
 
+workflow
+
+1. start
+1. move relevant files into analysis
+
 ### 2019-03-11 13:28:23
 
 1. add str_which
