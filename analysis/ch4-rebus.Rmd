@@ -1,15 +1,23 @@
 ---
-title: "ch4 - rebus"
-output: github_document
+title: "ch4-rebus"
+author: Jiaxiang Li
+date: "`r Sys.Date()`"
+bibliography: ../refs/add.bib
 ---
+
+```{r message=FALSE, warning=FALSE}
+source(here::here("code/load.R"))
+```
+
+
+参考 @Charlotte_Wickham2019
+
 
 # capture + str_match
 
 配合`str_match`使用
 
 ```{r}
-library(tidyverse)
-library(rebus)
 hero_contacts <- 
     c("(wolverine@xmen.com)","wonderwoman@justiceleague.org","thor@avengers.com")
 capture(one_or_more(WRD)) %R% 

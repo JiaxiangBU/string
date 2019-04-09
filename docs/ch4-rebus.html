@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Jiaxiang Li" />
+
+<meta name="date" content="2019-04-09" />
+
+<title>ch4-rebus</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="site_libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="site_libs/str_view-binding-1.3.1/str_view.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">string</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">ch4-rebus</h1>
+<h4 class="author"><em>Jiaxiang Li</em></h4>
+<h4 class="date"><em>2019-04-09</em></h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2019-04-09
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>string/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.2.0). The <em>Report</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="report" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20190318code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20190318)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20190318code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20190318)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtree32a658f7fdaaa6afb7a7a9894b845bbd5e49923atargetblank32a658fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/JiaxiangBU/string/tree/32a658f7fdaaa6afb7a7a9894b845bbd5e49923a" target="_blank">32a658f</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtree32a658f7fdaaa6afb7a7a9894b845bbd5e49923atargetblank32a658fa" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  analysis/ch4-rebus.Rmd
+
+Unstaged changes:
+    Deleted:    analysis/ch4.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<pre class="r"><code>source(here::here(&quot;code/load.R&quot;))</code></pre>
+<p>参考 <span class="citation">Wickham (2019)</span></p>
+<div id="capture-str_match" class="section level1">
+<h1>capture + str_match</h1>
+<p>配合<code>str_match</code>使用</p>
+<pre class="r"><code>hero_contacts &lt;- 
+    c(&quot;(wolverine@xmen.com)&quot;,&quot;wonderwoman@justiceleague.org&quot;,&quot;thor@avengers.com&quot;)
+capture(one_or_more(WRD)) %R% 
+    &quot;@&quot; %R% 
+    capture(one_or_more(WRD)) %R% 
+    DOT %R% 
+    capture(one_or_more(WRD)) %&gt;% 
+    str_match(hero_contacts,.)</code></pre>
+<pre><code>     [,1]                            [,2]          [,3]            [,4] 
+[1,] &quot;wolverine@xmen.com&quot;            &quot;wolverine&quot;   &quot;xmen&quot;          &quot;com&quot;
+[2,] &quot;wonderwoman@justiceleague.org&quot; &quot;wonderwoman&quot; &quot;justiceleague&quot; &quot;org&quot;
+[3,] &quot;thor@avengers.com&quot;             &quot;thor&quot;        &quot;avengers&quot;      &quot;com&quot;</code></pre>
+<p>capture 的特性也见于 impala 的函数 <code>regexp_extract</code></p>
+<p>但是邮箱正则化很难提取，见 <a href="https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression/201378#201378">讨论</a></p>
+<details>
+<p><summary>另外一个例子</summary></p>
+<pre class="r"><code>narratives &lt;- 
+c(&quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE PLAYING FOOTBALL W/ FRIENDS &quot;,&quot;31 YOF FELL FROM TOILET HITITNG HEAD SUSTAINING A CHI &quot;,&quot;ANKLE STR. 82 YOM STRAINED ANKLE GETTING OUT OF BED &quot;,&quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;,&quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;,&quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;,&quot;13 MOF TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;,&quot;14YR M PLAYING FOOTBALL; DX KNEE SPRAIN &quot;,&quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;,&quot;5 YOM ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;)</code></pre>
+<pre class="r"><code># narratives has been pre-defined
+narratives</code></pre>
+<pre><code> [1] &quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE PLAYING FOOTBALL W/ FRIENDS &quot;                      
+ [2] &quot;31 YOF FELL FROM TOILET HITITNG HEAD SUSTAINING A CHI &quot;                                    
+ [3] &quot;ANKLE STR. 82 YOM STRAINED ANKLE GETTING OUT OF BED &quot;                                      
+ [4] &quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;            
+ [5] &quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;                          
+ [6] &quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;                                      
+ [7] &quot;13 MOF TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;
+ [8] &quot;14YR M PLAYING FOOTBALL; DX KNEE SPRAIN &quot;                                                  
+ [9] &quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;                      
+[10] &quot;5 YOM ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;                </code></pre>
+<pre class="r"><code># Add capture() to get age, unit and sex
+pattern &lt;- capture(optional(DGT) %R% DGT) %R%  
+  optional(SPC) %R% capture(or(&quot;YO&quot;, &quot;YR&quot;, &quot;MO&quot;)) %R%
+  optional(SPC) %R% capture(or(&quot;M&quot;, &quot;F&quot;))
+
+# Pull out from narratives
+str_match(narratives,pattern)</code></pre>
+<pre><code>      [,1]      [,2] [,3] [,4]
+ [1,] &quot;19YOM&quot;   &quot;19&quot; &quot;YO&quot; &quot;M&quot; 
+ [2,] &quot;31 YOF&quot;  &quot;31&quot; &quot;YO&quot; &quot;F&quot; 
+ [3,] &quot;82 YOM&quot;  &quot;82&quot; &quot;YO&quot; &quot;M&quot; 
+ [4,] &quot;33 YOF&quot;  &quot;33&quot; &quot;YO&quot; &quot;F&quot; 
+ [5,] &quot;10YOM&quot;   &quot;10&quot; &quot;YO&quot; &quot;M&quot; 
+ [6,] &quot;53 YO F&quot; &quot;53&quot; &quot;YO&quot; &quot;F&quot; 
+ [7,] &quot;13 MOF&quot;  &quot;13&quot; &quot;MO&quot; &quot;F&quot; 
+ [8,] &quot;14YR M&quot;  &quot;14&quot; &quot;YR&quot; &quot;M&quot; 
+ [9,] &quot;55YOM&quot;   &quot;55&quot; &quot;YO&quot; &quot;M&quot; 
+[10,] &quot;5 YOM&quot;   &quot;5&quot;  &quot;YO&quot; &quot;M&quot; </code></pre>
+</details>
+<details>
+<p><summary>同时优化一下，只提取首字母表示年月</summary></p>
+<pre class="r"><code># Edit to capture just Y and M in units
+pattern2 &lt;- capture(optional(DGT) %R% DGT) %R%  
+  optional(SPC) %R% capture(or(&quot;Y&quot;, &quot;M&quot;)) %R% optional(or(&quot;O&quot;,&quot;R&quot;)) %R%
+  optional(SPC) %R% capture(or(&quot;M&quot;, &quot;F&quot;))
+
+# Check pattern
+str_view(narratives, pattern2)</code></pre>
+<div id="htmlwidget-6b9e12d43fafeb96b5e9" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6b9e12d43fafeb96b5e9">{"x":{"html":"<ul>\n  <li><span class='match'>19YOM<\/span>-SHOULDER STRAIN-WAS TACKLED WHILE PLAYING FOOTBALL W/ FRIENDS <\/li>\n  <li><span class='match'>31 YOF<\/span> FELL FROM TOILET HITITNG HEAD SUSTAINING A CHI <\/li>\n  <li>ANKLE STR. <span class='match'>82 YOM<\/span> STRAINED ANKLE GETTING OUT OF BED <\/li>\n  <li>TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. <span class='match'>33 YOF<\/span>*<\/li>\n  <li><span class='match'>10YOM<\/span> CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB <\/li>\n  <li><span class='match'>53 YO F<\/span> TRIPPED ON CARPET AT HOME. DX HIP CONTUSION <\/li>\n  <li><span class='match'>13 MOF<\/span> TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION<\/li>\n  <li><span class='match'>14YR M<\/span> PLAYING FOOTBALL; DX KNEE SPRAIN <\/li>\n  <li><span class='match'>55YOM<\/span> RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE <\/li>\n  <li><span class='match'>5 YOM<\/span> ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code># Pull out pieces
+str_match(narratives, pattern2)</code></pre>
+<pre><code>      [,1]      [,2] [,3] [,4]
+ [1,] &quot;19YOM&quot;   &quot;19&quot; &quot;Y&quot;  &quot;M&quot; 
+ [2,] &quot;31 YOF&quot;  &quot;31&quot; &quot;Y&quot;  &quot;F&quot; 
+ [3,] &quot;82 YOM&quot;  &quot;82&quot; &quot;Y&quot;  &quot;M&quot; 
+ [4,] &quot;33 YOF&quot;  &quot;33&quot; &quot;Y&quot;  &quot;F&quot; 
+ [5,] &quot;10YOM&quot;   &quot;10&quot; &quot;Y&quot;  &quot;M&quot; 
+ [6,] &quot;53 YO F&quot; &quot;53&quot; &quot;Y&quot;  &quot;F&quot; 
+ [7,] &quot;13 MOF&quot;  &quot;13&quot; &quot;M&quot;  &quot;F&quot; 
+ [8,] &quot;14YR M&quot;  &quot;14&quot; &quot;Y&quot;  &quot;M&quot; 
+ [9,] &quot;55YOM&quot;   &quot;55&quot; &quot;Y&quot;  &quot;M&quot; 
+[10,] &quot;5 YOM&quot;   &quot;5&quot;  &quot;Y&quot;  &quot;M&quot; </code></pre>
+</details>
+</div>
+<div id="backreferences" class="section level1">
+<h1>backreferences</h1>
+<ol style="list-style-type: decimal">
+<li>方便删除重复单词</li>
+<li>使用引用进行正序和反序提取字符
+<ol style="list-style-type: decimal">
+<li><input type="checkbox" id="checkbox1" class="styled">这一波可以去stackoverflow回复很多问题了</li>
+</ol></li>
+</ol>
+<pre class="r"><code>str_subset(c(&quot;hello&quot;, &quot;sweet&quot;, &quot;kitten&quot;), 
+  pattern = capture(LOWER) %R% REF1)</code></pre>
+<pre><code>[1] &quot;hello&quot;  &quot;sweet&quot;  &quot;kitten&quot;</code></pre>
+<p>这里相当于<code>LOWER %R% LOWER</code></p>
+<p>abab</p>
+<pre class="r"><code># Names with a pair of repeated letters
+pair_of_repeated &lt;- capture((LOWER %R% LOWER)) %R% REF1
+
+# Test it
+str_view(&#39;abab&#39;, pattern = pair_of_repeated, match = TRUE)</code></pre>
+<div id="htmlwidget-e29898124c63253e597f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e29898124c63253e597f">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>abba</p>
+<pre class="r"><code># Names with a pair that reverses
+pair_that_reverses &lt;- capture(LOWER) %R% capture(LOWER) %R% REF2 %R% REF1
+
+# Test it
+str_view(&#39;abba&#39;, pattern = pair_that_reverses, match = TRUE)</code></pre>
+<div id="htmlwidget-911bd49074791ca4ffb7" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-911bd49074791ca4ffb7">{"x":{"html":"<ul>\n  <li><span class='match'>abba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>精确匹配</p>
+<pre class="r"><code># Four letter palindrome names
+four_letter_palindrome &lt;- exactly(
+  capture(LOWER) %R% capture(LOWER) %R% REF2 %R% REF1
+)
+
+# Test it
+str_view(&#39;abba&#39;, pattern = four_letter_palindrome, match = TRUE)</code></pre>
+<div id="htmlwidget-9469a82c5bfe4fe36d7f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9469a82c5bfe4fe36d7f">{"x":{"html":"<ul>\n  <li><span class='match'>abba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code># View text containing phone numbers
+contact &lt;- 
+c(&#39;Call me at 555-555-0191&#39;,&#39;123 Main St&#39;,&#39;(555) 555 0191&#39;,&#39;Phone: 555.555.0191 Mobile: 555.555.0192&#39;)
+
+
+# Replace digits with &quot;X&quot;
+str_replace(contact, DGT, &quot;X&quot;)</code></pre>
+<pre><code>[1] &quot;Call me at X55-555-0191&quot;                 
+[2] &quot;X23 Main St&quot;                             
+[3] &quot;(X55) 555 0191&quot;                          
+[4] &quot;Phone: X55.555.0191 Mobile: 555.555.0192&quot;</code></pre>
+<pre class="r"><code># Replace all digits with &quot;X&quot;
+str_replace_all(contact, DGT, &quot;X&quot;)</code></pre>
+<pre><code>[1] &quot;Call me at XXX-XXX-XXXX&quot;                 
+[2] &quot;XXX Main St&quot;                             
+[3] &quot;(XXX) XXX XXXX&quot;                          
+[4] &quot;Phone: XXX.XXX.XXXX Mobile: XXX.XXX.XXXX&quot;</code></pre>
+<pre class="r"><code># Replace all digits with different symbol
+str_replace_all(contact, DGT, c(&quot;X&quot;, &quot;.&quot;, &quot;*&quot;, &quot;_&quot;))</code></pre>
+<pre><code>[1] &quot;Call me at XXX-XXX-XXXX&quot;                 
+[2] &quot;... Main St&quot;                             
+[3] &quot;(***) *** ****&quot;                          
+[4] &quot;Phone: ___.___.____ Mobile: ___.___.____&quot;</code></pre>
+<p>这是<code>str_replace_all</code>的特性，函数向量化。</p>
+<p>剔除重复的词</p>
+<pre class="r"><code>str_replace_all(
+    &#39;I am the the aquaman&#39;
+    ,SPC %R% 
+        capture(one_or_more(WRD)) %R% 
+        SPC %R% 
+        REF1
+    ,&#39; &#39; %R% REF1)</code></pre>
+<pre><code>[1] &quot;I am the aquaman&quot;</code></pre>
+<p>这个可以在RStudio，replace的时候，可以每个替换对应的值</p>
+<pre class="r"><code>SPC %R% 
+    capture(one_or_more(WRD)) %R% 
+    SPC %R% 
+    REF1</code></pre>
+<pre><code>&lt;regex&gt; \s([\w]+)\s\1</code></pre>
+<p>表示</p>
+<pre class="r"><code>SPC %R% 
+    capture(one_or_more(WRD)) %R% 
+    SPC %R% 
+    capture(one_or_more(WRD))</code></pre>
+<pre><code>&lt;regex&gt; \s([\w]+)\s([\w]+)</code></pre>
+<pre class="r"><code>adverbs &lt;- 
+c(&quot;ABNORMALLY&quot;,&quot;ABSENTMINDEDLY&quot;,&quot;ACCIDENTALLY&quot;,&quot;ACIDLY&quot;,&quot;ACTUALLY&quot;,&quot;ADVENTUROUSLY&quot;,&quot;AFTERWARDS&quot;,&quot;ALMOST&quot;,&quot;ALWAYS&quot;,&quot;ANGRILY&quot;,&quot;ANNUALLY&quot;,&quot;ANXIOUSLY&quot;,&quot;ARROGANTLY&quot;,&quot;AWKWARDLY&quot;,&quot;BADLY&quot;,&quot;BASHFULLY&quot;,&quot;BEAUTIFULLY&quot;,&quot;BITTERLY&quot;,&quot;BLEAKLY&quot;,&quot;BLINDLY&quot;,&quot;BLISSFULLY&quot;,&quot;BOASTFULLY&quot;,&quot;BOLDLY&quot;,&quot;BRAVELY&quot;,&quot;BRIEFLY&quot;,&quot;BRIGHTLY&quot;,&quot;BRISKLY&quot;,&quot;BROADLY&quot;,&quot;BUSILY&quot;,&quot;CALMLY&quot;,&quot;CAREFULLY&quot;,&quot;CARELESSLY&quot;,&quot;CAUTIOUSLY&quot;,&quot;CERTAINLY&quot;,&quot;CHEERFULLY&quot;,&quot;CLEARLY&quot;,&quot;CLEVERLY&quot;,&quot;CLOSELY&quot;,&quot;COAXINGLY&quot;,&quot;COLORFULLY&quot;,&quot;COMMONLY&quot;,&quot;CONTINUALLY&quot;,&quot;COOLLY&quot;,&quot;CORRECTLY&quot;,&quot;COURAGEOUSLY&quot;,&quot;CROSSLY&quot;,&quot;CRUELLY&quot;,&quot;CURIOUSLY&quot;,&quot;DAILY&quot;,&quot;DAINTILY&quot;,&quot;DEARLY&quot;,&quot;DECEIVINGLY&quot;,&quot;DEEPLY&quot;,&quot;DEFIANTLY&quot;,&quot;DELIBERATELY&quot;,&quot;DELIGHTFULLY&quot;,&quot;DILIGENTLY&quot;,&quot;DIMLY&quot;,&quot;DOUBTFULLY&quot;,&quot;DREAMILY&quot;,&quot;EASILY&quot;,&quot;ELEGANTLY&quot;,&quot;ENERGETICALLY&quot;,&quot;ENORMOUSLY&quot;,&quot;ENTHUSIASTICALLY&quot;,&quot;EQUALLY&quot;,&quot;ESPECIALLY&quot;,&quot;EVEN&quot;,&quot;EVENLY&quot;,&quot;EVENTUALLY&quot;,&quot;EXACTLY&quot;,&quot;EXCITEDLY&quot;,&quot;EXTREMELY&quot;,&quot;FAIRLY&quot;,&quot;FAITHFULLY&quot;,&quot;FAMOUSLY&quot;,&quot;FAR&quot;,&quot;FAST&quot;,&quot;FATALLY&quot;,&quot;FEROCIOUSLY&quot;,&quot;FERVENTLY&quot;,&quot;FIERCELY&quot;,&quot;FONDLY&quot;,&quot;FOOLISHLY&quot;,&quot;FORTUNATELY&quot;,&quot;FRANKLY&quot;,&quot;FRANTICALLY&quot;,&quot;FREELY&quot;,&quot;FRENETICALLY&quot;,&quot;FRIGHTFULLY&quot;,&quot;FULLY&quot;,&quot;FURIOUSLY&quot;,&quot;GENERALLY&quot;,&quot;GENEROUSLY&quot;,&quot;GENTLY&quot;,&quot;GLADLY&quot;,&quot;GLEEFULLY&quot;,&quot;GRACEFULLY&quot;,&quot;GRATEFULLY&quot;,&quot;GREATLY&quot;,&quot;GREEDILY&quot;,&quot;HAPPILY&quot;,&quot;HASTILY&quot;,&quot;HEALTHILY&quot;,&quot;HEAVILY&quot;,&quot;HELPFULLY&quot;,&quot;HELPLESSLY&quot;,&quot;HIGHLY&quot;,&quot;HONESTLY&quot;,&quot;HOPELESSLY&quot;,&quot;HOURLY&quot;,&quot;HUNGRILY&quot;,&quot;IMMEDIATELY&quot;,&quot;INNOCENTLY&quot;,&quot;INQUISITIVELY&quot;,&quot;INSTANTLY&quot;,&quot;INTENSELY&quot;,&quot;INTENTLY&quot;,&quot;INTERESTINGLY&quot;,&quot;INWARDLY&quot;,&quot;IRRITABLY&quot;,&quot;JAGGEDLY&quot;,&quot;JEALOUSLY&quot;,&quot;JOSHINGLY&quot;,&quot;JOVIALLY&quot;,&quot;JOYFULLY&quot;,&quot;JOYOUSLY&quot;,&quot;JUBILANTLY&quot;,&quot;JUDGEMENTALLY&quot;,&quot;JUSTLY&quot;,&quot;KEENLY&quot;,&quot;KIDDINGLY&quot;,&quot;KINDHEARTEDLY&quot;,&quot;KINDLY&quot;,&quot;KISSINGLY&quot;,&quot;KNAVISHLY&quot;,&quot;KNOTTILY&quot;,&quot;KNOWINGLY&quot;,&quot;KNOWLEDGEABLY&quot;,&quot;KOOKILY&quot;,&quot;LAZILY&quot;,&quot;LESS&quot;,&quot;LIGHTLY&quot;,&quot;LIKELY&quot;,&quot;LIMPLY&quot;,&quot;LIVELY&quot;,&quot;LOFTILY&quot;,&quot;LONGINGLY&quot;,&quot;LOOSELY&quot;,&quot;LOUDLY&quot;,&quot;LOVINGLY&quot;,&quot;LOYALLY&quot;,&quot;MADLY&quot;,&quot;MAJESTICALLY&quot;,&quot;MEANINGFULLY&quot;,&quot;MECHANICALLY&quot;,&quot;MERRILY&quot;,&quot;MISERABLY&quot;,&quot;MOCKINGLY&quot;,&quot;MONTHLY&quot;,&quot;MORE&quot;,&quot;MORTALLY&quot;,&quot;MOSTLY&quot;,&quot;MYSTERIOUSLY&quot;,&quot;NATURALLY&quot;,&quot;NEARLY&quot;,&quot;NEATLY&quot;,&quot;NEEDILY&quot;,&quot;NERVOUSLY&quot;,&quot;NEVER&quot;,&quot;NICELY&quot;,&quot;NOISILY&quot;,&quot;NOT&quot;,&quot;OBEDIENTLY&quot;,&quot;OBNOXIOUSLY&quot;,&quot;ODDLY&quot;,&quot;OFFENSIVELY&quot;,&quot;OFFICIALLY&quot;,&quot;OFTEN&quot;,&quot;ONLY&quot;,&quot;OPENLY&quot;,&quot;OPTIMISTICALLY&quot;,&quot;OVERCONFIDENTLY&quot;,&quot;OWLISHLY&quot;,&quot;PAINFULLY&quot;,&quot;PARTIALLY&quot;,&quot;PATIENTLY&quot;,&quot;PERFECTLY&quot;,&quot;PHYSICALLY&quot;,&quot;PLAYFULLY&quot;,&quot;POLITELY&quot;,&quot;POORLY&quot;,&quot;POSITIVELY&quot;,&quot;POTENTIALLY&quot;,&quot;POWERFULLY&quot;,&quot;PROMPTLY&quot;,&quot;PROPERLY&quot;,&quot;PUNCTUALLY&quot;,&quot;QUAINTLY&quot;,&quot;QUARRELSOMELY&quot;,&quot;QUEASILY&quot;,&quot;QUEERLY&quot;,&quot;QUESTIONABLY&quot;,&quot;QUESTIONINGLY&quot;,&quot;QUICKER&quot;,&quot;QUICKLY&quot;,&quot;QUIETLY&quot;,&quot;QUIRKILY&quot;,&quot;QUIZZICALLY&quot;,&quot;RAPIDLY&quot;,&quot;RARELY&quot;,&quot;READILY&quot;,&quot;REALLY&quot;,&quot;REASSURINGLY&quot;,&quot;RECKLESSLY&quot;,&quot;REGULARLY&quot;,&quot;RELUCTANTLY&quot;,&quot;REPEATEDLY&quot;,&quot;REPROACHFULLY&quot;,&quot;RESTFULLY&quot;,&quot;RIGHTEOUSLY&quot;,&quot;RIGHTFULLY&quot;,&quot;RIGIDLY&quot;,&quot;ROUGHLY&quot;,&quot;RUDELY&quot;,&quot;SADLY&quot;,&quot;SAFELY&quot;,&quot;SCARCELY&quot;,&quot;SCARILY&quot;,&quot;SEARCHINGLY&quot;,&quot;SEDATELY&quot;,&quot;SEEMINGLY&quot;,&quot;SELDOM&quot;,&quot;SELFISHLY&quot;,&quot;SEPARATELY&quot;,&quot;SERIOUSLY&quot;,&quot;SHAKILY&quot;,&quot;SHARPLY&quot;,&quot;SHEEPISHLY&quot;,&quot;SHRILLY&quot;,&quot;SHYLY&quot;,&quot;SILENTLY&quot;,&quot;SLEEPILY&quot;,&quot;SLOWLY&quot;,&quot;SMOOTHLY&quot;,&quot;SOFTLY&quot;,&quot;SOLEMNLY&quot;,&quot;SOLIDLY&quot;,&quot;SOMETIMES&quot;,&quot;SOON&quot;,&quot;SPEEDILY&quot;,&quot;STEALTHILY&quot;,&quot;STERNLY&quot;,&quot;STRICTLY&quot;,&quot;SUCCESSFULLY&quot;,&quot;SUDDENLY&quot;,&quot;SURPRISINGLY&quot;,&quot;SUSPICIOUSLY&quot;,&quot;SWEETLY&quot;,&quot;SWIFTLY&quot;,&quot;SYMPATHETICALLY&quot;,&quot;TENDERLY&quot;,&quot;TENSELY&quot;,&quot;TERRIBLY&quot;,&quot;THANKFULLY&quot;,&quot;THOROUGHLY&quot;,&quot;THOUGHTFULLY&quot;,&quot;TIGHTLY&quot;,&quot;TOMORROW&quot;,&quot;TOO&quot;,&quot;TREMENDOUSLY&quot;,&quot;TRIUMPHANTLY&quot;,&quot;TRULY&quot;,&quot;TRUTHFULLY&quot;,&quot;ULTIMATELY&quot;,&quot;UNABASHEDLY&quot;,&quot;UNACCOUNTABLY&quot;,&quot;UNBEARABLY&quot;,&quot;UNETHICALLY&quot;,&quot;UNEXPECTEDLY&quot;,&quot;UNFORTUNATELY&quot;,&quot;UNIMPRESSIVELY&quot;,&quot;UNNATURALLY&quot;,&quot;UNNECESSARILY&quot;,&quot;UPBEAT&quot;,&quot;UPLIFTINGLY&quot;,&quot;UPRIGHT&quot;,&quot;UPSIDE-DOWN&quot;,&quot;UPWARD&quot;,&quot;UPWARDLY&quot;,&quot;URGENTLY&quot;,&quot;USEFULLY&quot;,&quot;USELESSLY&quot;,&quot;USUALLY&quot;,&quot;UTTERLY&quot;,&quot;VACANTLY&quot;,&quot;VAGUELY&quot;,&quot;VAINLY&quot;,&quot;VALIANTLY&quot;,&quot;VASTLY&quot;,&quot;VERBALLY&quot;,&quot;VERY&quot;,&quot;VICIOUSLY&quot;,&quot;VICTORIOUSLY&quot;,&quot;VIOLENTLY&quot;,&quot;VIVACIOUSLY&quot;,&quot;VOLUNTARILY&quot;,&quot;WARMLY&quot;,&quot;WEAKLY&quot;,&quot;WEARILY&quot;,&quot;WELL&quot;,&quot;WETLY&quot;,&quot;WHOLLY&quot;,&quot;WILDLY&quot;,&quot;WILLFULLY&quot;,&quot;WISELY&quot;,&quot;WOEFULLY&quot;,&quot;WONDERFULLY&quot;,&quot;WORRIEDLY&quot;,&quot;WRONGLY&quot;,&quot;YAWNINGLY&quot;,&quot;YEARLY&quot;,&quot;YEARNINGLY&quot;,&quot;YESTERDAY&quot;,&quot;YIELDINGLY&quot;,&quot;YOUTHFULLY&quot;)</code></pre>
+<p>随机给动词增加副词</p>
+<pre class="r"><code># Build pattern to match words ending in &quot;ING&quot;
+pattern &lt;- one_or_more(WRD) %R% &quot;ING&quot;
+str_view(narratives, pattern)</code></pre>
+<div id="htmlwidget-e0fd413523c91f7dd3a0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e0fd413523c91f7dd3a0">{"x":{"html":"<ul>\n  <li>19YOM-SHOULDER STRAIN-WAS TACKLED WHILE <span class='match'>PLAYING<\/span> FOOTBALL W/ FRIENDS <\/li>\n  <li>31 YOF FELL FROM TOILET HITITNG HEAD <span class='match'>SUSTAINING<\/span> A CHI <\/li>\n  <li>ANKLE STR. 82 YOM STRAINED ANKLE <span class='match'>GETTING<\/span> OUT OF BED <\/li>\n  <li>TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*<\/li>\n  <li>10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB <\/li>\n  <li>53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION <\/li>\n  <li>13 MOF <span class='match'>TRYING<\/span> TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION<\/li>\n  <li>14YR M <span class='match'>PLAYING<\/span> FOOTBALL; DX KNEE SPRAIN <\/li>\n  <li>55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE <\/li>\n  <li>5 YOM <span class='match'>ROLLING<\/span> ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code># Test replacement
+str_replace(narratives, capture(pattern), 
+  str_c(&quot;CARELESSLY&quot;, REF1, sep = &quot; &quot;))</code></pre>
+<pre><code> [1] &quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE CARELESSLY PLAYING FOOTBALL W/ FRIENDS &quot;                      
+ [2] &quot;31 YOF FELL FROM TOILET HITITNG HEAD CARELESSLY SUSTAINING A CHI &quot;                                    
+ [3] &quot;ANKLE STR. 82 YOM STRAINED ANKLE CARELESSLY GETTING OUT OF BED &quot;                                      
+ [4] &quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;                       
+ [5] &quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;                                     
+ [6] &quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;                                                 
+ [7] &quot;13 MOF CARELESSLY TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;
+ [8] &quot;14YR M CARELESSLY PLAYING FOOTBALL; DX KNEE SPRAIN &quot;                                                  
+ [9] &quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;                                 
+[10] &quot;5 YOM CARELESSLY ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;                </code></pre>
+<pre class="r"><code># One adverb per narrative
+adverbs_10 &lt;- sample(adverbs, 10)
+
+# Replace &quot;***ing&quot; with &quot;adverb ***ly&quot;
+str_replace(narratives, 
+  capture(pattern),
+  str_c(adverbs_10, REF1, sep = &quot; &quot;))  </code></pre>
+<pre><code> [1] &quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE KNOTTILY PLAYING FOOTBALL W/ FRIENDS &quot;                     
+ [2] &quot;31 YOF FELL FROM TOILET HITITNG HEAD QUEASILY SUSTAINING A CHI &quot;                                   
+ [3] &quot;ANKLE STR. 82 YOM STRAINED ANKLE BRAVELY GETTING OUT OF BED &quot;                                      
+ [4] &quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;                    
+ [5] &quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;                                  
+ [6] &quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;                                              
+ [7] &quot;13 MOF UTTERLY TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;
+ [8] &quot;14YR M PERFECTLY PLAYING FOOTBALL; DX KNEE SPRAIN &quot;                                                
+ [9] &quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;                              
+[10] &quot;5 YOM UPWARDLY ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;               </code></pre>
+<blockquote>
+<p>Replacement combined with backreferences can be really useful for reformatting text data.</p>
+</blockquote>
+</div>
+<div id="section" class="section level1 unnumbered">
+<h1>附录</h1>
+<p>Unicode 的章节可以进附录</p>
+<p><input type="checkbox" id="checkbox1" class="styled">通过<code>\p{name}</code> impala应该是不支持的 <a href="https://grokbase.com/t/cloudera/impala-user/137tdg0thq/unicode-string-issue-with-impala" class="uri">https://grokbase.com/t/cloudera/impala-user/137tdg0thq/unicode-string-issue-with-impala</a></p>
+<p>Vietnamese 越南语</p>
+<pre class="r"><code># Names with builtin accents
+(tay_son_builtin &lt;- c(
+  &quot;Nguy\u1ec5n Nh\u1ea1c&quot;, 
+  &quot;Nguy\u1ec5n Hu\u1ec7&quot;,
+  &quot;Nguy\u1ec5n Quang To\u1ea3n&quot;
+))</code></pre>
+<pre><code>[1] &quot;Nguy&lt;U+1EC5&gt;n Nh&lt;U+1EA1&gt;c&quot; &quot;Nguy&lt;U+1EC5&gt;n Hu&lt;U+1EC7&gt;&quot; &quot;Nguy&lt;U+1EC5&gt;n Quang To&lt;U+1EA3&gt;n&quot;</code></pre>
+<pre class="r"><code># Convert to separate accents
+library(stringi)
+tay_son_separate &lt;- stri_trans_nfd(tay_son_builtin)
+
+# Verify that the string prints the same
+tay_son_separate</code></pre>
+<pre><code>[1] &quot;Nguye&lt;U+0302&gt;&lt;U+0303&gt;n Nha&lt;U+0323&gt;c&quot; &quot;Nguye&lt;U+0302&gt;&lt;U+0303&gt;n Hue&lt;U+0323&gt;&lt;U+0302&gt;&quot; &quot;Nguye&lt;U+0302&gt;&lt;U+0303&gt;n Quang Toa&lt;U+0309&gt;n&quot;</code></pre>
+<pre class="r"><code># Match all accents
+library(stringr)
+library(rebus)
+str_view_all(tay_son_separate, UP_DIACRITIC)</code></pre>
+<div id="htmlwidget-5b0b803b055a54ad6241" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5b0b803b055a54ad6241">{"x":{"html":"<ul>\n  <li>Nguye<span class='match'>̂<\/span><span class='match'>̃<\/span>n Nha<span class='match'>̣<\/span>c<\/li>\n  <li>Nguye<span class='match'>̂<\/span><span class='match'>̃<\/span>n Hue<span class='match'>̣<\/span><span class='match'>̂<\/span><\/li>\n  <li>Nguye<span class='match'>̂<\/span><span class='match'>̃<\/span>n Quang Toa<span class='match'>̉<\/span>n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>x &lt;- c(&quot;Adele&quot;, &quot;Ad\u00e8le&quot;, &quot;Ad\u0065\u0300le&quot;)
+writeLines(x)</code></pre>
+<pre><code>Adele
+Adèle
+Ade&lt;U+0300&gt;le</code></pre>
+<pre class="r"><code>str_view(x, &quot;Ad&quot; %R% ANY_CHAR %R% &quot;le&quot;)</code></pre>
+<div id="htmlwidget-38fec73fb0e64ff401b8" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-38fec73fb0e64ff401b8">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li>Adèle<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_view(x, &quot;Ad&quot; %R% &#39;\\X&#39; %R% &quot;le&quot;)</code></pre>
+<div id="htmlwidget-0c2c7d33f148fc5d3b78" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0c2c7d33f148fc5d3b78">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_view(x, &quot;Ad&quot; %R% GRAPHEME %R% &quot;le&quot;)</code></pre>
+<div id="htmlwidget-eade33170bda752c50df" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-eade33170bda752c50df">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>当两个Unicode时，用<code>.</code>是识别不出来的，需要使用<code>\X</code></p>
+<div id="refs">
+<div id="ref-Charlotte_Wickham2019">
+<p>Wickham, Charlotte. 2019. “String Manipulation in R with Stringr.” DataCamp. 2019. <a href="https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr">https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr</a>.</p>
+</div>
+</div>
+<br> <br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.5.2 (2018-12-20)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 7 x64 (build 7601) Service Pack 1
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=Chinese (Simplified)_People&#39;s Republic of China.936 
+[2] LC_CTYPE=Chinese (Simplified)_People&#39;s Republic of China.936   
+[3] LC_MONETARY=Chinese (Simplified)_People&#39;s Republic of China.936
+[4] LC_NUMERIC=C                                                   
+[5] LC_TIME=Chinese (Simplified)_People&#39;s Republic of China.936    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] stringi_1.2.4   rebus_0.1-3     glue_1.3.0      fs_1.2.6       
+ [5] forcats_0.3.0   stringr_1.3.1   dplyr_0.8.0.1   purrr_0.2.5    
+ [9] readr_1.3.1     tidyr_0.8.2     tibble_2.1.1    ggplot2_3.1.0  
+[13] tidyverse_1.2.1
+
+loaded via a namespace (and not attached):
+ [1] rebus.unicode_0.0-2   tidyselect_0.2.5      xfun_0.4             
+ [4] haven_2.0.0           lattice_0.20-38       colorspace_1.3-2     
+ [7] generics_0.0.2        htmltools_0.3.6       yaml_2.2.0           
+[10] rlang_0.3.3           pillar_1.3.1          withr_2.1.2          
+[13] rebus.numbers_0.0-1   modelr_0.1.2          readxl_1.2.0         
+[16] plyr_1.8.4            munsell_0.5.0         rebus.datetimes_0.0-1
+[19] gtable_0.2.0          workflowr_1.2.0       cellranger_1.1.0     
+[22] rvest_0.3.2           htmlwidgets_1.3       evaluate_0.12        
+[25] knitr_1.21            broom_0.5.1           Rcpp_1.0.0           
+[28] scales_1.0.0          backports_1.1.3       jsonlite_1.6         
+[31] hms_0.4.2             digest_0.6.18         rebus.base_0.0-3     
+[34] grid_3.5.2            rprojroot_1.3-2       here_0.1             
+[37] cli_1.0.1             tools_3.5.2           magrittr_1.5         
+[40] lazyeval_0.2.1        crayon_1.3.4          pkgconfig_2.0.2      
+[43] xml2_1.2.0            lubridate_1.7.4       assertthat_0.2.0     
+[46] rmarkdown_1.11        httr_1.4.0            rstudioapi_0.10      
+[49] R6_2.3.0              nlme_3.1-137          git2r_0.23.0         
+[52] compiler_3.5.2       </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
