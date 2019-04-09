@@ -1,20 +1,25 @@
 ---
-title: "ch1"
-output: github_document
+title: "ch1-basic-functions"
+author: Jiaxiang Li
+date: "`r Sys.Date()`"
+bibliography: ../refs/add.bib
 ---
 
-String Manipulation in R with stringr
-https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr
-Charlotte Wickham
+```{r message=FALSE, warning=FALSE}
+source(here::here("code/load.R"))
+```
+
+
+参考 @Charlotte_Wickham2019
 
 # Quotes
 
 `\`
-: escape sequence
-: backslash type `\\`
+
+1. escape sequence
+1. backslash type `\\`
 
 ```{r}
-library(tidyverse)
 "\"There's plenty of room!\" said Alice indignantly, and she sat down in a large arm-chair at one end of the table." %>% cat
 '"There\'s plenty of room!" said Alice indignantly, and she sat down in a large arm-chair at one end of the table.' %>% cat
 ```
