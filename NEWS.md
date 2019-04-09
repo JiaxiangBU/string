@@ -11,6 +11,7 @@
 1. update ch5
     1. update 完成证书
 1. move analysis document into analysis
+1. knit detect_encoding
 
 ### 2019-03-18 11:02:57
 
