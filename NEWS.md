@@ -10,6 +10,7 @@
 1. update ch4
 1. update ch5
     1. update 完成证书
+1. move analysis document into analysis
 
 ### 2019-03-18 11:02:57
 
