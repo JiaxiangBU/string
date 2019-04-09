@@ -154,5 +154,8 @@ stri_trans_totitle(cat5,type = 'sentence')
 
 <input type="checkbox" id="checkbox1" class="styled">ppt 上面推荐的书，可以看一下
 
-完成证书
-https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf
+# 完成证书
+
+参考 [DataCamp](https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf)
+
+<iframe name="Jiaxiang Li" src="../refs/certificate.pdf" style='height: 100%; width: 100%;' frameborder="0" scrolling="yes" id="iframe">...</iframe>

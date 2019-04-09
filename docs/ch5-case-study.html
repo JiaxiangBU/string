@@ -27,7 +27,7 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="site_libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="site_libs/str_view-binding-1.3.1/str_view.js"></script>
 
@@ -104,9 +104,6 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
-summary {
-  display: list-item;
-}
 </style>
 
 
@@ -121,6 +118,7 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
+
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -140,43 +138,6 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
-}
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -198,77 +159,18 @@ $(document).ready(function () {
 });
 </script>
 
+
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
 </script>
 
 <!-- code folding -->
+
 
 
 
@@ -460,7 +362,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -484,7 +386,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSeedstrongcodesetseed20190318code" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20190318)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20190318)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
 </div>
@@ -515,10 +417,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtree359b6e982d529b2f383683d46efaea3443cbcceftargetblank359b6e9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/JiaxiangBU/string/tree/359b6e982d529b2f383683d46efaea3443cbccef" target="_blank">359b6e9</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtree4fe38dbdf8f015ff6bbff363447d31f3fc3396f0targetblank4fe38dba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/JiaxiangBU/string/tree/4fe38dbdf8f015ff6bbff363447d31f3fc3396f0" target="_blank">4fe38db</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtree359b6e982d529b2f383683d46efaea3443cbcceftargetblank359b6e9a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtree4fe38dbdf8f015ff6bbff363447d31f3fc3396f0targetblank4fe38dba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -530,10 +432,13 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  analysis/ch5-case-study.Rmd
+    Untracked:  detect_encoding.Rmd
+    Untracked:  refs/certificate.pdf
+    Untracked:  str_wrap.Rmd
+    Untracked:  str_wrap.md
 
 Unstaged changes:
-    Deleted:    analysis/ch5.Rmd
+    Modified:   analysis/ch5-case-study.Rmd
 
 </code></pre>
 <p>
@@ -546,9 +451,73 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the R Markdown and HTML files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view them.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/JiaxiangBU/string/blob/4fe38dbdf8f015ff6bbff363447d31f3fc3396f0/analysis/ch5-case-study.Rmd" target="_blank">4fe38db</a>
+</td>
+<td>
+Jiaxiang Li
+</td>
+<td>
+2019-04-09
+</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>update ch5
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/JiaxiangBU/string/4fe38dbdf8f015ff6bbff363447d31f3fc3396f0/docs/ch5-case-study.html" target="_blank">4fe38db</a>
+</td>
+<td>
+Jiaxiang Li
+</td>
+<td>
+2019-04-09
+</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>update ch5
+</td>
+</tr>
+</tbody>
+</table>
+</div></li>
+</ol></li>
+</ol>
 <hr>
 </div>
 </div>
@@ -723,7 +692,13 @@ stri_trans_totitle(cat5,type = &#39;sentence&#39;)</code></pre>
 [5] &quot;42yof to er for back pain after putting down some cat litter dx: back pain, sciatica&quot;                                                        </code></pre>
 <p><input type="checkbox" id="checkbox1" class="styled">整理下笔记，真的非常有用的学习</p>
 <p><input type="checkbox" id="checkbox1" class="styled">ppt 上面推荐的书，可以看一下</p>
-<p>完成证书 <a href="https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf" class="uri">https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf</a></p>
+</div>
+<div class="section level1">
+<h1>完成证书</h1>
+<p>参考 <a href="https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf">DataCamp</a></p>
+<iframe name="Jiaxiang Li" src="../refs/certificate.pdf" style="height: 100%; width: 100%;" frameborder="0" scrolling="yes" id="iframe">
+…
+</iframe>
 <div id="refs">
 <div id="ref-Charlotte_Wickham2019">
 <p>Wickham, Charlotte. 2019. “String Manipulation in R with Stringr.” DataCamp. 2019. <a href="https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr">https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr</a>.</p>
@@ -737,18 +712,16 @@ stri_trans_totitle(cat5,type = &#39;sentence&#39;)</code></pre>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.2 (2018-12-20)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 7 x64 (build 7601) Service Pack 1
+<pre><code>R version 3.5.3 (2019-03-11)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS Mojave 10.14.1
 
 Matrix products: default
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
-[1] LC_COLLATE=Chinese (Simplified)_People&#39;s Republic of China.936 
-[2] LC_CTYPE=Chinese (Simplified)_People&#39;s Republic of China.936   
-[3] LC_MONETARY=Chinese (Simplified)_People&#39;s Republic of China.936
-[4] LC_NUMERIC=C                                                   
-[5] LC_TIME=Chinese (Simplified)_People&#39;s Republic of China.936    
+[1] zh_CN.UTF-8/zh_CN.UTF-8/zh_CN.UTF-8/C/zh_CN.UTF-8/zh_CN.UTF-8
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
@@ -756,28 +729,27 @@ attached base packages:
 other attached packages:
  [1] stringi_1.2.4   rebus_0.1-3     glue_1.3.0      fs_1.2.6       
  [5] forcats_0.3.0   stringr_1.3.1   dplyr_0.8.0.1   purrr_0.2.5    
- [9] readr_1.3.1     tidyr_0.8.2     tibble_2.1.1    ggplot2_3.1.0  
+ [9] readr_1.1.1     tidyr_0.8.2     tibble_2.1.1    ggplot2_3.1.0  
 [13] tidyverse_1.2.1
 
 loaded via a namespace (and not attached):
- [1] rebus.unicode_0.0-2   tidyselect_0.2.5      xfun_0.4             
- [4] haven_2.0.0           lattice_0.20-38       colorspace_1.3-2     
- [7] generics_0.0.2        htmltools_0.3.6       yaml_2.2.0           
-[10] rlang_0.3.3           pillar_1.3.1          withr_2.1.2          
-[13] rebus.numbers_0.0-1   modelr_0.1.2          readxl_1.2.0         
-[16] plyr_1.8.4            munsell_0.5.0         rebus.datetimes_0.0-1
-[19] gtable_0.2.0          workflowr_1.2.0       cellranger_1.1.0     
-[22] rvest_0.3.2           htmlwidgets_1.3       evaluate_0.12        
-[25] knitr_1.21            broom_0.5.1           Rcpp_1.0.0           
-[28] scales_1.0.0          backports_1.1.3       jsonlite_1.6         
-[31] hms_0.4.2             digest_0.6.18         rebus.base_0.0-3     
-[34] grid_3.5.2            rprojroot_1.3-2       here_0.1             
-[37] cli_1.0.1             tools_3.5.2           magrittr_1.5         
-[40] lazyeval_0.2.1        crayon_1.3.4          pkgconfig_2.0.2      
-[43] xml2_1.2.0            lubridate_1.7.4       assertthat_0.2.0     
-[46] rmarkdown_1.11        httr_1.4.0            rstudioapi_0.10      
-[49] R6_2.3.0              nlme_3.1-137          git2r_0.23.0         
-[52] compiler_3.5.2       </code></pre>
+ [1] tidyselect_0.2.5      rebus.unicode_0.0-2   haven_2.0.0          
+ [4] lattice_0.20-38       colorspace_1.3-2      htmltools_0.3.6      
+ [7] yaml_2.2.0            rlang_0.3.1           pillar_1.3.1         
+[10] withr_2.1.2           rebus.numbers_0.0-1   modelr_0.1.2         
+[13] readxl_1.1.0          plyr_1.8.4            munsell_0.5.0        
+[16] rebus.datetimes_0.0-1 gtable_0.2.0          workflowr_1.2.0      
+[19] cellranger_1.1.0      rvest_0.3.2           htmlwidgets_1.2      
+[22] evaluate_0.12         knitr_1.20            broom_0.5.0          
+[25] Rcpp_1.0.0            scales_1.0.0          backports_1.1.2      
+[28] jsonlite_1.6          hms_0.4.2             digest_0.6.18        
+[31] rebus.base_0.0-3      grid_3.5.3            rprojroot_1.3-2      
+[34] here_0.1              cli_1.0.1             tools_3.5.3          
+[37] magrittr_1.5          lazyeval_0.2.1        crayon_1.3.4         
+[40] whisker_0.3-2         pkgconfig_2.0.2       xml2_1.2.0           
+[43] lubridate_1.7.4       assertthat_0.2.0      rmarkdown_1.10       
+[46] httr_1.4.0            rstudioapi_0.10       R6_2.3.0             
+[49] nlme_3.1-137          git2r_0.23.0          compiler_3.5.3       </code></pre>
 </div>
 </div>
 
