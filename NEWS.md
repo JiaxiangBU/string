@@ -4,6 +4,8 @@
 1. tidy root dir
 1. update ch1
 1. delete redundant md document
+1. update ch2
+1. add license
 
 ### 2019-03-18 11:02:57
 

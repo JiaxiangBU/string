@@ -1,7 +1,17 @@
 ---
-title: "ch2 - stringr"
-output: github_document
+title: "ch2-stringr"
+author: Jiaxiang Li
+date: "`r Sys.Date()`"
+bibliography: ../refs/add.bib
 ---
+
+```{r message=FALSE, warning=FALSE}
+source(here::here("code/load.R"))
+```
+
+
+参考 @Charlotte_Wickham2019
+
 
 # str_c 更好的处理 NA
 

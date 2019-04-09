@@ -9,7 +9,9 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Jiaxiang Li" />
 
+<meta name="date" content="2019-04-09" />
 
 <title>ch2 - stringr</title>
 
@@ -405,13 +407,15 @@ div.section {
 
 
 <h1 class="title toc-ignore">ch2 - stringr</h1>
+<h4 class="author"><em>Jiaxiang Li</em></h4>
+<h4 class="date"><em>2019-04-09</em></h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -420,7 +424,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -429,10 +433,10 @@ div.section {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2019-03-18
+<strong>Last updated:</strong> 2019-04-09
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>string/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -448,12 +452,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -508,10 +512,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreefa7a95252aff7a6b5b4c37ff7015b161f56ce46btargetblankfa7a952a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/JiaxiangBU/string/tree/fa7a95252aff7a6b5b4c37ff7015b161f56ce46b" target="_blank">fa7a952</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtree750654c4f75fa8314adeae6b335822b11afea535targetblank750654ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/JiaxiangBU/string/tree/750654c4f75fa8314adeae6b335822b11afea535" target="_blank">750654c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtreefa7a95252aff7a6b5b4c37ff7015b161f56ce46btargetblankfa7a952a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomJiaxiangBUstringtree750654c4f75fa8314adeae6b335822b11afea535targetblank750654ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -523,7 +527,7 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Unstaged changes:
-    Deleted:    a20190221121451.Rmd
+    Modified:   analysis/ch2.Rmd
 
 </code></pre>
 <p>
@@ -564,6 +568,23 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/JiaxiangBU/string/ba554d25709cbfb0c9c653731d73365089179043/docs/ch2.html" target="_blank">ba554d2</a>
+</td>
+<td>
+Jiaxiang Li
+</td>
+<td>
+2019-03-18
+</td>
+<td>
+knit
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
@@ -586,23 +607,18 @@ workflow
 </div>
 </div>
 </div>
-<div id="str_c-86-na" class="section level1">
-<h1>str_c 鏇村ソ鐨勫鐞&lt;86&gt; NA</h1>
+<pre class="r"><code>source(here::here(&quot;code/load.R&quot;))</code></pre>
+<p>参考 <span class="citation">Wickham (2019)</span></p>
+<div id="str_c--na" class="section level1">
+<h1>str_c 更好的处理 NA</h1>
 <ol style="list-style-type: decimal">
-<li>str_c 褰撳彂鐜版湁 <code>NA</code>杩涜鍚堝苟鍜&lt;8c&gt; collapse 鏃讹紝淇濈暀 NA 涓嶅仛鍏朵粬淇敼</li>
-<li>杩欑偣姣&lt;94&gt; <code>paste</code> 鍜&lt;8c&gt; <code>paste0</code> 鏇村ソ</li>
+<li>str_c 当发现有 <code>NA</code>进行合并和 collapse 时，保留 NA 不做其他修改</li>
+<li>这点比 <code>paste</code> 和 <code>paste0</code> 更好</li>
 </ol>
 <pre class="r"><code>library(stringr)
-library(tidyverse)</code></pre>
-<pre><code>-- Attaching packages -------------------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
-<pre><code>√ ggplot2 3.1.0       √ readr   1.3.1  
-√ tibble  2.0.1       √ purrr   0.2.5  
-√ tidyr   0.8.2       √ dplyr   0.8.0.1
-√ ggplot2 3.1.0       √ forcats 0.3.0  </code></pre>
-<pre><code>-- Conflicts ----------------------------------------------------------------------------------- tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>my_toppings &lt;- c(&quot;cheese&quot;, NA, NA)
+library(tidyverse)
+
+my_toppings &lt;- c(&quot;cheese&quot;, NA, NA)
 my_toppings_and &lt;- paste(c(&quot;&quot;, &quot;&quot;, &quot;and &quot;), my_toppings, sep = &quot;&quot;)
 
 # Print my_toppings_and
@@ -625,21 +641,21 @@ str_c(my_toppings_str,collapse = &quot;, &quot;)</code></pre>
 </div>
 <div id="str_length" class="section level1">
 <h1>str_length</h1>
-<p><code>str_length</code> 瀵<b9> factor 鍙橀噺鍚屾牱鏈夋晥銆&lt;82&gt;</p>
+<p><code>str_length</code> 对 factor 变量同样有效。</p>
 <pre class="r"><code>str_length(factor(&#39;haha&#39;))</code></pre>
 <pre><code>[1] 4</code></pre>
 </div>
 <div id="section" class="section level1">
-<h1>鑻辨枃鍚嶇壒鐐<b9></h1>
+<h1>英文名特点</h1>
 <pre class="r"><code>library(babynames)</code></pre>
-<pre><code>Warning: 程辑包&#39;babynames&#39;是用R版本3.5.3 来建造的</code></pre>
+<pre><code>Warning: package &#39;babynames&#39; was built under R version 3.5.3</code></pre>
 <pre class="r"><code>data(babynames)</code></pre>
 <pre class="r"><code>babynames %&gt;% dim</code></pre>
 <pre><code>[1] 1924665       5</code></pre>
 <pre class="r"><code>babynames_sub &lt;- 
     babynames %&gt;% 
     filter(year &gt;= 1990)</code></pre>
-<p><input type="checkbox" id="checkbox1" class="styled">鎵句笉鍒<b0> year 鎶ラ敊</p>
+<p><input type="checkbox" id="checkbox1" class="styled">找不到 year 报错</p>
 <pre class="r"><code>babynames_sub %&gt;% 
     transmute(
         first_letter = str_sub(name,1,1)
@@ -669,7 +685,7 @@ $last_letter
   9203  38067  11083 170144  23668   1075    612  29900  31689  11871 
      u      v      w      x      y      z 
   3417   1477   1088   2219  55225   4370 </code></pre>
-<p>鍥犳浠寮€澶村拰缁撳熬鐨勫悕瀛楀湪90鍚庡拰00鍚庢尯澶氱殑銆&lt;82&gt;</p>
+<p>因此以a开头和结尾的名字在90后和00后挺多的。</p>
 </div>
 <div id="str_count" class="section level1">
 <h1>str_count</h1>
@@ -695,11 +711,11 @@ $last_letter
 5 sum(contain_n_a &gt; 3)   1624   
 6 sum(contain_n_a &gt; 4)     11   
 7 sum(contain_n_a &gt; 5)      0   </code></pre>
-<p>鍙互鍙戠幇瀛楁瘝a鎸哄父鐢ㄧ殑銆&lt;82&gt;</p>
+<p>可以发现字母a挺常用的。</p>
 </div>
 <div id="str_split" class="section level1">
 <h1>str_split</h1>
-<p><code>simplify = TRUE</code>杞崲鎴愮煩闃碉紝鐢变簬鏄粺涓€鏁版嵁绫诲瀷锛屽洜姝よ浆鎹㈡垚鐭╅樀锛屾洿鍔犺绠楁湁鏁堢巼銆&lt;82&gt;</p>
+<p><code>simplify = TRUE</code>转换成矩阵，由于是统一数据类型，因此转换成矩阵，更加计算有效率。</p>
 <pre class="r"><code>both_names &lt;- c(&quot;Box, George&quot;, &quot;Cox, David&quot;)
 
 # Split both_names into first_names and last_names
@@ -721,7 +737,7 @@ both_names_split[,1]</code></pre>
     c(
         &quot;The table was a large one, but the three were all crowded together at one corner of it:&quot;
         ,&quot;\&quot;No room! No room!\&quot; they cried out when they saw Alice coming.&quot;
-        ,&quot;\&quot;There鈥檚 plenty of room!\&quot; said Alice indignantly, and she sat down in a large arm-chair at one end of the table.&quot;
+        ,&quot;\&quot;There’s plenty of room!\&quot; said Alice indignantly, and she sat down in a large arm-chair at one end of the table.&quot;
     )</code></pre>
 <pre class="r"><code># Split lines into words
 words &lt;- str_split(lines,&#39; &#39;)
@@ -751,7 +767,7 @@ lapply(word_lengths,mean)</code></pre>
 [1] 4.380952</code></pre>
 </div>
 <div id="section-1" class="section level1">
-<h1>瀹炵幇闇€姹&lt;82&gt; 棣栧悕棣栧瓧姣嶆彁鍙&lt;96&gt;</h1>
+<h1>实现需求 首名首字母提取</h1>
 <pre class="r"><code># Define some full names
 names &lt;- c(&quot;Diana Prince&quot;, &quot;Clark Kent&quot;)
 
@@ -764,6 +780,11 @@ abb_first &lt;- str_sub(names_split[, 1], 1, 1)
 # Combine the first letter &quot;. &quot; and last name
 str_c(abb_first, &quot;. &quot;, names_split[, 2])</code></pre>
 <pre><code>[1] &quot;D. Prince&quot; &quot;C. Kent&quot;  </code></pre>
+<div id="refs">
+<div id="ref-Charlotte_Wickham2019">
+<p>Wickham, Charlotte. 2019. “String Manipulation in R with Stringr.” DataCamp. 2019. <a href="https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr">https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr</a>.</p>
+</div>
+</div>
 <br> <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -789,24 +810,24 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] babynames_1.0.0 forcats_0.3.0   dplyr_0.8.0.1   purrr_0.2.5    
- [5] readr_1.3.1     tidyr_0.8.2     tibble_2.0.1    ggplot2_3.1.0  
- [9] tidyverse_1.2.1 stringr_1.3.1  
+ [1] babynames_1.0.0 glue_1.3.0      fs_1.2.6        forcats_0.3.0  
+ [5] stringr_1.3.1   dplyr_0.8.0.1   purrr_0.2.5     readr_1.3.1    
+ [9] tidyr_0.8.2     tibble_2.1.1    ggplot2_3.1.0   tidyverse_1.2.1
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.0       cellranger_1.1.0 plyr_1.8.4       pillar_1.3.1    
- [5] compiler_3.5.2   git2r_0.23.0     workflowr_1.2.0  tools_3.5.2     
- [9] digest_0.6.18    lubridate_1.7.4  jsonlite_1.6     evaluate_0.12   
-[13] nlme_3.1-137     gtable_0.2.0     lattice_0.20-38  pkgconfig_2.0.2 
-[17] rlang_0.3.1      cli_1.0.1        rstudioapi_0.9.0 yaml_2.2.0      
-[21] haven_2.0.0      xfun_0.4         withr_2.1.2      xml2_1.2.0      
-[25] httr_1.4.0       knitr_1.21       hms_0.4.2        generics_0.0.2  
-[29] fs_1.2.6         rprojroot_1.3-2  grid_3.5.2       tidyselect_0.2.5
-[33] glue_1.3.0       R6_2.3.0         fansi_0.4.0      readxl_1.2.0    
-[37] rmarkdown_1.11   modelr_0.1.2     magrittr_1.5     whisker_0.3-2   
-[41] backports_1.1.3  scales_1.0.0     htmltools_0.3.6  rvest_0.3.2     
-[45] assertthat_0.2.0 colorspace_1.3-2 utf8_1.1.4       stringi_1.2.4   
-[49] lazyeval_0.2.1   munsell_0.5.0    broom_0.5.1      crayon_1.3.4    </code></pre>
+ [1] tidyselect_0.2.5 xfun_0.4         haven_2.0.0      lattice_0.20-38 
+ [5] colorspace_1.3-2 generics_0.0.2   htmltools_0.3.6  yaml_2.2.0      
+ [9] utf8_1.1.4       rlang_0.3.3      pillar_1.3.1     withr_2.1.2     
+[13] modelr_0.1.2     readxl_1.2.0     plyr_1.8.4       munsell_0.5.0   
+[17] gtable_0.2.0     workflowr_1.2.0  cellranger_1.1.0 rvest_0.3.2     
+[21] evaluate_0.12    knitr_1.21       fansi_0.4.0      broom_0.5.1     
+[25] Rcpp_1.0.0       scales_1.0.0     backports_1.1.3  jsonlite_1.6    
+[29] hms_0.4.2        digest_0.6.18    stringi_1.2.4    grid_3.5.2      
+[33] rprojroot_1.3-2  here_0.1         cli_1.0.1        tools_3.5.2     
+[37] magrittr_1.5     lazyeval_0.2.1   crayon_1.3.4     whisker_0.3-2   
+[41] pkgconfig_2.0.2  xml2_1.2.0       lubridate_1.7.4  assertthat_0.2.0
+[45] rmarkdown_1.11   httr_1.4.0       rstudioapi_0.10  R6_2.3.0        
+[49] nlme_3.1-137     git2r_0.23.0     compiler_3.5.2  </code></pre>
 </div>
 </div>
 
