@@ -1,7 +1,16 @@
 ---
-title: "ch5"
-output: github_document
+title: "ch5-case-study"
+author: Jiaxiang Li
+date: "`r Sys.Date()`"
+bibliography: ../refs/add.bib
 ---
+
+```{r message=FALSE, warning=FALSE}
+source(here::here("code/load.R"))
+```
+
+
+参考 @Charlotte_Wickham2019
 
 ```{r}
 library(stringi)
