@@ -1,0 +1,10 @@
+---
+bibliography: ../refs/add.bib
+---
+
+```{r message=FALSE, warning=FALSE}
+source(here::here("code/load.R"))
+```
+
+1. `r "gr" %R% or("e", "a") %R% "y"`
+

@@ -1,0 +1,13 @@
+---
+bibliography: ../refs/add.bib
+---
+
+```{r message=FALSE, warning=FALSE}
+source(here::here("code/load.R"))
+```
+
+参考 @Charlotte_Wickham2019
+
+
+1. `r "gr" %R% or("e", "a") %R% "y"`
+
