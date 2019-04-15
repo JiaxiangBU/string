@@ -1,3 +1,7 @@
+### 2019-04-15 11:22:25
+
+1. debug ch3-rebus, just knitting it
+
 ### 2019-04-10 13:00:44
 
 1. debug ch3-rebus
