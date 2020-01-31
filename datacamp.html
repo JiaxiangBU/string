@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>正则化 DataCamp Notes</title>
+  <meta name="description" content="正则化 DataCamp Notes" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="正则化 DataCamp Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="正则化 DataCamp Notes" />
+  
+  
+  
+
+<meta name="author" content="李家翔" />
+
+
+<meta name="date" content="2020-01-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path=""><a href="#chapter-1"><i class="fa fa-check"></i><b>1</b> Chapter 1</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#quotes"><i class="fa fa-check"></i><b>1.1</b> Quotes</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#emoji"><i class="fa fa-check"></i><b>1.2</b> Emoji</a></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#number"><i class="fa fa-check"></i><b>1.3</b> number</a></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#formatc"><i class="fa fa-check"></i><b>1.4</b> formatC</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path=""><a href="#chapter-2"><i class="fa fa-check"></i><b>2</b> Chapter 2</a><ul>
+<li class="chapter" data-level="2.1" data-path=""><a href="#str_c-更好的处理-na"><i class="fa fa-check"></i><b>2.1</b> str_c 更好的处理 NA</a></li>
+<li class="chapter" data-level="2.2" data-path=""><a href="#str_length"><i class="fa fa-check"></i><b>2.2</b> str_length</a></li>
+<li class="chapter" data-level="2.3" data-path=""><a href="#英文名特点"><i class="fa fa-check"></i><b>2.3</b> 英文名特点</a></li>
+<li class="chapter" data-level="2.4" data-path=""><a href="#str_count"><i class="fa fa-check"></i><b>2.4</b> str_count</a></li>
+<li class="chapter" data-level="2.5" data-path=""><a href="#str_split"><i class="fa fa-check"></i><b>2.5</b> str_split</a></li>
+<li class="chapter" data-level="2.6" data-path=""><a href="#lapply"><i class="fa fa-check"></i><b>2.6</b> lapply</a></li>
+<li class="chapter" data-level="2.7" data-path=""><a href="#实现需求-首名首字母提取"><i class="fa fa-check"></i><b>2.7</b> 实现需求 首名首字母提取</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path=""><a href="#chapter-3"><i class="fa fa-check"></i><b>3</b> Chapter 3</a><ul>
+<li class="chapter" data-level="3.1" data-path=""><a href="#rebus-包"><i class="fa fa-check"></i><b>3.1</b> rebus 包</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path=""><a href="#chapter-4"><i class="fa fa-check"></i><b>4</b> Chapter 4</a><ul>
+<li class="chapter" data-level="4.1" data-path=""><a href="#capture-str_match"><i class="fa fa-check"></i><b>4.1</b> capture + str_match</a></li>
+<li class="chapter" data-level="4.2" data-path=""><a href="#backreferences"><i class="fa fa-check"></i><b>4.2</b> backreferences</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#附录"><i class="fa fa-check"></i>附录</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path=""><a href="#chapter-5"><i class="fa fa-check"></i><b>5</b> Chapter 5</a><ul>
+<li class="chapter" data-level="5.1" data-path=""><a href="#ignore-case"><i class="fa fa-check"></i><b>5.1</b> ignore case</a></li>
+<li class="chapter" data-level="5.2" data-path=""><a href="#stri_trans_totitle"><i class="fa fa-check"></i><b>5.2</b> stri_trans_totitle()</a></li>
+<li class="chapter" data-level="5.3" data-path=""><a href="#完成证书"><i class="fa fa-check"></i><b>5.3</b> 完成证书</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#附录-1"><i class="fa fa-check"></i>附录</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">正则化 DataCamp Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">正则化 DataCamp Notes</h1>
+<p class="author"><em>李家翔</em></p>
+<p class="date"><em>2020-01-31</em></p>
+</div>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<ol style="list-style-type: decimal">
+<li>使用 RMarkdown 的 <code>child</code> 参数，进行文档拼接。</li>
+<li>这样拼接以后的笔记方便复习。</li>
+<li>相关问题提交到
+<a class="github-button" href="https://github.com/JiaxiangBU/tutoring2/issues" data-show-count="true" aria-label="Issue JiaxiangBU/tutoring on GitHub">Issue</a>
+<a href="http://127.0.0.1:43572/rmd_output/0/#number" class="uri">http://127.0.0.1:43572/rmd_output/0/#number</a></li>
+</ol>
+<div id="chapter-1" class="section level1">
+<h1><span class="header-section-number">1</span> Chapter 1</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">source</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;code/load.R&quot;</span>))</a></code></pre></div>
+<p>参考 <span class="citation">Wickham (2019)</span></p>
+<div id="quotes" class="section level2">
+<h2><span class="header-section-number">1.1</span> Quotes</h2>
+<p><code>\</code></p>
+<ol style="list-style-type: decimal">
+<li>escape sequence</li>
+<li>backslash type <code>\\</code></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">There&#39;s plenty of room!</span><span class="ch">\&quot;</span><span class="st"> said Alice indignantly, and she sat down in a large arm-chair at one end of the table.&quot;</span> <span class="op">%&gt;%</span><span class="st"> </span>cat</a></code></pre></div>
+<pre><code>## &quot;There&#39;s plenty of room!&quot; said Alice indignantly, and she sat down in a large arm-chair at one end of the table.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="st">&#39;&quot;There</span><span class="ch">\&#39;</span><span class="st">s plenty of room!&quot; said Alice indignantly, and she sat down in a large arm-chair at one end of the table.&#39;</span> <span class="op">%&gt;%</span><span class="st"> </span>cat</a></code></pre></div>
+<pre><code>## &quot;There&#39;s plenty of room!&quot; said Alice indignantly, and she sat down in a large arm-chair at one end of the table.</code></pre>
+</div>
+<div id="emoji" class="section level2">
+<h2><span class="header-section-number">1.2</span> Emoji</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">cat</span>(<span class="st">&quot;hello</span><span class="ch">\n</span><span class="st">\U1F30D&quot;</span>)</a></code></pre></div>
+<pre><code>## hello
+## &lt;U+0001F30D&gt;</code></pre>
+<p><code>\U</code> followed by up to 8 hex digits sequence denotes a particular Unicode character.</p>
+<ol style="list-style-type: decimal">
+<li>using base 16 and the digits 0-9 and A-F. <a href="http://www.unicode.org/charts/" class="uri">http://www.unicode.org/charts/</a></li>
+<li>four digits for the codepoint, an alternative escape sequence is <code>\u</code>.</li>
+</ol>
+</div>
+<div id="number" class="section level2">
+<h2><span class="header-section-number">1.3</span> number</h2>
+<p>感觉 fixed 和 scientific 好复杂。</p>
+<ol style="list-style-type: decimal">
+<li>有效数字，使用<code>format(..., digits = n)</code>，小数点前后取最大数的数位和最小数的数位(解释看例子)
+<ol style="list-style-type: decimal">
+<li>方便以列展示数据，但是当数据呈现是居中，可以用<code>trim = TRUE</code>去除效果。</li>
+</ol></li>
+<li>取消科学计数法，使用<code>format(..., scientific = FALSE)</code></li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co">## Some vectors of numbers</span></a>
+<a class="sourceLine" id="cb8-2" title="2">percent_change  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="fl">-1.91</span>, <span class="fl">3.00</span>, <span class="fl">-5.002</span>)</a>
+<a class="sourceLine" id="cb8-3" title="3">income &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="fl">72.19</span>, <span class="fl">1030.18</span>, <span class="fl">10291.93</span>, <span class="fl">1189192.18</span>)</a>
+<a class="sourceLine" id="cb8-4" title="4">p_values &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.12</span>, <span class="fl">0.98</span>, <span class="fl">0.0000191</span>, <span class="fl">0.00000000002</span>)</a>
+<a class="sourceLine" id="cb8-5" title="5"></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">## Format c(0.0011, 0.011, 1) with digits = 1</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="kw">format</span>(<span class="kw">c</span>(<span class="fl">0.0011</span>, <span class="fl">0.011</span>, <span class="dv">1</span>), <span class="dt">digits =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;0.001&quot; &quot;0.011&quot; &quot;1.000&quot;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co">## Format c(1.0011, 2.011, 1) with digits = 1</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">format</span>(<span class="kw">c</span>(<span class="fl">1.0011</span>, <span class="fl">2.011</span>, <span class="dv">1</span>), <span class="dt">digits =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;1&quot;</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co">## Format percent_change to one place after the decimal point</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">format</span>(percent_change, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] &quot; 4.0&quot; &quot;-1.9&quot; &quot; 3.0&quot; &quot;-5.0&quot;</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co">## Format income to whole numbers</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="kw">format</span>(income, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;     72&quot; &quot;   1030&quot; &quot;  10292&quot; &quot;1189192&quot;</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co">## stretch the small number</span></a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="co">## Format p_values in fixed format</span></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="kw">format</span>(p_values, <span class="dt">scientific =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;0.12000000000&quot; &quot;0.98000000000&quot; &quot;0.00001910000&quot; &quot;0.00000000002&quot;</code></pre>
+<ol style="list-style-type: decimal">
+<li>三位数控制，使用<code>big.mark = ','</code>给出分隔符，<code>big.interval = 3</code>给出分割距离。</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">formatted_income &lt;-<span class="st"> </span><span class="kw">format</span>(income, <span class="dt">digits =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb18-2" title="2"></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="co">## Print formatted_income</span></a>
+<a class="sourceLine" id="cb18-4" title="4">formatted_income</a></code></pre></div>
+<pre><code>## [1] &quot;     72&quot; &quot;   1030&quot; &quot;  10292&quot; &quot;1189192&quot;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="co">## Call writeLines() on the formatted income</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="kw">writeLines</span>(formatted_income)</a></code></pre></div>
+<pre><code>##      72
+##    1030
+##   10292
+## 1189192</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co">## Define trimmed_income</span></a>
+<a class="sourceLine" id="cb22-2" title="2">trimmed_income &lt;-<span class="st"> </span><span class="kw">format</span>(income, <span class="dt">digits =</span><span class="dv">2</span>, <span class="dt">trim =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb22-3" title="3"></a>
+<a class="sourceLine" id="cb22-4" title="4"><span class="co">## Call writeLines() on the trimmed_income</span></a>
+<a class="sourceLine" id="cb22-5" title="5"><span class="kw">writeLines</span>(trimmed_income)</a></code></pre></div>
+<pre><code>## 72
+## 1030
+## 10292
+## 1189192</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="co">## Define pretty_income</span></a>
+<a class="sourceLine" id="cb24-2" title="2">pretty_income &lt;-<span class="st"> </span><span class="kw">format</span>(income, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">big.mark =</span> <span class="st">&quot;,&quot;</span>,<span class="dt">big.interval =</span> <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb24-3" title="3"><span class="co">## 中文需要四位分隔符</span></a>
+<a class="sourceLine" id="cb24-4" title="4"></a>
+<a class="sourceLine" id="cb24-5" title="5"><span class="co">## Call writeLines() on the pretty_income</span></a>
+<a class="sourceLine" id="cb24-6" title="6"><span class="kw">writeLines</span>(pretty_income)</a></code></pre></div>
+<pre><code>##       72
+##     1030
+##   1,0292
+## 118,9192</code></pre>
+</div>
+<div id="formatc" class="section level2">
+<h2><span class="header-section-number">1.4</span> formatC</h2>
+<p>based on C style syntax</p>
+<ol style="list-style-type: decimal">
+<li><p><code>"f"</code> for fixed, <code>digits</code> is the number of digits after the decimal point.</p></li>
+<li><p><code>"e"</code> for scientific, and</p></li>
+<li><p><code>"g"</code> for fixed unless scientific saves space</p></li>
+<li><p><code>flag = "+"</code>表示数据正负号</p></li>
+<li><p><code>format = "g", digits = 2</code>用最少字母表示小数点后两位</p></li>
+<li><p><code>flag = "0"</code>前面用0 pad 上，不清晰，也使用<code>str_pad</code>替代</p></li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="co">## From the format() exercise</span></a>
+<a class="sourceLine" id="cb26-2" title="2">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.0011</span>, <span class="fl">0.011</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb26-3" title="3">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.0011</span>, <span class="fl">2.011</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb26-4" title="4"></a>
+<a class="sourceLine" id="cb26-5" title="5"><span class="co">## formatC() on x with format = &quot;f&quot;, digits = 1</span></a>
+<a class="sourceLine" id="cb26-6" title="6"><span class="kw">formatC</span>(x, <span class="dt">format =</span> <span class="st">&quot;f&quot;</span>, <span class="dt">digits =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;0.0&quot; &quot;0.0&quot; &quot;1.0&quot;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">format</span>(x, <span class="dt">digits =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;0.001&quot; &quot;0.011&quot; &quot;1.000&quot;</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="co">## formatC() on y with format = &quot;f&quot;, digits = 1</span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="kw">formatC</span>(y, <span class="dt">format =</span> <span class="st">&quot;f&quot;</span>, <span class="dt">digits =</span> <span class="dv">1</span>) </a></code></pre></div>
+<pre><code>## [1] &quot;1.0&quot; &quot;2.0&quot; &quot;1.0&quot;</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">format</span>(y, <span class="dt">format =</span> <span class="st">&quot;f&quot;</span>, <span class="dt">digits =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;1&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="co">## Format percent_change to one place after the decimal point</span></a>
+<a class="sourceLine" id="cb34-2" title="2"><span class="kw">formatC</span>(percent_change, <span class="dt">format =</span> <span class="st">&quot;f&quot;</span>, <span class="dt">digits =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;4.0&quot;  &quot;-1.9&quot; &quot;3.0&quot;  &quot;-5.0&quot;</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="co">## percent_change with flag = &quot;+&quot;</span></a>
+<a class="sourceLine" id="cb36-2" title="2"><span class="kw">formatC</span>(percent_change, <span class="dt">format =</span> <span class="st">&quot;f&quot;</span>, <span class="dt">digits =</span> <span class="dv">1</span>, <span class="dt">flag =</span> <span class="st">&quot;+&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;+4.0&quot; &quot;-1.9&quot; &quot;+3.0&quot; &quot;-5.0&quot;</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co">## Format p_values using format = &quot;g&quot; and digits = 2</span></a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="kw">formatC</span>(p_values, <span class="dt">format =</span> <span class="st">&quot;g&quot;</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;0.12&quot;    &quot;0.98&quot;    &quot;1.9e-05&quot; &quot;2e-11&quot;</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">formatC</span>(income,<span class="dt">digits =</span> <span class="dv">0</span>,<span class="dt">format =</span> <span class="st">&#39;f&#39;</span>,<span class="dt">flag =</span> <span class="st">&#39;0&#39;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;72&quot;      &quot;1030&quot;    &quot;10292&quot;   &quot;1189192&quot;</code></pre>
+<ol style="list-style-type: decimal">
+<li>会计格式展示，使用<code>format</code>和<code>paste</code>完成</li>
+<li><code>justify = "right"</code>可以让文本居中或者向左向右。</li>
+</ol>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="co">## Define the names vector</span></a>
+<a class="sourceLine" id="cb42-2" title="2">income_names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Year 0&quot;</span>, <span class="st">&quot;Year 1&quot;</span>, <span class="st">&quot;Year 2&quot;</span>, <span class="st">&quot;Project Lifetime&quot;</span>)</a>
+<a class="sourceLine" id="cb42-3" title="3"></a>
+<a class="sourceLine" id="cb42-4" title="4"><span class="co">## Create pretty_income</span></a>
+<a class="sourceLine" id="cb42-5" title="5">pretty_income &lt;-<span class="st"> </span><span class="kw">format</span>(income, <span class="dt">digit =</span> <span class="dv">2</span>, <span class="dt">big.mark =</span> <span class="st">&#39;,&#39;</span>)</a>
+<a class="sourceLine" id="cb42-6" title="6"></a>
+<a class="sourceLine" id="cb42-7" title="7"><span class="co">## Create dollar_income</span></a>
+<a class="sourceLine" id="cb42-8" title="8">dollar_income &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;$&#39;</span>, pretty_income, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</a>
+<a class="sourceLine" id="cb42-9" title="9"></a>
+<a class="sourceLine" id="cb42-10" title="10"><span class="co">## Create formatted_names</span></a>
+<a class="sourceLine" id="cb42-11" title="11">formatted_names &lt;-<span class="st"> </span><span class="kw">format</span>(income_names, <span class="dt">justify =</span> <span class="st">&quot;right&quot;</span>)</a>
+<a class="sourceLine" id="cb42-12" title="12"></a>
+<a class="sourceLine" id="cb42-13" title="13"><span class="co">## Create rows</span></a>
+<a class="sourceLine" id="cb42-14" title="14">rows &lt;-<span class="st"> </span><span class="kw">paste</span>(formatted_names, dollar_income, <span class="dt">sep =</span> <span class="st">&#39;   &#39;</span>)</a>
+<a class="sourceLine" id="cb42-15" title="15"></a>
+<a class="sourceLine" id="cb42-16" title="16"><span class="co">## Write rows</span></a>
+<a class="sourceLine" id="cb42-17" title="17"><span class="kw">writeLines</span>(rows)</a></code></pre></div>
+<pre><code>##           Year 0   $       72
+##           Year 1   $    1,030
+##           Year 2   $   10,292
+## Project Lifetime   $1,189,192</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">income <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="st">    </span>round <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb44-3" title="3"><span class="st">    </span>as.character <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb44-4" title="4"><span class="st">    </span><span class="kw">str_pad</span>(<span class="dt">string =</span> .,<span class="dt">width =</span> <span class="kw">max</span>(<span class="kw">str_count</span>(.)),<span class="dt">pad =</span> <span class="st">&#39;0&#39;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;0000072&quot; &quot;0001030&quot; &quot;0010292&quot; &quot;1189192&quot;</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">formatC</span>(income, <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">format =</span> <span class="st">&quot;d&quot;</span>, <span class="dt">flag =</span> <span class="st">&quot;0&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;0000072&quot; &quot;0001030&quot; &quot;0010291&quot; &quot;1189192&quot;</code></pre>
+<ol style="list-style-type: decimal">
+<li><code>formatC</code>更简单一些
+(<a href="https://stackoverflow.com/questions/5812493/how-to-add-leading-zeros">Richie Cotton</a>)</li>
+<li>可以方便用于文件命名</li>
+</ol>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1"><span class="dv">0</span><span class="op">:</span><span class="dv">999</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="st">    </span>as.character <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb48-3" title="3"><span class="st">    </span><span class="kw">str_pad</span>(<span class="dt">string =</span> .,<span class="dt">width =</span> <span class="kw">max</span>(<span class="kw">str_count</span>(.)),<span class="dt">pad =</span> <span class="st">&#39;0&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb48-4" title="4"><span class="st">    </span>head</a></code></pre></div>
+<pre><code>## [1] &quot;000&quot; &quot;001&quot; &quot;002&quot; &quot;003&quot; &quot;004&quot; &quot;005&quot;</code></pre>
+<p>书签
+<a href="https://campus.datacamp.com/courses/string-manipulation-in-r-with-stringr/pattern-matching-with-regular-expressions?ex=3" class="uri">https://campus.datacamp.com/courses/string-manipulation-in-r-with-stringr/pattern-matching-with-regular-expressions?ex=3</a></p>
+</div>
+</div>
+<div id="chapter-2" class="section level1">
+<h1><span class="header-section-number">2</span> Chapter 2</h1>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="kw">source</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;code/load.R&quot;</span>))</a></code></pre></div>
+<p>参考 <span class="citation">Wickham (2019)</span></p>
+<div id="str_c-更好的处理-na" class="section level2">
+<h2><span class="header-section-number">2.1</span> str_c 更好的处理 NA</h2>
+<ol style="list-style-type: decimal">
+<li>str_c 当发现有 <code>NA</code>进行合并和 collapse 时，保留 NA 不做其他修改</li>
+<li>这点比 <code>paste</code> 和 <code>paste0</code> 更好</li>
+</ol>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">library</span>(stringr)</a>
+<a class="sourceLine" id="cb51-2" title="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb51-3" title="3"></a>
+<a class="sourceLine" id="cb51-4" title="4">my_toppings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cheese&quot;</span>, <span class="ot">NA</span>, <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb51-5" title="5">my_toppings_and &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;and &quot;</span>), my_toppings, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb51-6" title="6"></a>
+<a class="sourceLine" id="cb51-7" title="7"><span class="co">## Print my_toppings_and</span></a>
+<a class="sourceLine" id="cb51-8" title="8">my_toppings_and</a></code></pre></div>
+<pre><code>## [1] &quot;cheese&quot; &quot;NA&quot;     &quot;and NA&quot;</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="co">## Use str_c() instead of paste(): my_toppings_str</span></a>
+<a class="sourceLine" id="cb53-2" title="2">my_toppings_str &lt;-<span class="st"> </span><span class="kw">str_c</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;and &quot;</span>), my_toppings)</a>
+<a class="sourceLine" id="cb53-3" title="3"></a>
+<a class="sourceLine" id="cb53-4" title="4"><span class="co">## Print my_toppings_str</span></a>
+<a class="sourceLine" id="cb53-5" title="5">my_toppings_str</a></code></pre></div>
+<pre><code>## [1] &quot;cheese&quot; NA       NA</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="co">## paste() my_toppings_and with collapse = &quot;, &quot;</span></a>
+<a class="sourceLine" id="cb55-2" title="2"><span class="kw">paste</span>(my_toppings_and,<span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;cheese, NA, and NA&quot;</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="co">## str_c() my_toppings_str with collapse = &quot;, &quot;</span></a>
+<a class="sourceLine" id="cb57-2" title="2"><span class="kw">str_c</span>(my_toppings_str,<span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>)</a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1"><span class="kw">str_c</span>(my_toppings_str,<span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_replace_na</span>(<span class="st">&#39;There is no value.&#39;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;There is no value.&quot;</code></pre>
+</div>
+<div id="str_length" class="section level2">
+<h2><span class="header-section-number">2.2</span> str_length</h2>
+<p><code>str_length</code> 对 factor 变量同样有效。</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1"><span class="kw">str_length</span>(<span class="kw">factor</span>(<span class="st">&#39;haha&#39;</span>))</a></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="英文名特点" class="section level2">
+<h2><span class="header-section-number">2.3</span> 英文名特点</h2>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1"><span class="kw">library</span>(babynames)</a>
+<a class="sourceLine" id="cb63-2" title="2"><span class="kw">data</span>(babynames)</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">babynames <span class="op">%&gt;%</span><span class="st"> </span>dim</a></code></pre></div>
+<pre><code>## [1] 1924665       5</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1">babynames_sub &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb66-2" title="2"><span class="st">    </span>babynames <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb66-3" title="3"><span class="st">    </span><span class="kw">filter</span>(year <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1990</span>)</a></code></pre></div>
+<p><input type="checkbox" id="checkbox1" class="styled">找不到 year 报错</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1">babynames_sub <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb67-2" title="2"><span class="st">    </span><span class="kw">transmute</span>(</a>
+<a class="sourceLine" id="cb67-3" title="3">        <span class="dt">first_letter =</span> <span class="kw">str_sub</span>(name,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb67-4" title="4">        ,<span class="dt">last_letter =</span> <span class="kw">str_sub</span>(name,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb67-5" title="5">    ) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb67-6" title="6"><span class="st">    </span>{</a>
+<a class="sourceLine" id="cb67-7" title="7">        <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb67-8" title="8">            <span class="dt">first_letter =</span> <span class="kw">table</span>(.<span class="op">$</span>first_letter)</a>
+<a class="sourceLine" id="cb67-9" title="9">            ,<span class="dt">last_letter =</span> <span class="kw">table</span>(.<span class="op">$</span>last_letter)</a>
+<a class="sourceLine" id="cb67-10" title="10">        )</a>
+<a class="sourceLine" id="cb67-11" title="11">            </a>
+<a class="sourceLine" id="cb67-12" title="12">    }</a></code></pre></div>
+<pre><code>## $first_letter
+## 
+##      A      B      C      D      E      F      G      H      I      J 
+## 101494  32632  50036  57301  31795   9904  17624  18412  13880  77706 
+##      K      L      M      N      O      P      Q      R      S      T 
+##  77323  41851  68839  30200   8171  12109   3835  39261  63938  50452 
+##      U      V      W      X      Y      Z 
+##   1774   8647   6119   2276  13123  16358 
+## 
+## $last_letter
+## 
+##      a      b      c      d      e      f      g      h      i      j 
+## 213857   2946   3121  13632 117122   1809   2992  51317  51723   1433 
+##      k      l      m      n      o      p      q      r      s      t 
+##   9203  38067  11083 170144  23668   1075    612  29900  31689  11871 
+##      u      v      w      x      y      z 
+##   3417   1477   1088   2219  55225   4370</code></pre>
+<p>因此以a开头和结尾的名字在90后和00后挺多的。</p>
+</div>
+<div id="str_count" class="section level2">
+<h2><span class="header-section-number">2.4</span> str_count</h2>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1">babynames_sub <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb69-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">contain_n_a =</span> <span class="kw">str_count</span>(name,<span class="st">&#39;A|a&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb69-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb69-4" title="4">        <span class="kw">mean</span>(contain_n_a)</a>
+<a class="sourceLine" id="cb69-5" title="5">        ,<span class="kw">sum</span>(contain_n_a<span class="op">&gt;</span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb69-6" title="6">        ,<span class="kw">sum</span>(contain_n_a<span class="op">&gt;</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb69-7" title="7">        ,<span class="kw">sum</span>(contain_n_a<span class="op">&gt;</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb69-8" title="8">        ,<span class="kw">sum</span>(contain_n_a<span class="op">&gt;</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb69-9" title="9">        ,<span class="kw">sum</span>(contain_n_a<span class="op">&gt;</span><span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb69-10" title="10">        ,<span class="kw">sum</span>(contain_n_a<span class="op">&gt;</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb69-11" title="11">    ) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb69-12" title="12"><span class="st">    </span>gather</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["key"],"name":[1],"type":["chr"],"align":["left"]},{"label":["value"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"mean(contain_n_a)","2":"1.092751e+00"},{"1":"sum(contain_n_a > 0)","2":"6.406480e+05"},{"1":"sum(contain_n_a > 1)","2":"2.478100e+05"},{"1":"sum(contain_n_a > 2)","2":"4.427500e+04"},{"1":"sum(contain_n_a > 3)","2":"1.624000e+03"},{"1":"sum(contain_n_a > 4)","2":"1.100000e+01"},{"1":"sum(contain_n_a > 5)","2":"0.000000e+00"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>可以发现字母a挺常用的。</p>
+</div>
+<div id="str_split" class="section level2">
+<h2><span class="header-section-number">2.5</span> str_split</h2>
+<p><code>simplify = TRUE</code>转换成矩阵，由于是统一数据类型，因此转换成矩阵，更加计算有效率。</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1">both_names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Box, George&quot;</span>, <span class="st">&quot;Cox, David&quot;</span>)</a>
+<a class="sourceLine" id="cb70-2" title="2"></a>
+<a class="sourceLine" id="cb70-3" title="3"><span class="co">## Split both_names into first_names and last_names</span></a>
+<a class="sourceLine" id="cb70-4" title="4">both_names_split &lt;-<span class="st"> </span><span class="kw">str_split</span>(both_names,<span class="st">&quot;, &quot;</span>,<span class="dt">n=</span><span class="dv">2</span>,<span class="dt">simplify =</span> T)</a>
+<a class="sourceLine" id="cb70-5" title="5">both_names_split</a></code></pre></div>
+<pre><code>##      [,1]  [,2]    
+## [1,] &quot;Box&quot; &quot;George&quot;
+## [2,] &quot;Cox&quot; &quot;David&quot;</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="co">## Get first names</span></a>
+<a class="sourceLine" id="cb72-2" title="2">both_names_split[,<span class="dv">2</span>]</a></code></pre></div>
+<pre><code>## [1] &quot;George&quot; &quot;David&quot;</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="co">## Get last names</span></a>
+<a class="sourceLine" id="cb74-2" title="2">both_names_split[,<span class="dv">1</span>]</a></code></pre></div>
+<pre><code>## [1] &quot;Box&quot; &quot;Cox&quot;</code></pre>
+</div>
+<div id="lapply" class="section level2">
+<h2><span class="header-section-number">2.6</span> lapply</h2>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1">lines &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb76-2" title="2"><span class="st">    </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb76-3" title="3">        <span class="st">&quot;The table was a large one, but the three were all crowded together at one corner of it:&quot;</span></a>
+<a class="sourceLine" id="cb76-4" title="4">        ,<span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">No room! No room!</span><span class="ch">\&quot;</span><span class="st"> they cried out when they saw Alice coming.&quot;</span></a>
+<a class="sourceLine" id="cb76-5" title="5">        ,<span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">There’s plenty of room!</span><span class="ch">\&quot;</span><span class="st"> said Alice indignantly, and she sat down in a large arm-chair at one end of the table.&quot;</span></a>
+<a class="sourceLine" id="cb76-6" title="6">    )</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1"><span class="co">## Split lines into words</span></a>
+<a class="sourceLine" id="cb77-2" title="2">words &lt;-<span class="st"> </span><span class="kw">str_split</span>(lines,<span class="st">&#39; &#39;</span>)</a>
+<a class="sourceLine" id="cb77-3" title="3"></a>
+<a class="sourceLine" id="cb77-4" title="4"><span class="co">## Number of words per line</span></a>
+<a class="sourceLine" id="cb77-5" title="5"><span class="kw">lapply</span>(words,length)</a></code></pre></div>
+<pre><code>## [[1]]
+## [1] 18
+## 
+## [[2]]
+## [1] 12
+## 
+## [[3]]
+## [1] 21</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="co">## Number of characters in each word</span></a>
+<a class="sourceLine" id="cb79-2" title="2">word_lengths &lt;-<span class="st"> </span><span class="kw">lapply</span>(words,str_length)</a>
+<a class="sourceLine" id="cb79-3" title="3">  </a>
+<a class="sourceLine" id="cb79-4" title="4"><span class="co">## Average word length per line</span></a>
+<a class="sourceLine" id="cb79-5" title="5"><span class="kw">lapply</span>(word_lengths,mean)</a></code></pre></div>
+<pre><code>## [[1]]
+## [1] 3.888889
+## 
+## [[2]]
+## [1] 4.25
+## 
+## [[3]]
+## [1] 4.380952</code></pre>
+</div>
+<div id="实现需求-首名首字母提取" class="section level2">
+<h2><span class="header-section-number">2.7</span> 实现需求 首名首字母提取</h2>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="co">## Define some full names</span></a>
+<a class="sourceLine" id="cb81-2" title="2">names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Diana Prince&quot;</span>, <span class="st">&quot;Clark Kent&quot;</span>)</a>
+<a class="sourceLine" id="cb81-3" title="3"></a>
+<a class="sourceLine" id="cb81-4" title="4"><span class="co">## Split into first and last names</span></a>
+<a class="sourceLine" id="cb81-5" title="5">names_split &lt;-<span class="st"> </span><span class="kw">str_split</span>(names, <span class="kw">fixed</span>(<span class="st">&quot; &quot;</span>), <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb81-6" title="6"></a>
+<a class="sourceLine" id="cb81-7" title="7"><span class="co">## Extract the first letter in the first name</span></a>
+<a class="sourceLine" id="cb81-8" title="8">abb_first &lt;-<span class="st"> </span><span class="kw">str_sub</span>(names_split[, <span class="dv">1</span>], <span class="dv">1</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb81-9" title="9"></a>
+<a class="sourceLine" id="cb81-10" title="10"><span class="co">## Combine the first letter &quot;. &quot; and last name</span></a>
+<a class="sourceLine" id="cb81-11" title="11"><span class="kw">str_c</span>(abb_first, <span class="st">&quot;. &quot;</span>, names_split[, <span class="dv">2</span>])</a></code></pre></div>
+<pre><code>## [1] &quot;D. Prince&quot; &quot;C. Kent&quot;</code></pre>
+</div>
+</div>
+<div id="chapter-3" class="section level1">
+<h1><span class="header-section-number">3</span> Chapter 3</h1>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="kw">source</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;code/load.R&quot;</span>))</a></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>gr(?:e|a)y</li>
+</ol>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="kw">source</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;code/load.R&quot;</span>))</a></code></pre></div>
+<p>参考 <span class="citation">Wickham (2019)</span></p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">source</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;code/load.R&quot;</span>))</a></code></pre></div>
+<p>参考 <span class="citation">Wickham (2019)</span></p>
+<ol style="list-style-type: decimal">
+<li>gr(?:e|a)y</li>
+</ol>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1"><span class="kw">source</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;code/load.R&quot;</span>))</a></code></pre></div>
+<p>参考 <span class="citation">Wickham (2019)</span></p>
+<p>参考 <a href="https://github.com/jdblischak/workflowr/issues/152">Github Issue 152</a>，目前可以了。</p>
+<div id="rebus-包" class="section level2">
+<h2><span class="header-section-number">3.1</span> rebus 包</h2>
+<ol style="list-style-type: decimal">
+<li><p>方便管理复杂的正则化表达，因为<strong>支持缩进</strong>。</p></li>
+<li><p>支持共同部分的设定变量去调用</p></li>
+<li><p>Alternation <code>or()</code></p>
+<ol style="list-style-type: decimal">
+<li><code>or('aaa','bbb')</code> -&gt; (?:aaa|bbb)</li>
+<li><code>"gr" %R% or("e", "a") %R% "y"</code> -&gt; gr(?:e|a)y</li>
+</ol></li>
+<li><p>Character classes <code>char_class()</code></p>
+<ol style="list-style-type: decimal">
+<li><code>char_class("ae")</code> -&gt; [ae]</li>
+<li><code>negated_char_class("ae")</code> -&gt; [^ae]</li>
+</ol></li>
+<li><p>Repetition <code>optional()</code>, <code>one_or_more()</code>, <code>zero_or_more()</code>,<code>repeated(lo,hi)</code>不支持<code>%R%</code></p></li>
+<li><p><code>exactly()</code> = <code>START %R% ... %R% END</code></p></li>
+<li><p>Shortcuts</p>
+<ol style="list-style-type: decimal">
+<li><code>DGT</code> = \d</li>
+<li><code>SPC</code> = </li>
+<li><code>WRD</code> = <code>[a-zA-Z0-9_]</code></li>
+</ol></li>
+<li><p>Special characters</p>
+<ol style="list-style-type: decimal">
+<li>BACKSLASH = \</li>
+<li>CARET = ^</li>
+<li>DOLLAR = $</li>
+<li>DOT = .</li>
+<li>PIPE = |</li>
+<li>QUESTION = ?</li>
+<li>STAR = *</li>
+<li>PLUS = +</li>
+<li>OPEN_PAREN = (</li>
+<li>CLOSE_PAREN = )</li>
+<li>OPEN_BRACKET = [</li>
+<li>CLOSE_BRACKET = ]</li>
+<li>OPEN_BRACE = {</li>
+</ol></li>
+<li><p>Date-time regexes</p></li>
+</ol>
+<dl>
+<dt><code>str_view()</code>中的<code>match = TRUE</code></dt>
+<dd>this will only display elements that had a match, which is useful when you are searching over many strings.
+</dd>
+<dd>且只展示第一个字母，全展示使用<code>str_view_all</code>
+</dd>
+<dd>使用去查看自己的规则是否正确
+</dd>
+</dl>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb87-2" title="2">contact &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb87-3" title="3"><span class="kw">c</span>(<span class="st">&#39;Call me at 555-555-0191&#39;</span>,<span class="st">&#39;123 Main St&#39;</span>,<span class="st">&#39;(555) 555 0191&#39;</span>,<span class="st">&#39;Phone: 555.555.0191 Mobile: 555.555.0192&#39;</span>)</a>
+<a class="sourceLine" id="cb87-4" title="4"></a>
+<a class="sourceLine" id="cb87-5" title="5"><span class="kw">optional</span>(<span class="st">&#39;(&#39;</span>) <span class="op">%R%</span></a>
+<a class="sourceLine" id="cb87-6" title="6"><span class="st">    </span><span class="kw">repeated</span>(DGT,<span class="dv">3</span>) <span class="op">%R%</span></a>
+<a class="sourceLine" id="cb87-7" title="7"><span class="st">    </span><span class="kw">optional</span>(<span class="st">&#39;)&#39;</span>) <span class="op">%R%</span></a>
+<a class="sourceLine" id="cb87-8" title="8"><span class="st">    </span><span class="kw">char_class</span>(<span class="st">&quot;-.() &quot;</span>) <span class="op">%R%</span></a>
+<a class="sourceLine" id="cb87-9" title="9"><span class="st">    </span><span class="kw">repeated</span>(DGT,<span class="dv">3</span>) <span class="op">%R%</span></a>
+<a class="sourceLine" id="cb87-10" title="10"><span class="st">    </span><span class="kw">char_class</span>(<span class="st">&quot;-.() &quot;</span>) <span class="op">%R%</span></a>
+<a class="sourceLine" id="cb87-11" title="11"><span class="st">    </span><span class="kw">repeated</span>(DGT,<span class="dv">4</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-12" title="12"><span class="st">    </span><span class="kw">str_extract_all</span>(contact,.)</a></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;555-555-0191&quot;
+## 
+## [[2]]
+## character(0)
+## 
+## [[3]]
+## [1] &quot;(555) 555 0191&quot;
+## 
+## [[4]]
+## [1] &quot;555.555.0191&quot; &quot;555.555.0192&quot;</code></pre>
+<p>分段写函数，方便管理</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1">narratives &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb89-2" title="2"><span class="kw">c</span>(<span class="st">&quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE PLAYING FOOTBALL W/ FRIENDS &quot;</span>,<span class="st">&quot;31 YOF FELL FROM TOILET HITITNG HEAD SUSTAINING A CHI &quot;</span>,<span class="st">&quot;ANKLE STR. 82 YOM STRAINED ANKLE GETTING OUT OF BED &quot;</span>,<span class="st">&quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;</span>,<span class="st">&quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;</span>,<span class="st">&quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;</span>,<span class="st">&quot;13 MOF TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;</span>,<span class="st">&quot;14YR M PLAYING FOOTBALL; DX KNEE SPRAIN &quot;</span>,<span class="st">&quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;</span>,<span class="st">&quot;5 YOM ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="co">## Use these patterns</span></a>
+<a class="sourceLine" id="cb90-2" title="2">age &lt;-<span class="st"> </span><span class="kw">dgt</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb90-3" title="3">unit &lt;-<span class="st"> </span><span class="kw">optional</span>(SPC) <span class="op">%R%</span><span class="st"> </span><span class="kw">or</span>(<span class="st">&quot;YO&quot;</span>, <span class="st">&quot;YR&quot;</span>, <span class="st">&quot;MO&quot;</span>)</a>
+<a class="sourceLine" id="cb90-4" title="4">gender &lt;-<span class="st"> </span><span class="kw">optional</span>(SPC) <span class="op">%R%</span><span class="st"> </span><span class="kw">or</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>)</a>
+<a class="sourceLine" id="cb90-5" title="5"></a>
+<a class="sourceLine" id="cb90-6" title="6"><span class="co">## Extract age, unit, gender</span></a>
+<a class="sourceLine" id="cb90-7" title="7">age_gender &lt;-<span class="st"> </span><span class="kw">str_extract</span>(narratives,age <span class="op">%R%</span><span class="st"> </span>unit <span class="op">%R%</span><span class="st"> </span>gender)</a>
+<a class="sourceLine" id="cb90-8" title="8">age_gender</a></code></pre></div>
+<pre><code>##  [1] &quot;19YOM&quot;   &quot;31 YOF&quot;  &quot;82 YOM&quot;  &quot;33 YOF&quot;  &quot;10YOM&quot;   &quot;53 YO F&quot; &quot;13 MOF&quot; 
+##  [8] &quot;14YR M&quot;  &quot;55YOM&quot;   &quot;5 YOM&quot;</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1"><span class="co">## 之后还可以利用规则，进行变量提取</span></a>
+<a class="sourceLine" id="cb92-2" title="2"></a>
+<a class="sourceLine" id="cb92-3" title="3">age_gender <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb92-4" title="4"><span class="st">    </span><span class="kw">tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb92-5" title="5"><span class="st">    </span><span class="kw">set_names</span>(<span class="st">&#39;raw&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb92-6" title="6"><span class="st">    </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb92-7" title="7">        <span class="dt">gender =</span> <span class="kw">str_extract</span>(raw,gender)</a>
+<a class="sourceLine" id="cb92-8" title="8">    ) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb92-9" title="9"><span class="st">    </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb92-10" title="10">        <span class="dt">is_year =</span> <span class="kw">str_extract</span>(raw,unit) <span class="op">%&gt;%</span><span class="st"> </span>str_trim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_sub</span>(<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb92-11" title="11">        ,<span class="dt">age_num =</span> <span class="kw">str_extract</span>(raw,age)</a>
+<a class="sourceLine" id="cb92-12" title="12">        ,<span class="dt">age =</span> </a>
+<a class="sourceLine" id="cb92-13" title="13">            <span class="cf">if</span> (is_year <span class="op">==</span><span class="st"> &#39;Y&#39;</span>) {</a>
+<a class="sourceLine" id="cb92-14" title="14">                <span class="kw">as.numeric</span>(age_num)</a>
+<a class="sourceLine" id="cb92-15" title="15">            } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb92-16" title="16">                <span class="kw">as.numeric</span>(age_num)<span class="op">/</span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb92-17" title="17">            }</a>
+<a class="sourceLine" id="cb92-18" title="18">    ) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb92-19" title="19"><span class="st">    </span><span class="kw">select</span>(raw,gender,age)</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["raw"],"name":[1],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[2],"type":["chr"],"align":["left"]},{"label":["age"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"19YOM","2":"M","3":"19"},{"1":"31 YOF","2":"F","3":"31"},{"1":"82 YOM","2":"M","3":"82"},{"1":"33 YOF","2":"F","3":"33"},{"1":"10YOM","2":"M","3":"10"},{"1":"53 YO F","2":"F","3":"53"},{"1":"13 MOF","2":"M","3":"13"},{"1":"14YR M","2":"M","3":"14"},{"1":"55YOM","2":"M","3":"55"},{"1":"5 YOM","2":"M","3":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p><code>ls.str()</code>还可以看具体的结构。</p>
+</div>
+</div>
+<div id="chapter-4" class="section level1">
+<h1><span class="header-section-number">4</span> Chapter 4</h1>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">source</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;code/load.R&quot;</span>))</a></code></pre></div>
+<p>参考 <span class="citation">Wickham (2019)</span></p>
+<div id="capture-str_match" class="section level2">
+<h2><span class="header-section-number">4.1</span> capture + str_match</h2>
+<p>配合<code>str_match</code>使用</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1">hero_contacts &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb94-2" title="2"><span class="st">    </span><span class="kw">c</span>(<span class="st">&quot;(wolverine@xmen.com)&quot;</span>,<span class="st">&quot;wonderwoman@justiceleague.org&quot;</span>,<span class="st">&quot;thor@avengers.com&quot;</span>)</a>
+<a class="sourceLine" id="cb94-3" title="3"><span class="kw">capture</span>(<span class="kw">one_or_more</span>(WRD)) <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb94-4" title="4"><span class="st">    &quot;@&quot;</span> <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb94-5" title="5"><span class="st">    </span><span class="kw">capture</span>(<span class="kw">one_or_more</span>(WRD)) <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb94-6" title="6"><span class="st">    </span>DOT <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb94-7" title="7"><span class="st">    </span><span class="kw">capture</span>(<span class="kw">one_or_more</span>(WRD)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb94-8" title="8"><span class="st">    </span><span class="kw">str_match</span>(hero_contacts,.)</a></code></pre></div>
+<pre><code>##      [,1]                            [,2]          [,3]            [,4] 
+## [1,] &quot;wolverine@xmen.com&quot;            &quot;wolverine&quot;   &quot;xmen&quot;          &quot;com&quot;
+## [2,] &quot;wonderwoman@justiceleague.org&quot; &quot;wonderwoman&quot; &quot;justiceleague&quot; &quot;org&quot;
+## [3,] &quot;thor@avengers.com&quot;             &quot;thor&quot;        &quot;avengers&quot;      &quot;com&quot;</code></pre>
+<p>capture 的特性也见于 impala 的函数 <code>regexp_extract</code></p>
+<p>但是邮箱正则化很难提取，见
+<a href="https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression/201378#201378">讨论</a></p>
+<details>
+<p><summary>另外一个例子</summary></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1">narratives &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb96-2" title="2"><span class="kw">c</span>(<span class="st">&quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE PLAYING FOOTBALL W/ FRIENDS &quot;</span>,<span class="st">&quot;31 YOF FELL FROM TOILET HITITNG HEAD SUSTAINING A CHI &quot;</span>,<span class="st">&quot;ANKLE STR. 82 YOM STRAINED ANKLE GETTING OUT OF BED &quot;</span>,<span class="st">&quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;</span>,<span class="st">&quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;</span>,<span class="st">&quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;</span>,<span class="st">&quot;13 MOF TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;</span>,<span class="st">&quot;14YR M PLAYING FOOTBALL; DX KNEE SPRAIN &quot;</span>,<span class="st">&quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;</span>,<span class="st">&quot;5 YOM ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1"><span class="co">## narratives has been pre-defined</span></a>
+<a class="sourceLine" id="cb97-2" title="2">narratives</a></code></pre></div>
+<pre><code>##  [1] &quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE PLAYING FOOTBALL W/ FRIENDS &quot;                      
+##  [2] &quot;31 YOF FELL FROM TOILET HITITNG HEAD SUSTAINING A CHI &quot;                                    
+##  [3] &quot;ANKLE STR. 82 YOM STRAINED ANKLE GETTING OUT OF BED &quot;                                      
+##  [4] &quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;            
+##  [5] &quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;                          
+##  [6] &quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;                                      
+##  [7] &quot;13 MOF TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;
+##  [8] &quot;14YR M PLAYING FOOTBALL; DX KNEE SPRAIN &quot;                                                  
+##  [9] &quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;                      
+## [10] &quot;5 YOM ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="co">## Add capture() to get age, unit and sex</span></a>
+<a class="sourceLine" id="cb99-2" title="2">pattern &lt;-<span class="st"> </span><span class="kw">capture</span>(<span class="kw">optional</span>(DGT) <span class="op">%R%</span><span class="st"> </span>DGT) <span class="op">%R%</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb99-3" title="3"><span class="st">  </span><span class="kw">optional</span>(SPC) <span class="op">%R%</span><span class="st"> </span><span class="kw">capture</span>(<span class="kw">or</span>(<span class="st">&quot;YO&quot;</span>, <span class="st">&quot;YR&quot;</span>, <span class="st">&quot;MO&quot;</span>)) <span class="op">%R%</span></a>
+<a class="sourceLine" id="cb99-4" title="4"><span class="st">  </span><span class="kw">optional</span>(SPC) <span class="op">%R%</span><span class="st"> </span><span class="kw">capture</span>(<span class="kw">or</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>))</a>
+<a class="sourceLine" id="cb99-5" title="5"></a>
+<a class="sourceLine" id="cb99-6" title="6"><span class="co">## Pull out from narratives</span></a>
+<a class="sourceLine" id="cb99-7" title="7"><span class="kw">str_match</span>(narratives,pattern)</a></code></pre></div>
+<pre><code>##       [,1]      [,2] [,3] [,4]
+##  [1,] &quot;19YOM&quot;   &quot;19&quot; &quot;YO&quot; &quot;M&quot; 
+##  [2,] &quot;31 YOF&quot;  &quot;31&quot; &quot;YO&quot; &quot;F&quot; 
+##  [3,] &quot;82 YOM&quot;  &quot;82&quot; &quot;YO&quot; &quot;M&quot; 
+##  [4,] &quot;33 YOF&quot;  &quot;33&quot; &quot;YO&quot; &quot;F&quot; 
+##  [5,] &quot;10YOM&quot;   &quot;10&quot; &quot;YO&quot; &quot;M&quot; 
+##  [6,] &quot;53 YO F&quot; &quot;53&quot; &quot;YO&quot; &quot;F&quot; 
+##  [7,] &quot;13 MOF&quot;  &quot;13&quot; &quot;MO&quot; &quot;F&quot; 
+##  [8,] &quot;14YR M&quot;  &quot;14&quot; &quot;YR&quot; &quot;M&quot; 
+##  [9,] &quot;55YOM&quot;   &quot;55&quot; &quot;YO&quot; &quot;M&quot; 
+## [10,] &quot;5 YOM&quot;   &quot;5&quot;  &quot;YO&quot; &quot;M&quot;</code></pre>
+</details>
+<details>
+<p><summary>同时优化一下，只提取首字母表示年月</summary></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="co">## Edit to capture just Y and M in units</span></a>
+<a class="sourceLine" id="cb101-2" title="2">pattern2 &lt;-<span class="st"> </span><span class="kw">capture</span>(<span class="kw">optional</span>(DGT) <span class="op">%R%</span><span class="st"> </span>DGT) <span class="op">%R%</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb101-3" title="3"><span class="st">  </span><span class="kw">optional</span>(SPC) <span class="op">%R%</span><span class="st"> </span><span class="kw">capture</span>(<span class="kw">or</span>(<span class="st">&quot;Y&quot;</span>, <span class="st">&quot;M&quot;</span>)) <span class="op">%R%</span><span class="st"> </span><span class="kw">optional</span>(<span class="kw">or</span>(<span class="st">&quot;O&quot;</span>,<span class="st">&quot;R&quot;</span>)) <span class="op">%R%</span></a>
+<a class="sourceLine" id="cb101-4" title="4"><span class="st">  </span><span class="kw">optional</span>(SPC) <span class="op">%R%</span><span class="st"> </span><span class="kw">capture</span>(<span class="kw">or</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>))</a>
+<a class="sourceLine" id="cb101-5" title="5"></a>
+<a class="sourceLine" id="cb101-6" title="6"><span class="co">## Check pattern</span></a>
+<a class="sourceLine" id="cb101-7" title="7"><span class="kw">str_view</span>(narratives, pattern2)</a></code></pre></div>
+<div id="htmlwidget-8419efd36e2e368c9f7f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8419efd36e2e368c9f7f">{"x":{"html":"<ul>\n  <li><span class='match'>19YOM<\/span>-SHOULDER STRAIN-WAS TACKLED WHILE PLAYING FOOTBALL W/ FRIENDS <\/li>\n  <li><span class='match'>31 YOF<\/span> FELL FROM TOILET HITITNG HEAD SUSTAINING A CHI <\/li>\n  <li>ANKLE STR. <span class='match'>82 YOM<\/span> STRAINED ANKLE GETTING OUT OF BED <\/li>\n  <li>TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. <span class='match'>33 YOF<\/span>*<\/li>\n  <li><span class='match'>10YOM<\/span> CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB <\/li>\n  <li><span class='match'>53 YO F<\/span> TRIPPED ON CARPET AT HOME. DX HIP CONTUSION <\/li>\n  <li><span class='match'>13 MOF<\/span> TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION<\/li>\n  <li><span class='match'>14YR M<\/span> PLAYING FOOTBALL; DX KNEE SPRAIN <\/li>\n  <li><span class='match'>55YOM<\/span> RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE <\/li>\n  <li><span class='match'>5 YOM<\/span> ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1"><span class="co">## Pull out pieces</span></a>
+<a class="sourceLine" id="cb102-2" title="2"><span class="kw">str_match</span>(narratives, pattern2)</a></code></pre></div>
+<pre><code>##       [,1]      [,2] [,3] [,4]
+##  [1,] &quot;19YOM&quot;   &quot;19&quot; &quot;Y&quot;  &quot;M&quot; 
+##  [2,] &quot;31 YOF&quot;  &quot;31&quot; &quot;Y&quot;  &quot;F&quot; 
+##  [3,] &quot;82 YOM&quot;  &quot;82&quot; &quot;Y&quot;  &quot;M&quot; 
+##  [4,] &quot;33 YOF&quot;  &quot;33&quot; &quot;Y&quot;  &quot;F&quot; 
+##  [5,] &quot;10YOM&quot;   &quot;10&quot; &quot;Y&quot;  &quot;M&quot; 
+##  [6,] &quot;53 YO F&quot; &quot;53&quot; &quot;Y&quot;  &quot;F&quot; 
+##  [7,] &quot;13 MOF&quot;  &quot;13&quot; &quot;M&quot;  &quot;F&quot; 
+##  [8,] &quot;14YR M&quot;  &quot;14&quot; &quot;Y&quot;  &quot;M&quot; 
+##  [9,] &quot;55YOM&quot;   &quot;55&quot; &quot;Y&quot;  &quot;M&quot; 
+## [10,] &quot;5 YOM&quot;   &quot;5&quot;  &quot;Y&quot;  &quot;M&quot;</code></pre>
+</details>
+</div>
+<div id="backreferences" class="section level2">
+<h2><span class="header-section-number">4.2</span> backreferences</h2>
+<ol style="list-style-type: decimal">
+<li>方便删除重复单词</li>
+<li>使用引用进行正序和反序提取字符
+<ol style="list-style-type: decimal">
+<li><input type="checkbox" id="checkbox1" class="styled">这一波可以去stackoverflow回复很多问题了</li>
+</ol></li>
+</ol>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" title="1"><span class="kw">str_subset</span>(<span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;sweet&quot;</span>, <span class="st">&quot;kitten&quot;</span>), </a>
+<a class="sourceLine" id="cb104-2" title="2">  <span class="dt">pattern =</span> <span class="kw">capture</span>(LOWER) <span class="op">%R%</span><span class="st"> </span>REF1)</a></code></pre></div>
+<pre><code>## [1] &quot;hello&quot;  &quot;sweet&quot;  &quot;kitten&quot;</code></pre>
+<p>这里相当于<code>LOWER %R% LOWER</code></p>
+<p>abab</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" title="1"><span class="co">## Names with a pair of repeated letters</span></a>
+<a class="sourceLine" id="cb106-2" title="2">pair_of_repeated &lt;-<span class="st"> </span><span class="kw">capture</span>((LOWER <span class="op">%R%</span><span class="st"> </span>LOWER)) <span class="op">%R%</span><span class="st"> </span>REF1</a>
+<a class="sourceLine" id="cb106-3" title="3"></a>
+<a class="sourceLine" id="cb106-4" title="4"><span class="co">## Test it</span></a>
+<a class="sourceLine" id="cb106-5" title="5"><span class="kw">str_view</span>(<span class="st">&#39;abab&#39;</span>, <span class="dt">pattern =</span> pair_of_repeated, <span class="dt">match =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="htmlwidget-6157796b5c08b97e459a" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6157796b5c08b97e459a">{"x":{"html":"<ul>\n  <li><span class='match'>abab<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>abba</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="co">## Names with a pair that reverses</span></a>
+<a class="sourceLine" id="cb107-2" title="2">pair_that_reverses &lt;-<span class="st"> </span><span class="kw">capture</span>(LOWER) <span class="op">%R%</span><span class="st"> </span><span class="kw">capture</span>(LOWER) <span class="op">%R%</span><span class="st"> </span>REF2 <span class="op">%R%</span><span class="st"> </span>REF1</a>
+<a class="sourceLine" id="cb107-3" title="3"></a>
+<a class="sourceLine" id="cb107-4" title="4"><span class="co">## Test it</span></a>
+<a class="sourceLine" id="cb107-5" title="5"><span class="kw">str_view</span>(<span class="st">&#39;abba&#39;</span>, <span class="dt">pattern =</span> pair_that_reverses, <span class="dt">match =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="htmlwidget-5946a4afe2844c01b118" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5946a4afe2844c01b118">{"x":{"html":"<ul>\n  <li><span class='match'>abba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>精确匹配</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" title="1"><span class="co">## Four letter palindrome names</span></a>
+<a class="sourceLine" id="cb108-2" title="2">four_letter_palindrome &lt;-<span class="st"> </span><span class="kw">exactly</span>(</a>
+<a class="sourceLine" id="cb108-3" title="3">  <span class="kw">capture</span>(LOWER) <span class="op">%R%</span><span class="st"> </span><span class="kw">capture</span>(LOWER) <span class="op">%R%</span><span class="st"> </span>REF2 <span class="op">%R%</span><span class="st"> </span>REF1</a>
+<a class="sourceLine" id="cb108-4" title="4">)</a>
+<a class="sourceLine" id="cb108-5" title="5"></a>
+<a class="sourceLine" id="cb108-6" title="6"><span class="co">## Test it</span></a>
+<a class="sourceLine" id="cb108-7" title="7"><span class="kw">str_view</span>(<span class="st">&#39;abba&#39;</span>, <span class="dt">pattern =</span> four_letter_palindrome, <span class="dt">match =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="htmlwidget-f7c1ebdfb1d6cb24b8b2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f7c1ebdfb1d6cb24b8b2">{"x":{"html":"<ul>\n  <li><span class='match'>abba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="co">## View text containing phone numbers</span></a>
+<a class="sourceLine" id="cb109-2" title="2">contact &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb109-3" title="3"><span class="kw">c</span>(<span class="st">&#39;Call me at 555-555-0191&#39;</span>,<span class="st">&#39;123 Main St&#39;</span>,<span class="st">&#39;(555) 555 0191&#39;</span>,<span class="st">&#39;Phone: 555.555.0191 Mobile: 555.555.0192&#39;</span>)</a>
+<a class="sourceLine" id="cb109-4" title="4"></a>
+<a class="sourceLine" id="cb109-5" title="5"></a>
+<a class="sourceLine" id="cb109-6" title="6"><span class="co">## Replace digits with &quot;X&quot;</span></a>
+<a class="sourceLine" id="cb109-7" title="7"><span class="kw">str_replace</span>(contact, DGT, <span class="st">&quot;X&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Call me at X55-555-0191&quot;                 
+## [2] &quot;X23 Main St&quot;                             
+## [3] &quot;(X55) 555 0191&quot;                          
+## [4] &quot;Phone: X55.555.0191 Mobile: 555.555.0192&quot;</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="co">## Replace all digits with &quot;X&quot;</span></a>
+<a class="sourceLine" id="cb111-2" title="2"><span class="kw">str_replace_all</span>(contact, DGT, <span class="st">&quot;X&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Call me at XXX-XXX-XXXX&quot;                 
+## [2] &quot;XXX Main St&quot;                             
+## [3] &quot;(XXX) XXX XXXX&quot;                          
+## [4] &quot;Phone: XXX.XXX.XXXX Mobile: XXX.XXX.XXXX&quot;</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="co">## Replace all digits with different symbol</span></a>
+<a class="sourceLine" id="cb113-2" title="2"><span class="kw">str_replace_all</span>(contact, DGT, <span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;*&quot;</span>, <span class="st">&quot;_&quot;</span>))</a></code></pre></div>
+<pre><code>## [1] &quot;Call me at XXX-XXX-XXXX&quot;                 
+## [2] &quot;... Main St&quot;                             
+## [3] &quot;(***) *** ****&quot;                          
+## [4] &quot;Phone: ___.___.____ Mobile: ___.___.____&quot;</code></pre>
+<p>这是<code>str_replace_all</code>的特性，函数向量化。</p>
+<p>剔除重复的词</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="kw">str_replace_all</span>(</a>
+<a class="sourceLine" id="cb115-2" title="2">    <span class="st">&#39;I am the the aquaman&#39;</span></a>
+<a class="sourceLine" id="cb115-3" title="3">    ,SPC <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb115-4" title="4"><span class="st">        </span><span class="kw">capture</span>(<span class="kw">one_or_more</span>(WRD)) <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb115-5" title="5"><span class="st">        </span>SPC <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb115-6" title="6"><span class="st">        </span>REF1</a>
+<a class="sourceLine" id="cb115-7" title="7">    ,<span class="st">&#39; &#39;</span> <span class="op">%R%</span><span class="st"> </span>REF1)</a></code></pre></div>
+<pre><code>## [1] &quot;I am the aquaman&quot;</code></pre>
+<p>这个可以在RStudio，replace的时候，可以每个替换对应的值</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">SPC <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb117-2" title="2"><span class="st">    </span><span class="kw">capture</span>(<span class="kw">one_or_more</span>(WRD)) <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb117-3" title="3"><span class="st">    </span>SPC <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb117-4" title="4"><span class="st">    </span>REF1</a></code></pre></div>
+<pre><code>## &lt;regex&gt; \s([\w]+)\s\1</code></pre>
+<p>表示</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1">SPC <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb119-2" title="2"><span class="st">    </span><span class="kw">capture</span>(<span class="kw">one_or_more</span>(WRD)) <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb119-3" title="3"><span class="st">    </span>SPC <span class="op">%R%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb119-4" title="4"><span class="st">    </span><span class="kw">capture</span>(<span class="kw">one_or_more</span>(WRD))</a></code></pre></div>
+<pre><code>## &lt;regex&gt; \s([\w]+)\s([\w]+)</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">adverbs &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb121-2" title="2"><span class="kw">c</span>(<span class="st">&quot;ABNORMALLY&quot;</span>,<span class="st">&quot;ABSENTMINDEDLY&quot;</span>,<span class="st">&quot;ACCIDENTALLY&quot;</span>,<span class="st">&quot;ACIDLY&quot;</span>,<span class="st">&quot;ACTUALLY&quot;</span>,<span class="st">&quot;ADVENTUROUSLY&quot;</span>,<span class="st">&quot;AFTERWARDS&quot;</span>,<span class="st">&quot;ALMOST&quot;</span>,<span class="st">&quot;ALWAYS&quot;</span>,<span class="st">&quot;ANGRILY&quot;</span>,<span class="st">&quot;ANNUALLY&quot;</span>,<span class="st">&quot;ANXIOUSLY&quot;</span>,<span class="st">&quot;ARROGANTLY&quot;</span>,<span class="st">&quot;AWKWARDLY&quot;</span>,<span class="st">&quot;BADLY&quot;</span>,<span class="st">&quot;BASHFULLY&quot;</span>,<span class="st">&quot;BEAUTIFULLY&quot;</span>,<span class="st">&quot;BITTERLY&quot;</span>,<span class="st">&quot;BLEAKLY&quot;</span>,<span class="st">&quot;BLINDLY&quot;</span>,<span class="st">&quot;BLISSFULLY&quot;</span>,<span class="st">&quot;BOASTFULLY&quot;</span>,<span class="st">&quot;BOLDLY&quot;</span>,<span class="st">&quot;BRAVELY&quot;</span>,<span class="st">&quot;BRIEFLY&quot;</span>,<span class="st">&quot;BRIGHTLY&quot;</span>,<span class="st">&quot;BRISKLY&quot;</span>,<span class="st">&quot;BROADLY&quot;</span>,<span class="st">&quot;BUSILY&quot;</span>,<span class="st">&quot;CALMLY&quot;</span>,<span class="st">&quot;CAREFULLY&quot;</span>,<span class="st">&quot;CARELESSLY&quot;</span>,<span class="st">&quot;CAUTIOUSLY&quot;</span>,<span class="st">&quot;CERTAINLY&quot;</span>,<span class="st">&quot;CHEERFULLY&quot;</span>,<span class="st">&quot;CLEARLY&quot;</span>,<span class="st">&quot;CLEVERLY&quot;</span>,<span class="st">&quot;CLOSELY&quot;</span>,<span class="st">&quot;COAXINGLY&quot;</span>,<span class="st">&quot;COLORFULLY&quot;</span>,<span class="st">&quot;COMMONLY&quot;</span>,<span class="st">&quot;CONTINUALLY&quot;</span>,<span class="st">&quot;COOLLY&quot;</span>,<span class="st">&quot;CORRECTLY&quot;</span>,<span class="st">&quot;COURAGEOUSLY&quot;</span>,<span class="st">&quot;CROSSLY&quot;</span>,<span class="st">&quot;CRUELLY&quot;</span>,<span class="st">&quot;CURIOUSLY&quot;</span>,<span class="st">&quot;DAILY&quot;</span>,<span class="st">&quot;DAINTILY&quot;</span>,<span class="st">&quot;DEARLY&quot;</span>,<span class="st">&quot;DECEIVINGLY&quot;</span>,<span class="st">&quot;DEEPLY&quot;</span>,<span class="st">&quot;DEFIANTLY&quot;</span>,<span class="st">&quot;DELIBERATELY&quot;</span>,<span class="st">&quot;DELIGHTFULLY&quot;</span>,<span class="st">&quot;DILIGENTLY&quot;</span>,<span class="st">&quot;DIMLY&quot;</span>,<span class="st">&quot;DOUBTFULLY&quot;</span>,<span class="st">&quot;DREAMILY&quot;</span>,<span class="st">&quot;EASILY&quot;</span>,<span class="st">&quot;ELEGANTLY&quot;</span>,<span class="st">&quot;ENERGETICALLY&quot;</span>,<span class="st">&quot;ENORMOUSLY&quot;</span>,<span class="st">&quot;ENTHUSIASTICALLY&quot;</span>,<span class="st">&quot;EQUALLY&quot;</span>,<span class="st">&quot;ESPECIALLY&quot;</span>,<span class="st">&quot;EVEN&quot;</span>,<span class="st">&quot;EVENLY&quot;</span>,<span class="st">&quot;EVENTUALLY&quot;</span>,<span class="st">&quot;EXACTLY&quot;</span>,<span class="st">&quot;EXCITEDLY&quot;</span>,<span class="st">&quot;EXTREMELY&quot;</span>,<span class="st">&quot;FAIRLY&quot;</span>,<span class="st">&quot;FAITHFULLY&quot;</span>,<span class="st">&quot;FAMOUSLY&quot;</span>,<span class="st">&quot;FAR&quot;</span>,<span class="st">&quot;FAST&quot;</span>,<span class="st">&quot;FATALLY&quot;</span>,<span class="st">&quot;FEROCIOUSLY&quot;</span>,<span class="st">&quot;FERVENTLY&quot;</span>,<span class="st">&quot;FIERCELY&quot;</span>,<span class="st">&quot;FONDLY&quot;</span>,<span class="st">&quot;FOOLISHLY&quot;</span>,<span class="st">&quot;FORTUNATELY&quot;</span>,<span class="st">&quot;FRANKLY&quot;</span>,<span class="st">&quot;FRANTICALLY&quot;</span>,<span class="st">&quot;FREELY&quot;</span>,<span class="st">&quot;FRENETICALLY&quot;</span>,<span class="st">&quot;FRIGHTFULLY&quot;</span>,<span class="st">&quot;FULLY&quot;</span>,<span class="st">&quot;FURIOUSLY&quot;</span>,<span class="st">&quot;GENERALLY&quot;</span>,<span class="st">&quot;GENEROUSLY&quot;</span>,<span class="st">&quot;GENTLY&quot;</span>,<span class="st">&quot;GLADLY&quot;</span>,<span class="st">&quot;GLEEFULLY&quot;</span>,<span class="st">&quot;GRACEFULLY&quot;</span>,<span class="st">&quot;GRATEFULLY&quot;</span>,<span class="st">&quot;GREATLY&quot;</span>,<span class="st">&quot;GREEDILY&quot;</span>,<span class="st">&quot;HAPPILY&quot;</span>,<span class="st">&quot;HASTILY&quot;</span>,<span class="st">&quot;HEALTHILY&quot;</span>,<span class="st">&quot;HEAVILY&quot;</span>,<span class="st">&quot;HELPFULLY&quot;</span>,<span class="st">&quot;HELPLESSLY&quot;</span>,<span class="st">&quot;HIGHLY&quot;</span>,<span class="st">&quot;HONESTLY&quot;</span>,<span class="st">&quot;HOPELESSLY&quot;</span>,<span class="st">&quot;HOURLY&quot;</span>,<span class="st">&quot;HUNGRILY&quot;</span>,<span class="st">&quot;IMMEDIATELY&quot;</span>,<span class="st">&quot;INNOCENTLY&quot;</span>,<span class="st">&quot;INQUISITIVELY&quot;</span>,<span class="st">&quot;INSTANTLY&quot;</span>,<span class="st">&quot;INTENSELY&quot;</span>,<span class="st">&quot;INTENTLY&quot;</span>,<span class="st">&quot;INTERESTINGLY&quot;</span>,<span class="st">&quot;INWARDLY&quot;</span>,<span class="st">&quot;IRRITABLY&quot;</span>,<span class="st">&quot;JAGGEDLY&quot;</span>,<span class="st">&quot;JEALOUSLY&quot;</span>,<span class="st">&quot;JOSHINGLY&quot;</span>,<span class="st">&quot;JOVIALLY&quot;</span>,<span class="st">&quot;JOYFULLY&quot;</span>,<span class="st">&quot;JOYOUSLY&quot;</span>,<span class="st">&quot;JUBILANTLY&quot;</span>,<span class="st">&quot;JUDGEMENTALLY&quot;</span>,<span class="st">&quot;JUSTLY&quot;</span>,<span class="st">&quot;KEENLY&quot;</span>,<span class="st">&quot;KIDDINGLY&quot;</span>,<span class="st">&quot;KINDHEARTEDLY&quot;</span>,<span class="st">&quot;KINDLY&quot;</span>,<span class="st">&quot;KISSINGLY&quot;</span>,<span class="st">&quot;KNAVISHLY&quot;</span>,<span class="st">&quot;KNOTTILY&quot;</span>,<span class="st">&quot;KNOWINGLY&quot;</span>,<span class="st">&quot;KNOWLEDGEABLY&quot;</span>,<span class="st">&quot;KOOKILY&quot;</span>,<span class="st">&quot;LAZILY&quot;</span>,<span class="st">&quot;LESS&quot;</span>,<span class="st">&quot;LIGHTLY&quot;</span>,<span class="st">&quot;LIKELY&quot;</span>,<span class="st">&quot;LIMPLY&quot;</span>,<span class="st">&quot;LIVELY&quot;</span>,<span class="st">&quot;LOFTILY&quot;</span>,<span class="st">&quot;LONGINGLY&quot;</span>,<span class="st">&quot;LOOSELY&quot;</span>,<span class="st">&quot;LOUDLY&quot;</span>,<span class="st">&quot;LOVINGLY&quot;</span>,<span class="st">&quot;LOYALLY&quot;</span>,<span class="st">&quot;MADLY&quot;</span>,<span class="st">&quot;MAJESTICALLY&quot;</span>,<span class="st">&quot;MEANINGFULLY&quot;</span>,<span class="st">&quot;MECHANICALLY&quot;</span>,<span class="st">&quot;MERRILY&quot;</span>,<span class="st">&quot;MISERABLY&quot;</span>,<span class="st">&quot;MOCKINGLY&quot;</span>,<span class="st">&quot;MONTHLY&quot;</span>,<span class="st">&quot;MORE&quot;</span>,<span class="st">&quot;MORTALLY&quot;</span>,<span class="st">&quot;MOSTLY&quot;</span>,<span class="st">&quot;MYSTERIOUSLY&quot;</span>,<span class="st">&quot;NATURALLY&quot;</span>,<span class="st">&quot;NEARLY&quot;</span>,<span class="st">&quot;NEATLY&quot;</span>,<span class="st">&quot;NEEDILY&quot;</span>,<span class="st">&quot;NERVOUSLY&quot;</span>,<span class="st">&quot;NEVER&quot;</span>,<span class="st">&quot;NICELY&quot;</span>,<span class="st">&quot;NOISILY&quot;</span>,<span class="st">&quot;NOT&quot;</span>,<span class="st">&quot;OBEDIENTLY&quot;</span>,<span class="st">&quot;OBNOXIOUSLY&quot;</span>,<span class="st">&quot;ODDLY&quot;</span>,<span class="st">&quot;OFFENSIVELY&quot;</span>,<span class="st">&quot;OFFICIALLY&quot;</span>,<span class="st">&quot;OFTEN&quot;</span>,<span class="st">&quot;ONLY&quot;</span>,<span class="st">&quot;OPENLY&quot;</span>,<span class="st">&quot;OPTIMISTICALLY&quot;</span>,<span class="st">&quot;OVERCONFIDENTLY&quot;</span>,<span class="st">&quot;OWLISHLY&quot;</span>,<span class="st">&quot;PAINFULLY&quot;</span>,<span class="st">&quot;PARTIALLY&quot;</span>,<span class="st">&quot;PATIENTLY&quot;</span>,<span class="st">&quot;PERFECTLY&quot;</span>,<span class="st">&quot;PHYSICALLY&quot;</span>,<span class="st">&quot;PLAYFULLY&quot;</span>,<span class="st">&quot;POLITELY&quot;</span>,<span class="st">&quot;POORLY&quot;</span>,<span class="st">&quot;POSITIVELY&quot;</span>,<span class="st">&quot;POTENTIALLY&quot;</span>,<span class="st">&quot;POWERFULLY&quot;</span>,<span class="st">&quot;PROMPTLY&quot;</span>,<span class="st">&quot;PROPERLY&quot;</span>,<span class="st">&quot;PUNCTUALLY&quot;</span>,<span class="st">&quot;QUAINTLY&quot;</span>,<span class="st">&quot;QUARRELSOMELY&quot;</span>,<span class="st">&quot;QUEASILY&quot;</span>,<span class="st">&quot;QUEERLY&quot;</span>,<span class="st">&quot;QUESTIONABLY&quot;</span>,<span class="st">&quot;QUESTIONINGLY&quot;</span>,<span class="st">&quot;QUICKER&quot;</span>,<span class="st">&quot;QUICKLY&quot;</span>,<span class="st">&quot;QUIETLY&quot;</span>,<span class="st">&quot;QUIRKILY&quot;</span>,<span class="st">&quot;QUIZZICALLY&quot;</span>,<span class="st">&quot;RAPIDLY&quot;</span>,<span class="st">&quot;RARELY&quot;</span>,<span class="st">&quot;READILY&quot;</span>,<span class="st">&quot;REALLY&quot;</span>,<span class="st">&quot;REASSURINGLY&quot;</span>,<span class="st">&quot;RECKLESSLY&quot;</span>,<span class="st">&quot;REGULARLY&quot;</span>,<span class="st">&quot;RELUCTANTLY&quot;</span>,<span class="st">&quot;REPEATEDLY&quot;</span>,<span class="st">&quot;REPROACHFULLY&quot;</span>,<span class="st">&quot;RESTFULLY&quot;</span>,<span class="st">&quot;RIGHTEOUSLY&quot;</span>,<span class="st">&quot;RIGHTFULLY&quot;</span>,<span class="st">&quot;RIGIDLY&quot;</span>,<span class="st">&quot;ROUGHLY&quot;</span>,<span class="st">&quot;RUDELY&quot;</span>,<span class="st">&quot;SADLY&quot;</span>,<span class="st">&quot;SAFELY&quot;</span>,<span class="st">&quot;SCARCELY&quot;</span>,<span class="st">&quot;SCARILY&quot;</span>,<span class="st">&quot;SEARCHINGLY&quot;</span>,<span class="st">&quot;SEDATELY&quot;</span>,<span class="st">&quot;SEEMINGLY&quot;</span>,<span class="st">&quot;SELDOM&quot;</span>,<span class="st">&quot;SELFISHLY&quot;</span>,<span class="st">&quot;SEPARATELY&quot;</span>,<span class="st">&quot;SERIOUSLY&quot;</span>,<span class="st">&quot;SHAKILY&quot;</span>,<span class="st">&quot;SHARPLY&quot;</span>,<span class="st">&quot;SHEEPISHLY&quot;</span>,<span class="st">&quot;SHRILLY&quot;</span>,<span class="st">&quot;SHYLY&quot;</span>,<span class="st">&quot;SILENTLY&quot;</span>,<span class="st">&quot;SLEEPILY&quot;</span>,<span class="st">&quot;SLOWLY&quot;</span>,<span class="st">&quot;SMOOTHLY&quot;</span>,<span class="st">&quot;SOFTLY&quot;</span>,<span class="st">&quot;SOLEMNLY&quot;</span>,<span class="st">&quot;SOLIDLY&quot;</span>,<span class="st">&quot;SOMETIMES&quot;</span>,<span class="st">&quot;SOON&quot;</span>,<span class="st">&quot;SPEEDILY&quot;</span>,<span class="st">&quot;STEALTHILY&quot;</span>,<span class="st">&quot;STERNLY&quot;</span>,<span class="st">&quot;STRICTLY&quot;</span>,<span class="st">&quot;SUCCESSFULLY&quot;</span>,<span class="st">&quot;SUDDENLY&quot;</span>,<span class="st">&quot;SURPRISINGLY&quot;</span>,<span class="st">&quot;SUSPICIOUSLY&quot;</span>,<span class="st">&quot;SWEETLY&quot;</span>,<span class="st">&quot;SWIFTLY&quot;</span>,<span class="st">&quot;SYMPATHETICALLY&quot;</span>,<span class="st">&quot;TENDERLY&quot;</span>,<span class="st">&quot;TENSELY&quot;</span>,<span class="st">&quot;TERRIBLY&quot;</span>,<span class="st">&quot;THANKFULLY&quot;</span>,<span class="st">&quot;THOROUGHLY&quot;</span>,<span class="st">&quot;THOUGHTFULLY&quot;</span>,<span class="st">&quot;TIGHTLY&quot;</span>,<span class="st">&quot;TOMORROW&quot;</span>,<span class="st">&quot;TOO&quot;</span>,<span class="st">&quot;TREMENDOUSLY&quot;</span>,<span class="st">&quot;TRIUMPHANTLY&quot;</span>,<span class="st">&quot;TRULY&quot;</span>,<span class="st">&quot;TRUTHFULLY&quot;</span>,<span class="st">&quot;ULTIMATELY&quot;</span>,<span class="st">&quot;UNABASHEDLY&quot;</span>,<span class="st">&quot;UNACCOUNTABLY&quot;</span>,<span class="st">&quot;UNBEARABLY&quot;</span>,<span class="st">&quot;UNETHICALLY&quot;</span>,<span class="st">&quot;UNEXPECTEDLY&quot;</span>,<span class="st">&quot;UNFORTUNATELY&quot;</span>,<span class="st">&quot;UNIMPRESSIVELY&quot;</span>,<span class="st">&quot;UNNATURALLY&quot;</span>,<span class="st">&quot;UNNECESSARILY&quot;</span>,<span class="st">&quot;UPBEAT&quot;</span>,<span class="st">&quot;UPLIFTINGLY&quot;</span>,<span class="st">&quot;UPRIGHT&quot;</span>,<span class="st">&quot;UPSIDE-DOWN&quot;</span>,<span class="st">&quot;UPWARD&quot;</span>,<span class="st">&quot;UPWARDLY&quot;</span>,<span class="st">&quot;URGENTLY&quot;</span>,<span class="st">&quot;USEFULLY&quot;</span>,<span class="st">&quot;USELESSLY&quot;</span>,<span class="st">&quot;USUALLY&quot;</span>,<span class="st">&quot;UTTERLY&quot;</span>,<span class="st">&quot;VACANTLY&quot;</span>,<span class="st">&quot;VAGUELY&quot;</span>,<span class="st">&quot;VAINLY&quot;</span>,<span class="st">&quot;VALIANTLY&quot;</span>,<span class="st">&quot;VASTLY&quot;</span>,<span class="st">&quot;VERBALLY&quot;</span>,<span class="st">&quot;VERY&quot;</span>,<span class="st">&quot;VICIOUSLY&quot;</span>,<span class="st">&quot;VICTORIOUSLY&quot;</span>,<span class="st">&quot;VIOLENTLY&quot;</span>,<span class="st">&quot;VIVACIOUSLY&quot;</span>,<span class="st">&quot;VOLUNTARILY&quot;</span>,<span class="st">&quot;WARMLY&quot;</span>,<span class="st">&quot;WEAKLY&quot;</span>,<span class="st">&quot;WEARILY&quot;</span>,<span class="st">&quot;WELL&quot;</span>,<span class="st">&quot;WETLY&quot;</span>,<span class="st">&quot;WHOLLY&quot;</span>,<span class="st">&quot;WILDLY&quot;</span>,<span class="st">&quot;WILLFULLY&quot;</span>,<span class="st">&quot;WISELY&quot;</span>,<span class="st">&quot;WOEFULLY&quot;</span>,<span class="st">&quot;WONDERFULLY&quot;</span>,<span class="st">&quot;WORRIEDLY&quot;</span>,<span class="st">&quot;WRONGLY&quot;</span>,<span class="st">&quot;YAWNINGLY&quot;</span>,<span class="st">&quot;YEARLY&quot;</span>,<span class="st">&quot;YEARNINGLY&quot;</span>,<span class="st">&quot;YESTERDAY&quot;</span>,<span class="st">&quot;YIELDINGLY&quot;</span>,<span class="st">&quot;YOUTHFULLY&quot;</span>)</a></code></pre></div>
+<p>随机给动词增加副词</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1"><span class="co">## Build pattern to match words ending in &quot;ING&quot;</span></a>
+<a class="sourceLine" id="cb122-2" title="2">pattern &lt;-<span class="st"> </span><span class="kw">one_or_more</span>(WRD) <span class="op">%R%</span><span class="st"> &quot;ING&quot;</span></a>
+<a class="sourceLine" id="cb122-3" title="3"><span class="kw">str_view</span>(narratives, pattern)</a></code></pre></div>
+<div id="htmlwidget-142fc1ad68268fff0a9f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-142fc1ad68268fff0a9f">{"x":{"html":"<ul>\n  <li>19YOM-SHOULDER STRAIN-WAS TACKLED WHILE <span class='match'>PLAYING<\/span> FOOTBALL W/ FRIENDS <\/li>\n  <li>31 YOF FELL FROM TOILET HITITNG HEAD <span class='match'>SUSTAINING<\/span> A CHI <\/li>\n  <li>ANKLE STR. 82 YOM STRAINED ANKLE <span class='match'>GETTING<\/span> OUT OF BED <\/li>\n  <li>TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*<\/li>\n  <li>10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB <\/li>\n  <li>53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION <\/li>\n  <li>13 MOF <span class='match'>TRYING<\/span> TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION<\/li>\n  <li>14YR M <span class='match'>PLAYING<\/span> FOOTBALL; DX KNEE SPRAIN <\/li>\n  <li>55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE <\/li>\n  <li>5 YOM <span class='match'>ROLLING<\/span> ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="co">## Test replacement</span></a>
+<a class="sourceLine" id="cb123-2" title="2"><span class="kw">str_replace</span>(narratives, <span class="kw">capture</span>(pattern), </a>
+<a class="sourceLine" id="cb123-3" title="3">  <span class="kw">str_c</span>(<span class="st">&quot;CARELESSLY&quot;</span>, REF1, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))</a></code></pre></div>
+<pre><code>##  [1] &quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE CARELESSLY PLAYING FOOTBALL W/ FRIENDS &quot;                      
+##  [2] &quot;31 YOF FELL FROM TOILET HITITNG HEAD CARELESSLY SUSTAINING A CHI &quot;                                    
+##  [3] &quot;ANKLE STR. 82 YOM STRAINED ANKLE CARELESSLY GETTING OUT OF BED &quot;                                      
+##  [4] &quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;                       
+##  [5] &quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;                                     
+##  [6] &quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;                                                 
+##  [7] &quot;13 MOF CARELESSLY TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;
+##  [8] &quot;14YR M CARELESSLY PLAYING FOOTBALL; DX KNEE SPRAIN &quot;                                                  
+##  [9] &quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;                                 
+## [10] &quot;5 YOM CARELESSLY ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="co">## One adverb per narrative</span></a>
+<a class="sourceLine" id="cb125-2" title="2">adverbs_<span class="dv">10</span> &lt;-<span class="st"> </span><span class="kw">sample</span>(adverbs, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb125-3" title="3"></a>
+<a class="sourceLine" id="cb125-4" title="4"><span class="co">## Replace &quot;***ing&quot; with &quot;adverb ***ly&quot;</span></a>
+<a class="sourceLine" id="cb125-5" title="5"><span class="kw">str_replace</span>(narratives, </a>
+<a class="sourceLine" id="cb125-6" title="6">  <span class="kw">capture</span>(pattern),</a>
+<a class="sourceLine" id="cb125-7" title="7">  <span class="kw">str_c</span>(adverbs_<span class="dv">10</span>, REF1, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))  </a></code></pre></div>
+<pre><code>##  [1] &quot;19YOM-SHOULDER STRAIN-WAS TACKLED WHILE KINDHEARTEDLY PLAYING FOOTBALL W/ FRIENDS &quot;               
+##  [2] &quot;31 YOF FELL FROM TOILET HITITNG HEAD UNIMPRESSIVELY SUSTAINING A CHI &quot;                            
+##  [3] &quot;ANKLE STR. 82 YOM STRAINED ANKLE READILY GETTING OUT OF BED &quot;                                     
+##  [4] &quot;TRIPPED OVER CAT AND LANDED ON HARDWOOD FLOOR. LACERATION ELBOW, LEFT. 33 YOF*&quot;                   
+##  [5] &quot;10YOM CUT THUMB ON METAL TRASH CAN DX AVULSION OF SKIN OF THUMB &quot;                                 
+##  [6] &quot;53 YO F TRIPPED ON CARPET AT HOME. DX HIP CONTUSION &quot;                                             
+##  [7] &quot;13 MOF LAZILY TRYING TO STAND UP HOLDING ONTO BED FELL AND HIT FOREHEAD ON RADIATOR DX LACERATION&quot;
+##  [8] &quot;14YR M MONTHLY PLAYING FOOTBALL; DX KNEE SPRAIN &quot;                                                 
+##  [9] &quot;55YOM RIDER OF A BICYCLE AND FELL OFF SUSTAINED A CONTUSION TO KNEE &quot;                             
+## [10] &quot;5 YOM GRACEFULLY ROLLING ON FLOOR DOING A SOMERSAULT AND SUSTAINED A CERVICAL STRA IN&quot;</code></pre>
+<blockquote>
+<p>Replacement combined with backreferences can be really useful for reformatting text data.</p>
+</blockquote>
+</div>
+<div id="附录" class="section level2 unnumbered">
+<h2>附录</h2>
+<p>Unicode 的章节可以进附录</p>
+<p><input type="checkbox" id="checkbox1" class="styled">通过<code>\p{name}</code> impala应该是不支持的
+<a href="https://grokbase.com/t/cloudera/impala-user/137tdg0thq/unicode-string-issue-with-impala" class="uri">https://grokbase.com/t/cloudera/impala-user/137tdg0thq/unicode-string-issue-with-impala</a></p>
+<p>Vietnamese
+越南语</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1"><span class="co">## Names with builtin accents</span></a>
+<a class="sourceLine" id="cb127-2" title="2">(tay_son_builtin &lt;-<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb127-3" title="3">  <span class="st">&quot;Nguy\u1ec5n Nh\u1ea1c&quot;</span>, </a>
+<a class="sourceLine" id="cb127-4" title="4">  <span class="st">&quot;Nguy\u1ec5n Hu\u1ec7&quot;</span>,</a>
+<a class="sourceLine" id="cb127-5" title="5">  <span class="st">&quot;Nguy\u1ec5n Quang To\u1ea3n&quot;</span></a>
+<a class="sourceLine" id="cb127-6" title="6">))</a></code></pre></div>
+<pre><code>## [1] &quot;Nguy&lt;U+1EC5&gt;n Nh&lt;U+1EA1&gt;c&quot; &quot;Nguy&lt;U+1EC5&gt;n Hu&lt;U+1EC7&gt;&quot; &quot;Nguy&lt;U+1EC5&gt;n Quang To&lt;U+1EA3&gt;n&quot;</code></pre>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1"><span class="co">## Convert to separate accents</span></a>
+<a class="sourceLine" id="cb129-2" title="2"><span class="kw">library</span>(stringi)</a>
+<a class="sourceLine" id="cb129-3" title="3">tay_son_separate &lt;-<span class="st"> </span><span class="kw">stri_trans_nfd</span>(tay_son_builtin)</a>
+<a class="sourceLine" id="cb129-4" title="4"></a>
+<a class="sourceLine" id="cb129-5" title="5"><span class="co">## Verify that the string prints the same</span></a>
+<a class="sourceLine" id="cb129-6" title="6">tay_son_separate</a></code></pre></div>
+<pre><code>## [1] &quot;Nguye&lt;U+0302&gt;&lt;U+0303&gt;n Nha&lt;U+0323&gt;c&quot; &quot;Nguye&lt;U+0302&gt;&lt;U+0303&gt;n Hue&lt;U+0323&gt;&lt;U+0302&gt;&quot; &quot;Nguye&lt;U+0302&gt;&lt;U+0303&gt;n Quang Toa&lt;U+0309&gt;n&quot;</code></pre>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" title="1"><span class="co">## Match all accents</span></a>
+<a class="sourceLine" id="cb131-2" title="2"><span class="kw">library</span>(stringr)</a>
+<a class="sourceLine" id="cb131-3" title="3"><span class="kw">library</span>(rebus)</a>
+<a class="sourceLine" id="cb131-4" title="4"><span class="kw">str_view_all</span>(tay_son_separate, UP_DIACRITIC)</a></code></pre></div>
+<div id="htmlwidget-ff2e64bd232781ceb8bb" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ff2e64bd232781ceb8bb">{"x":{"html":"<ul>\n  <li>Nguye<span class='match'>̂<\/span><span class='match'>̃<\/span>n Nha<span class='match'>̣<\/span>c<\/li>\n  <li>Nguye<span class='match'>̂<\/span><span class='match'>̃<\/span>n Hue<span class='match'>̣<\/span><span class='match'>̂<\/span><\/li>\n  <li>Nguye<span class='match'>̂<\/span><span class='match'>̃<\/span>n Quang Toa<span class='match'>̉<\/span>n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adele&quot;</span>, <span class="st">&quot;Ad\u00e8le&quot;</span>, <span class="st">&quot;Ad\u0065\u0300le&quot;</span>)</a>
+<a class="sourceLine" id="cb132-2" title="2"><span class="kw">writeLines</span>(x)</a></code></pre></div>
+<pre><code>## Adele
+## Adèle
+## Ade&lt;U+0300&gt;le</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1"><span class="kw">str_view</span>(x, <span class="st">&quot;Ad&quot;</span> <span class="op">%R%</span><span class="st"> </span>ANY_CHAR <span class="op">%R%</span><span class="st"> &quot;le&quot;</span>)</a></code></pre></div>
+<div id="htmlwidget-79cdf535d4ca1766ee6d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-79cdf535d4ca1766ee6d">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li>Adèle<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1"><span class="kw">str_view</span>(x, <span class="st">&quot;Ad&quot;</span> <span class="op">%R%</span><span class="st"> &#39;</span><span class="ch">\\</span><span class="st">X&#39;</span> <span class="op">%R%</span><span class="st"> &quot;le&quot;</span>)</a></code></pre></div>
+<div id="htmlwidget-316cb52aa6514e281f61" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-316cb52aa6514e281f61">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1"><span class="kw">str_view</span>(x, <span class="st">&quot;Ad&quot;</span> <span class="op">%R%</span><span class="st"> </span>GRAPHEME <span class="op">%R%</span><span class="st"> &quot;le&quot;</span>)</a></code></pre></div>
+<div id="htmlwidget-2b7089582240832809db" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2b7089582240832809db">{"x":{"html":"<ul>\n  <li><span class='match'>Adele<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n  <li><span class='match'>Adèle<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>当两个Unicode时，用<code>.</code>是识别不出来的，需要使用<code>\X</code></p>
+</div>
+</div>
+<div id="chapter-5" class="section level1">
+<h1><span class="header-section-number">5</span> Chapter 5</h1>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1"><span class="kw">source</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;code/load.R&quot;</span>))</a></code></pre></div>
+<p>参考 <span class="citation">Wickham (2019)</span></p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1"><span class="kw">library</span>(stringi)</a>
+<a class="sourceLine" id="cb138-2" title="2"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(tidyverse))</a>
+<a class="sourceLine" id="cb138-3" title="3"><span class="kw">library</span>(rebus)</a>
+<a class="sourceLine" id="cb138-4" title="4">earnest_file &lt;-<span class="st"> &#39;../data/importance-of-being-earnest.txt&#39;</span></a></code></pre></div>
+<p><input type="checkbox" id="checkbox1" class="styled">这个老师的文本处理非常优秀，应该 follow</p>
+<p>的确是针对小说进行过分析。</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1"><span class="co">## Read play in using stri_read_lines()</span></a>
+<a class="sourceLine" id="cb139-2" title="2">earnest &lt;-<span class="st"> </span><span class="kw">stri_read_lines</span>(earnest_file)</a>
+<a class="sourceLine" id="cb139-3" title="3"></a>
+<a class="sourceLine" id="cb139-4" title="4"><span class="co">## Detect start and end lines</span></a>
+<a class="sourceLine" id="cb139-5" title="5">start &lt;-<span class="st"> </span><span class="kw">str_which</span>(earnest, <span class="kw">fixed</span>(<span class="st">&quot;START OF THE PROJECT&quot;</span>))</a>
+<a class="sourceLine" id="cb139-6" title="6">end &lt;-<span class="st"> </span><span class="kw">str_which</span>(earnest, <span class="kw">fixed</span>(<span class="st">&quot;END OF THE PROJECT&quot;</span>))</a>
+<a class="sourceLine" id="cb139-7" title="7"></a>
+<a class="sourceLine" id="cb139-8" title="8"><span class="co">## Get rid of gutenberg intro text</span></a>
+<a class="sourceLine" id="cb139-9" title="9">earnest_sub  &lt;-<span class="st"> </span>earnest[(start <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)<span class="op">:</span>(end <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)]</a>
+<a class="sourceLine" id="cb139-10" title="10"></a>
+<a class="sourceLine" id="cb139-11" title="11"><span class="co">## Detect first act</span></a>
+<a class="sourceLine" id="cb139-12" title="12">lines_start &lt;-<span class="st"> </span><span class="kw">str_which</span>(earnest_sub, <span class="kw">fixed</span>(<span class="st">&quot;FIRST ACT&quot;</span>))</a>
+<a class="sourceLine" id="cb139-13" title="13"></a>
+<a class="sourceLine" id="cb139-14" title="14"><span class="co">## Set up index</span></a>
+<a class="sourceLine" id="cb139-15" title="15">intro_line_index &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>(lines_start <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb139-16" title="16"></a>
+<a class="sourceLine" id="cb139-17" title="17"><span class="co">## Split play into intro and play</span></a>
+<a class="sourceLine" id="cb139-18" title="18">intro_text &lt;-<span class="st"> </span>earnest_sub[intro_line_index]</a>
+<a class="sourceLine" id="cb139-19" title="19">play_text &lt;-<span class="st"> </span>earnest_sub[<span class="op">-</span>intro_line_index]</a>
+<a class="sourceLine" id="cb139-20" title="20"></a>
+<a class="sourceLine" id="cb139-21" title="21"><span class="co">## Take a look at the first 20 lines</span></a>
+<a class="sourceLine" id="cb139-22" title="22"><span class="kw">writeLines</span>(play_text[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>])</a></code></pre></div>
+<pre><code>## FIRST ACT
+## 
+## 
+## SCENE
+## 
+## 
+## Morning-room in Algernon&#39;s flat in Half-Moon Street.  The room is
+## luxuriously and artistically furnished.  The sound of a piano is heard in
+## the adjoining room.
+## 
+## [Lane is arranging afternoon tea on the table, and after the music has
+## ceased, Algernon enters.]
+## 
+## Algernon.  Did you hear what I was playing, Lane?
+## 
+## Lane.  I didn&#39;t think it polite to listen, sir.
+## 
+## Algernon.  I&#39;m sorry for that, for your sake.  I don&#39;t play
+## accurately--any one can play accurately--but I play with wonderful
+## expression.  As far as the piano is concerned, sentiment is my forte.  I</code></pre>
+<p><a href="https://community.rstudio.com/t/why-does-charlotte-wickham-says-stri-read-lines-is-better-than-readlines/19920?u=econkid">Why does Charlotte Wickham says <code>stri_read_lines()</code> is better than <code>readLines()</code>?</a></p>
+<p>提供了处理文本的函数，而不需要在<code>data.frame</code>去实现。</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" title="1"><span class="co">## Get rid of empty strings</span></a>
+<a class="sourceLine" id="cb141-2" title="2">empty &lt;-<span class="st"> </span><span class="kw">stri_isempty</span>(play_text)</a>
+<a class="sourceLine" id="cb141-3" title="3">play_lines &lt;-<span class="st"> </span>play_text[<span class="op">!</span>empty]</a></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">play_lines[<span class="dv">10</span><span class="op">:</span><span class="dv">15</span>]</a></code></pre></div>
+<pre><code>## [1] &quot;Algernon.  I&#39;m sorry for that, for your sake.  I don&#39;t play&quot;             
+## [2] &quot;accurately--any one can play accurately--but I play with wonderful&quot;      
+## [3] &quot;expression.  As far as the piano is concerned, sentiment is my forte.  I&quot;
+## [4] &quot;keep science for Life.&quot;                                                  
+## [5] &quot;Lane.  Yes, sir.&quot;                                                        
+## [6] &quot;Algernon.  And, speaking of the science of Life, have you got the&quot;</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1"><span class="co">## Pattern from last step</span></a>
+<a class="sourceLine" id="cb144-2" title="2">pattern_<span class="dv">2</span> &lt;-<span class="st"> </span>START <span class="op">%R%</span><span class="st"> </span><span class="kw">ascii_upper</span>() <span class="op">%R%</span><span class="st"> </span><span class="kw">one_or_more</span>(WRD) <span class="op">%R%</span><span class="st"> </span>DOT</a>
+<a class="sourceLine" id="cb144-3" title="3"></a>
+<a class="sourceLine" id="cb144-4" title="4"><span class="co">## Get subset of lines that match</span></a>
+<a class="sourceLine" id="cb144-5" title="5">lines &lt;-<span class="st"> </span><span class="kw">str_subset</span>(play_lines,pattern_<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb144-6" title="6"></a>
+<a class="sourceLine" id="cb144-7" title="7"><span class="co">## Extract match from lines</span></a>
+<a class="sourceLine" id="cb144-8" title="8">who &lt;-<span class="st"> </span><span class="kw">str_extract</span>(lines,pattern_<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb144-9" title="9"></a>
+<a class="sourceLine" id="cb144-10" title="10"><span class="co">## Let&#39;s see what we have</span></a>
+<a class="sourceLine" id="cb144-11" title="11"><span class="kw">unique</span>(who)</a></code></pre></div>
+<pre><code>##  [1] &quot;Algernon.&quot;   &quot;Lane.&quot;       &quot;Jack.&quot;       &quot;Cecily.&quot;     &quot;Ernest.&quot;    
+##  [6] &quot;University.&quot; &quot;Gwendolen.&quot;  &quot;July.&quot;       &quot;Chasuble.&quot;   &quot;Merriman.&quot;  
+## [11] &quot;Sunday.&quot;     &quot;Mr.&quot;         &quot;London.&quot;     &quot;Cardew.&quot;     &quot;Opera.&quot;     
+## [16] &quot;Markby.&quot;     &quot;Oxonian.&quot;</code></pre>
+<p><a href="https://community.rstudio.com/t/why-does-charlotte-wickham-says-stri-read-lines-is-better-than-readlines/19920">stri_read_lines 更好 总结一下</a></p>
+<blockquote>
+<p><code>or</code> takes multiple character vector inputs and returns a character vector of the inputs separated by pipes. <code>%|%</code> is an operator interface to this function. <code>or1</code> takes a single character vector and returns a string collapsed by pipes.</p>
+</blockquote>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1"><span class="co">## Variables from previous step</span></a>
+<a class="sourceLine" id="cb146-2" title="2">characters &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Algernon&quot;</span>, <span class="st">&quot;Jack&quot;</span>, <span class="st">&quot;Lane&quot;</span>, <span class="st">&quot;Cecily&quot;</span>, <span class="st">&quot;Gwendolen&quot;</span>, <span class="st">&quot;Chasuble&quot;</span>, </a>
+<a class="sourceLine" id="cb146-3" title="3">  <span class="st">&quot;Merriman&quot;</span>, <span class="st">&quot;Lady Bracknell&quot;</span>, <span class="st">&quot;Miss Prism&quot;</span>)</a>
+<a class="sourceLine" id="cb146-4" title="4">pattern_<span class="dv">3</span> &lt;-<span class="st"> </span>START <span class="op">%R%</span><span class="st"> </span><span class="kw">or1</span>(characters) <span class="op">%R%</span><span class="st"> </span>DOT</a>
+<a class="sourceLine" id="cb146-5" title="5"></a>
+<a class="sourceLine" id="cb146-6" title="6"><span class="co">## Pull out matches</span></a>
+<a class="sourceLine" id="cb146-7" title="7">lines &lt;-<span class="st"> </span><span class="kw">str_subset</span>(play_lines, pattern_<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb146-8" title="8"></a>
+<a class="sourceLine" id="cb146-9" title="9"><span class="co">## Extract match from lines</span></a>
+<a class="sourceLine" id="cb146-10" title="10">who &lt;-<span class="st"> </span><span class="kw">str_extract</span>(lines, pattern_<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb146-11" title="11"></a>
+<a class="sourceLine" id="cb146-12" title="12"><span class="co">## Let&#39;s see what we have</span></a>
+<a class="sourceLine" id="cb146-13" title="13"><span class="kw">unique</span>(who)</a></code></pre></div>
+<pre><code>## [1] &quot;Algernon.&quot;       &quot;Lane.&quot;           &quot;Jack.&quot;           &quot;Cecily.&quot;        
+## [5] &quot;Gwendolen.&quot;      &quot;Lady Bracknell.&quot; &quot;Miss Prism.&quot;     &quot;Chasuble.&quot;      
+## [9] &quot;Merriman.&quot;</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1"><span class="co">## Count lines per character</span></a>
+<a class="sourceLine" id="cb148-2" title="2"><span class="kw">table</span>(who)</a></code></pre></div>
+<pre><code>## who
+##       Algernon.         Cecily.       Chasuble.      Gwendolen. 
+##             201             154              42             102 
+##           Jack. Lady Bracknell.           Lane.       Merriman. 
+##             219              84              21              17 
+##     Miss Prism. 
+##              41</code></pre>
+<p><code>Jack and Algernon [Speaking together.]</code>这个问题需要解决。</p>
+<p><input type="checkbox" id="checkbox1" class="styled">这个的处理不够strong，我需要知道每一步发生的逻辑，这样之后才能精进</p>
+<div id="ignore-case" class="section level2">
+<h2><span class="header-section-number">5.1</span> ignore case</h2>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb150-2" title="2">catcidents &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&#39;../data/catcidents.rds&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1"><span class="co">## catcidents has been pre-defined</span></a>
+<a class="sourceLine" id="cb151-2" title="2"><span class="kw">head</span>(catcidents)</a></code></pre></div>
+<pre><code>## [1] &quot;79yOf Fractured fingeR tRiPPED ovER cAT ANd fell to FlOOr lAst nIGHT AT HOME*&quot;                                                               
+## [2] &quot;21 YOF REPORTS SUS LACERATION OF HER LEFT HAND WHEN SHE WAS OPENING A CAN OF CAT FOOD JUST PTA. DX HAND LACERATION%&quot;                         
+## [3] &quot;87YOF TRIPPED OVER CAT, HIT LEG ON STEP. DX LOWER LEG CONTUSION &quot;                                                                            
+## [4] &quot;bLUNT CHest trAUma, R/o RIb fX, R/O CartiLAgE InJ To RIB cAge; 32YOM walKiNG DOG, dog took OfF aFtER cAt,FelL,stRucK CHest oN STepS,hiT rIbS&quot;
+## [5] &quot;42YOF TO ER FOR BACK PAIN AFTER PUTTING DOWN SOME CAT LITTER DX: BACK PAIN, SCIATICA&quot;                                                        
+## [6] &quot;4YOf DOg jUst hAd PUpPieS, Cat TRIED 2 get PuPpIes, pT THru CaT dwn stA Irs, LoST foOTING &amp; FELl down ~12 stePS; MInor hEaD iNJuRY&quot;</code></pre>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="co">## Construct pattern of DOG in boundaries</span></a>
+<a class="sourceLine" id="cb153-2" title="2">whole_dog_pattern &lt;-<span class="st"> </span><span class="kw">whole_word</span>(<span class="st">&quot;DOG&quot;</span>)</a>
+<a class="sourceLine" id="cb153-3" title="3"></a>
+<a class="sourceLine" id="cb153-4" title="4"><span class="co">## See matches to word DOG</span></a>
+<a class="sourceLine" id="cb153-5" title="5"><span class="kw">str_view</span>(catcidents,whole_dog_pattern,<span class="dt">match=</span>T)</a></code></pre></div>
+<div id="htmlwidget-8eee90cdfc5dd86c76be" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8eee90cdfc5dd86c76be">{"x":{"html":"<ul>\n  <li>bLUNT CHest trAUma, R/o RIb fX, R/O CartiLAgE InJ To RIB cAge; 32YOM walKiNG <span class='match'>DOG<\/span>, dog took OfF aFtER cAt,FelL,stRucK CHest oN STepS,hiT rIbS<\/li>\n  <li>67 YO F WENT TO WALK <span class='match'>DOG<\/span>, IT STARTED TO CHASE CAT JERKED LEASH PULLED H ER OFF PATIO, FELL HURT ANKLES. DX BILATERAL ANKLE FRACTURES<\/li>\n  <li>PUSHING HER UTD WITH SHOTS <span class='match'>DOG<\/span> AWAY FROM THE CAT'S BOWL&BITTEN TO FINGE R>>PW/DOG BITE<\/li>\n  <li>DX R SH PN: 27YOF W/ R SH PN X 5D. STATES WAS YANK' BY HER <span class='match'>DOG<\/span> ON LEASH W DOG RAN AFTER CAT; WORSE' PN SINCE. FULL ROM BUT VERY PAINFUL TO MOVE<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Cat&quot;</span>, <span class="st">&quot;CAT&quot;</span>, <span class="st">&quot;cAt&quot;</span>) </a>
+<a class="sourceLine" id="cb154-2" title="2"><span class="kw">str_subset</span>(x, <span class="st">&quot;cat&quot;</span>)</a></code></pre></div>
+<pre><code>## character(0)</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="kw">str_subset</span>(x, stringr<span class="op">::</span><span class="kw">regex</span>(<span class="st">&quot;cat&quot;</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<pre><code>## [1] &quot;Cat&quot; &quot;CAT&quot; &quot;cAt&quot;</code></pre>
+</div>
+<div id="stri_trans_totitle" class="section level2">
+<h2><span class="header-section-number">5.2</span> stri_trans_totitle()</h2>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1"><span class="kw">library</span>(stringi)</a>
+<a class="sourceLine" id="cb158-2" title="2"></a>
+<a class="sourceLine" id="cb158-3" title="3"><span class="co">## Get first five catcidents</span></a>
+<a class="sourceLine" id="cb158-4" title="4">cat5 &lt;-<span class="st"> </span>catcidents[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb158-5" title="5"></a>
+<a class="sourceLine" id="cb158-6" title="6"><span class="co">## Take a look at original</span></a>
+<a class="sourceLine" id="cb158-7" title="7"><span class="kw">writeLines</span>(cat5)</a></code></pre></div>
+<pre><code>## 79yOf Fractured fingeR tRiPPED ovER cAT ANd fell to FlOOr lAst nIGHT AT HOME*
+## 21 YOF REPORTS SUS LACERATION OF HER LEFT HAND WHEN SHE WAS OPENING A CAN OF CAT FOOD JUST PTA. DX HAND LACERATION%
+## 87YOF TRIPPED OVER CAT, HIT LEG ON STEP. DX LOWER LEG CONTUSION 
+## bLUNT CHest trAUma, R/o RIb fX, R/O CartiLAgE InJ To RIB cAge; 32YOM walKiNG DOG, dog took OfF aFtER cAt,FelL,stRucK CHest oN STepS,hiT rIbS
+## 42YOF TO ER FOR BACK PAIN AFTER PUTTING DOWN SOME CAT LITTER DX: BACK PAIN, SCIATICA</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1"><span class="co">## Transform to title case</span></a>
+<a class="sourceLine" id="cb160-2" title="2"><span class="kw">str_to_title</span>(cat5)</a></code></pre></div>
+<pre><code>## [1] &quot;79yof Fractured Finger Tripped Over Cat And Fell To Floor Last Night At Home*&quot;                                                               
+## [2] &quot;21 Yof Reports Sus Laceration Of Her Left Hand When She Was Opening A Can Of Cat Food Just Pta. Dx Hand Laceration%&quot;                         
+## [3] &quot;87yof Tripped Over Cat, Hit Leg On Step. Dx Lower Leg Contusion &quot;                                                                            
+## [4] &quot;Blunt Chest Trauma, R/O Rib Fx, R/O Cartilage Inj To Rib Cage; 32yom Walking Dog, Dog Took Off After Cat,Fell,Struck Chest On Steps,Hit Ribs&quot;
+## [5] &quot;42yof To Er For Back Pain After Putting Down Some Cat Litter Dx: Back Pain, Sciatica&quot;</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1"><span class="co">## Transform to title case with stringi</span></a>
+<a class="sourceLine" id="cb162-2" title="2"><span class="kw">stri_trans_totitle</span>(cat5)</a></code></pre></div>
+<pre><code>## [1] &quot;79yof Fractured Finger Tripped Over Cat And Fell To Floor Last Night At Home*&quot;                                                               
+## [2] &quot;21 Yof Reports Sus Laceration Of Her Left Hand When She Was Opening A Can Of Cat Food Just Pta. Dx Hand Laceration%&quot;                         
+## [3] &quot;87yof Tripped Over Cat, Hit Leg On Step. Dx Lower Leg Contusion &quot;                                                                            
+## [4] &quot;Blunt Chest Trauma, R/O Rib Fx, R/O Cartilage Inj To Rib Cage; 32yom Walking Dog, Dog Took Off After Cat,Fell,Struck Chest On Steps,Hit Ribs&quot;
+## [5] &quot;42yof To Er For Back Pain After Putting Down Some Cat Litter Dx: Back Pain, Sciatica&quot;</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1"><span class="co">## Transform to sentence case with stringi</span></a>
+<a class="sourceLine" id="cb164-2" title="2"><span class="kw">stri_trans_totitle</span>(cat5,<span class="dt">type =</span> <span class="st">&#39;sentence&#39;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;79yof fractured finger tripped over cat and fell to floor last night at home*&quot;                                                               
+## [2] &quot;21 yof reports sus laceration of her left hand when she was opening a can of cat food just pta. Dx hand laceration%&quot;                         
+## [3] &quot;87yof tripped over cat, hit leg on step. Dx lower leg contusion &quot;                                                                            
+## [4] &quot;Blunt chest trauma, r/o rib fx, r/o cartilage inj to rib cage; 32yom walking dog, dog took off after cat,fell,struck chest on steps,hit ribs&quot;
+## [5] &quot;42yof to er for back pain after putting down some cat litter dx: back pain, sciatica&quot;</code></pre>
+<p><input type="checkbox" id="checkbox1" class="styled">整理下笔记，真的非常有用的学习</p>
+<p><input type="checkbox" id="checkbox1" class="styled">ppt 上面推荐的书，可以看一下</p>
+</div>
+<div id="完成证书" class="section level2">
+<h2><span class="header-section-number">5.3</span> 完成证书</h2>
+<p>参考 <a href="https://www.datacamp.com/statement-of-accomplishment/course/c1fa2350565dc69c5e05822e053bd98e097674cf">DataCamp</a></p>
+<iframe name="Jiaxiang Li" src="refs/certificate.pdf" style="height: 100%; width: 100%;" frameborder="0" scrolling="yes" id="iframe">
+…
+</iframe>
+</div>
+</div>
+<div id="附录-1" class="section level1 unnumbered">
+<h1>附录</h1>
+</div>
+<div id="参考文献" class="section level1 unnumbered">
+<h1>参考文献</h1>
+<div id="refs" class="references">
+<div id="ref-Charlotte_Wickham2019">
+<p>Wickham, Charlotte. 2019. “String Manipulation in R with Stringr.” DataCamp. 2019. <a href="https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr">https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr</a>.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

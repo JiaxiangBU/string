@@ -16,7 +16,7 @@ source(here::here("code/load.R"))
 library(stringi)
 suppressMessages(library(tidyverse))
 library(rebus)
-earnest_file <- 'data/importance-of-being-earnest.txt'
+earnest_file <- '../data/importance-of-being-earnest.txt'
 ```
 
 <input type="checkbox" id="checkbox1" class="styled">这个老师的文本处理非常优秀，应该 follow
@@ -109,7 +109,7 @@ table(who)
 
 ```{r}
 library(readr)
-catcidents <- read_rds('data/catcidents.rds')
+catcidents <- read_rds('../data/catcidents.rds')
 ```
 
 ```{r}
