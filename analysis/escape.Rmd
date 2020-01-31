@@ -1,0 +1,65 @@
+# escape
+
+[Stringr vignette Regular expressions]: https://stringr.tidyverse.org/articles/regular-expressions.html
+
+```{r}
+library(stringr)
+```
+
+
+> regexps use the backslash, `\`, to escape special behaviour. ([Stringr vignette Regular expressions])
+
+escape 是这个意思。
+
+Linux 系统中 `grep -E`，`E`就是 escape。
+这样就不需要加 `\`。
+
+> Unfortunately this creates a problem. We use strings to represent regular expressions, and `\` is also used as an escape symbol in strings. So to create the regular expression \. we need the string `"\\."`. ([Stringr vignette Regular expressions])
+
+```{r collapse=TRUE}
+# To create the regular expression, we need \\
+dot <- "\\."
+
+# But the expression itself only contains one:
+writeLines(dot)
+#> \.
+
+# And this tells R to look for an explicit .
+str_extract(c("abc", "a.c", "bef"), "a\\.c")
+#> [1] NA    "a.c" NA
+```
+
+
+> If `\` is used as an escape character in regular expressions, how do you match a **literal `\`**? Well you need to escape it, creating the **regular expression `\\`**. To create that regular expression, you need to use a string, which also needs to escape `\`. That means to match a literal `\` you need to **write `"\\\\"`** — you need four backslashes to match one! ([Stringr vignette Regular expressions])
+
+```{r collapse=TRUE}
+x <- "a\\b"
+writeLines(x)
+#> a\b
+
+str_extract(x, "\\\\")
+#> [1] "\\"
+```
+
+> In this vignette, I use **`\`**. to denote the regular expression, and **`"\\."`** to denote the string that represents the regular expression. ([Stringr vignette Regular expressions])
+
+regular expression 和 string to represent 是不一样的。
+
+```{r echo=FALSE,fig.cap="escape 三种情况的举例"}
+DiagrammeR::grViz('digraph asde91 {ranksep=.75; size = "7.5,7.5";{
+		node [shape=plaintext, fontsize=16];
+
+		/* the time-line graph */
+		Literal -> "Regular Expression" -> "Write Representation";
+
+
+	} { rank = same;}; 
+	"." -> "\\\\." -> "“\\\\\\\\.”"
+	
+	"\\\\" -> "\\\\\\\\" -> "“\\\\\\\\\\\\\\\\”"
+	
+	"a\\\\\\\\b" -> "a\\\\\\\\\\\\\\\\b" -> "“a\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\b”"
+	
+}')
+```
+

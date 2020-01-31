@@ -1,5 +1,5 @@
 ---
-title: R 函数化编程学习笔记
+title: 正则化 Cookbook
 author: 李家翔
 date: "`r Sys.Date()`"
 output: 
@@ -21,6 +21,10 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 1. 这样拼接以后的笔记方便复习。
 1. 相关问题提交到
     <a class="github-button" href="https://github.com/JiaxiangBU/tutoring2/issues" data-show-count="true" aria-label="Issue JiaxiangBU/tutoring on GitHub">Issue</a>
+
+
+```{r,child="analysis/escape.Rmd"}
+```
 
 
 # 附录 {-}
