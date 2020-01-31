@@ -1,1 +1,5 @@
 ^README\.Rmd$
+^.*\.Rproj$
+^\.Rproj\.user$
+^dev_history_r_proj\.R$
+^LICENSE\.md$
