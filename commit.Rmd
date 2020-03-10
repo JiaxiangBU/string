@@ -1,0 +1,28 @@
+```{r}
+c("_workflowr.yml") %>% file.remove()
+```
+
+```{r}
+file.edit("analysis/byte_size-python.Rmd")
+```
+
+
+```{r}
+dir_tree(regexp = "libs/", invert = TRUE)
+```
+
+```{r}
+dir_ls(regexp = "README.md", recurse = TRUE) %>% 
+    map(file_delete)
+file.remove("output/Statement of Accomplishment.pdf")
+dir_delete("docs")
+rstudioapi::viewer("refs/certificate.pdf")
+```
+
+```{r}
+git2r::status()
+git2r::add(path = ".")
+git2r::commit(message = "keep repo compact")
+git2r::push(name = 'origin', refspec = "refs/heads/master", cred = git2r::cred_token())
+```
+
