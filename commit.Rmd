@@ -1,3 +1,7 @@
+---
+output: github_document
+---
+
 ```{r}
 c("_workflowr.yml") %>% file.remove()
 ```
