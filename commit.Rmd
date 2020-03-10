@@ -30,3 +30,7 @@ git2r::commit(message = "keep repo compact")
 git2r::push(name = 'origin', refspec = "refs/heads/master", cred = git2r::cred_token())
 ```
 
+```{r}
+file.edit("../blog_181126/content/post/2018-03-05-regex.Rmd")
+```
+

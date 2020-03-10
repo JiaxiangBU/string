@@ -20,8 +20,8 @@ knitr::opts_chunk$set(
 The goal of string is to ...
 
 1. [Cookbook](cookbook.html)
-1. [RegEx正则化 学习笔记](https://jiaxiangli.netlify.com/2018/03/05/regex/)
 1. [正则化 DataCamp Notes](datacamp.html)
+1. [Python 正则化 学习笔记](python-learning_notes.html)
 
 
 `r add2pkg::add_disclaimer("Jiaxiang Li")`

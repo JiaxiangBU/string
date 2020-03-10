@@ -10,8 +10,8 @@
 The goal of string is to …
 
 1.  [Cookbook](cookbook.html)
-2.  [RegEx正则化 学习笔记](https://jiaxiangli.netlify.com/2018/03/05/regex/)
-3.  [正则化 DataCamp Notes](datacamp.html)
+2.  [正则化 DataCamp Notes](datacamp.html)
+3.  [Python 正则化 学习笔记](python-learning_notes.html)
 
 <h4 align="center">
 

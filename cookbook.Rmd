@@ -22,6 +22,153 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 1. 相关问题提交到
     <a class="github-button" href="https://github.com/JiaxiangBU/tutoring2/issues" data-show-count="true" aria-label="Issue JiaxiangBU/tutoring on GitHub">Issue</a>
 
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+```
+
+# `^`反字符
+
+`^`表达了选择的字段完全不满足条件。
+
+```{r}
+"30_CI.Rmd" %>% 
+  str_subset("[^a-z]{5,}.Rmd")
+  # 这表达了五个以上都不是[a-z]
+```
+
+# 重要的字符
+
++ `.` = 除了`\n`的任何chr
++ `\d`=`[:digit:]`=`[0-9]`
++ `\D`=`[^0-9]`
++ `\s`=`\t\n\r\f\v]`=`[:space:]`
++ `\S`=不是`\s`
++ `\w`=`[a-zA-Z0-9_]`全部字符
++ `\W`=不是`\w`
+
+中文情况下，可以用以下来代替。
+
+`'【[^【]+消费[^】]+】|【[^【]?消费[^】]?】'`
+开头结尾一定要是中文开始或者结尾，这个以排除法的思想做的，可以继续研究下。
+
+```{r}
+d1 <- 
+c("Licence:yes","Licence:no")
+d1 %>% 
+  str_subset("Licence:(yes|no)")
+d1 %>% 
+  str_subset("Licence:yes|no")
+# 其实是没有区别的
+```
+
+```{r}
+c("car","carr","cas","cars") %>% 
+  str_subset("cars?")
+```
+
++ `?`表示0,1，可以满足也可以不满足
++ `*`表示满足0或0以上次
++ `+`表示满足1或1以上次
++ `{n,m}`表示满足n到m次
+
+
+# 取用电话号码
+
+```{r}
+d2 <- 
+  c("555-555-555", "555 555 555", "555555555","555 555-555")
+d2 %>% 
+  str_subset("\\d+[-\\s]?\\d+[-\\s]?\\d+")
+```
+
+提取电话号码的一些方法
+
+注意这里和标准的正则化表达有些不一样，
+[例如`\d`要写成`\\d`](https://github.com/STAT545-UBC/Discussion/issues/226)。
+
+这里解释，
+
++ `\\d`表示任意的数字
++ `+`前面这个任意的数字可以表示满足1或1以上次
++ `[-\\s]`表示数字完后，这里可以是`-`也可以是空格`\\s`
++ `?`表示`[-\\s]`表示0,1，可以满足也可以不满足
+
+***
+
+# 精准取用一个词
+
++ `^`以什么开头
++ `$`以什么结尾
++ `\b`以一个word为边界
++ `\D`不以一个word为边界
+
+```{r}
+c(" hello"," hello ","ahellob","ahello","hellob") %>% 
+  str_subset("\\bhello\\b")
+```
+
+`"\\bhello\\b"`比`"hello"`好，因为它不会匹配其他的。
+但是我还是不太懂。
+
+> @Lopez2014 [pp.23] work with isolated
+words and we don't want to create character sets with every single character that
+may divide our words (spaces, commas, colons, hyphens, and so on)
+
+# 中文查询
+
++ [`\p{Han}`](https://stackoverflow.com/questions/9576384/use-regular-expression-to-match-any-chinese-character-in-utf-8-encoding)
+就是汉语。
++ `\p{Lo}`但是不是完全是中文。
+
+> Letters that do not distinguish case. Includes Chinese,
+Japanese, Korean ideographs. (@Heninger)
+
+```{r}
+c("我","Li","我的") %>% 
+  str_subset("\\p{Lo}{2,}")
+c("我","Li","我的") %>% 
+  str_subset("\\p{Han}{2,}")
+```
+
+# `(x|y)`的学习
+
+这里有提到使用方法[@Wickham2017R 14.4.4 Grouped matches]。
+
+# 看书的总结
+
+@Goyvaerts2012 这本书虽然介绍了很多平台通用的代码，但是我感觉不实用，没有  @Lopez2014 那么简单粗暴，100多页讲清楚基本的东西，而且是基于Python的，所以R也可以借鉴。
+@fitzgerald2012 这本也是不错的，可以借鉴。
+但是基本上已经到了一个段落了，正则化Kill！！！
+
+# 偏业务逻辑
+
++ `a?`, 0或者1
++ `a*`, 0或者更多
++ `a+`, 1或者更多
+
++ 只是数字: `^[0-9]*$`
+    + 腾讯QQ号：`[1-9][0-9]{4,}`
+        + 腾讯QQ号从10000开始
++ 非零开头的最多带两位小数的数字: `^([1-9][0-9]*)+(.[0-9]{1,2})?$`
+    + `[0-9]*`可以没有，但是首位一定是`[1-9]`
++ 带 1-2 位小数的正数或负数：`^(-)?d+(.d{1,2})?$`
++ 汉字: `^[一 - 龥]{0,}$`，不适用，使用`^\\p{Han}+$`或者`^[\u4e00-\u9fa5]{0,}$`
+
+参考: [最全的常用正则表达式大全——包括校验数字、字符、一些特殊的需求等等 - zxin - 博客园](http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html)
+
+
+# not contain by `str_subset` [@stringrstrsubset]
+
+
+```{r}
+x <- c("hi", "bye", "hip")
+x %>% 
+    str_subset("^(?!.*hip|bye)") 
+x %>% 
+    {.[!str_detect(., "hip|bye")]}  
+```
+
+# escape
 
 ```{r,child="analysis/escape.Rmd"}
 ```
